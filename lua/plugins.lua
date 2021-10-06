@@ -93,15 +93,12 @@ require("packer").startup({
     use({
       "L3MON4D3/LuaSnip",
       wants = "friendly-snippets",
-      -- event = "InsertCharPre",
     })
     use({
       "saadparwaiz1/cmp_luasnip",
-      -- after = "nvim_cmp"
     })
     use({
       "rafamadriz/friendly-snippets",
-      -- event = "InsertCharPre"
     })
 
     use({
@@ -144,7 +141,7 @@ require("packer").startup({
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
         require("nvim-tree").setup({})
-      end
+      end,
     })
 
     use({
@@ -168,15 +165,11 @@ require("packer").startup({
       end,
     })
 
-    -- Snippets
-    -- use "honza/vim-snippets"
-
     -- Syntax & languages
-    -- Do I still need ALE?
     use({
       "dense-analysis/ale",
       ft = { "typescript", "rust", "ruby", "lua" },
-      cmd = "ALEEnable",
+      cmd = { "ALEEnable", "ALEFix" },
       config = "vim.cmd[[ALEEnable]]",
     })
     use({
@@ -188,13 +181,6 @@ require("packer").startup({
     })
     use({ "jmcantrell/vim-virtualenv", ft = "python" })
     use({ "slashmili/alchemist.vim", ft = "elixir" })
-
-    -- use { "neoclide/coc.nvim",  branch = "release"  }
-    -- use {
-    --   "neoclide/coc-solargraph",
-    --   run = "yarn install --frozen-lockfile",
-    --   cond = function() return vim.call("executable", "solargraph") == 1 end
-    -- }
 
     -- EditorConfig
     use("editorconfig/editorconfig-vim")
@@ -224,7 +210,6 @@ require("packer").startup({
       },
     })
     use("airblade/vim-gitgutter")
-    use("vim-scripts/YankRing.vim")
 
     -- Test runner
     use({
