@@ -45,7 +45,7 @@ vim.opt.wildignore = { "*.o", "*~", "*.pyc" }
 vim.opt.wrap = false
 
 -- Set British English as the priority
-vim.opt.spelllang = "en_gb,en-rare,en"
+vim.opt.spelllang = "en_gb,en"
 
 -- Strip trailing whitespace in Python and Ruby files
 vim.cmd("autocmd BufWritePre *.py,*.rb :lua stripWhitespace()")
