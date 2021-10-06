@@ -209,7 +209,15 @@ require("packer").startup({
         { "kana/vim-textobj-user" },
       },
     })
-    use("airblade/vim-gitgutter")
+    use({
+      "lewis6991/gitsigns.nvim",
+      requires = {
+        "nvim-lua/plenary.nvim",
+      },
+      config = function()
+        require("gitsigns").setup()
+      end,
+    })
 
     -- Test runner
     use({
