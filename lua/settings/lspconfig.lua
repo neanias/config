@@ -1,5 +1,4 @@
 local nvim_lsp = require("lspconfig")
-local wk = require("which-key")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -11,14 +10,17 @@ local on_attach = function(client, bufnr)
   --Enable completion triggered by <c-x><c-o>
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  -- Mappings.
-  local opts = { noremap = true, silent = true }
+  -- Mappings
+  local wk = require("which-key")
 
   wk.register({
     K = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Displays hover information about the symbol under the cursor" },
     ["[d"] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
     ["]d"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-  }, opts)
+  }, {
+    noremap = true,
+    silent = true,
+  })
 
   wk.register({
     -- See `:help vim.lsp.*` for documentation on any of the below functions
