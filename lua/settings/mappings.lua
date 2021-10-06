@@ -31,6 +31,13 @@ wk.register({
     silent = true,
     noremap = true,
   },
+
+  ["<leader>w"] = {
+    "<Cmd>lua stripWhitespace()<CR>",
+    "Strips trailling whitespace from the buffer",
+    silent = true,
+    noremap = true,
+  },
 })
 
 -- Surround mappings
