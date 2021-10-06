@@ -1,8 +1,8 @@
 -- need a map method to handle the different kinds of key maps
 function map(mode, combo, mapping, opts)
-  local options = {noremap = true}
+  local options = { noremap = true }
   if opts then
-    options = vim.tbl_extend('force', options, opts)
+    options = vim.tbl_extend("force", options, opts)
   end
   vim.api.nvim_set_keymap(mode, combo, mapping, options)
 end
@@ -27,7 +27,7 @@ function stripWhitespace()
 
   vim.fn.setpos("']", last_changed)
   vim.fn.setpos("'[", first_changed)
-  vim.fn.setpos('.', original_cursor)
+  vim.fn.setpos(".", original_cursor)
 end
 
 function closeWindowOrKillBuffer()

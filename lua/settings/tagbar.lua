@@ -5,7 +5,9 @@ local wk = require("which-key")
 -- open the taglist (method browser) using ,t
 wk.register({
   T = { "<Cmd>TagbarToggle<CR>", "Toggle the Tagbar", silent = true, noremap = true },
-}, { prefix = "<leader>" })
+}, {
+  prefix = "<leader>",
+})
 
 vim.g.tagbar_type_ruby = {
   kinds = {
@@ -14,13 +16,13 @@ vim.g.tagbar_type_ruby = {
     "d:describes",
     "C:contexts",
     "f:methods",
-    "F:singleton methods"
-  }
+    "F:singleton methods",
+  },
 }
 
 vim.g.tagbar_type_snippets = {
   ctagstype = "snippets",
   kinds = {
     "s:snippets",
-  }
+  },
 }
