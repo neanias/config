@@ -42,7 +42,7 @@ wk.register({
       "Search through the clipboard to reassign the current paste",
     },
     s = { "<cmd>Telescope search_history<cr>", "Lists recent search history" },
-    t = { "<cmd>Telescope treesitter(<cr>", "Search through treesitter tags" },
+    t = { "<cmd>Telescope treesitter<cr>", "Search through treesitter tags" },
   },
 }, {
   prefix = "<leader>",
