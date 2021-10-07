@@ -35,6 +35,8 @@ local function reverse_tab_mapping(fallback)
   end
 end
 
+vim.o.completeopt = { "menuone", "noselect" }
+
 cmp.setup({
   sources = {
     { name = "nvim_lsp" },
@@ -57,11 +59,6 @@ cmp.setup({
     ["<Tab>"] = cmp.mapping(tab_mapping, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(reverse_tab_mapping, { "i", "s" }),
   },
-})
-
--- Setup lspconfig.
-require("lspconfig")["solargraph"].setup({
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
 })
 
 -- you need setup cmp first put this after cmp.setup()
