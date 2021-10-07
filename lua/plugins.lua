@@ -240,17 +240,6 @@ require("packer").startup({
         require("hop").setup({})
       end,
     })
-
-    -- FZF
-    use({
-      "junegunn/fzf.vim",
-      requires = {
-        "junegunn/fzf",
-        run = function()
-          vim.fn["fzf#install()"](0)
-        end,
-      },
-    })
   end,
   config = {
     display = {
