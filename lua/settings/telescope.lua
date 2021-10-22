@@ -27,6 +27,8 @@ telescope.setup({
   },
 })
 
+telescope.load_extension("fzf")
+
 local wk = require("which-key")
 
 wk.register({
