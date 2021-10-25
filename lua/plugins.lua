@@ -196,7 +196,6 @@ require("packer").startup({
     -- Other stuff
     use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
     use({ "AndrewRadev/splitjoin.vim", branch = "main" })
-    use("AndrewRadev/switch.vim")
     use({ "ck3g/vim-change-hash-syntax", ft = { "ruby", "eruby" } })
     use({
       "nathanaelkane/vim-indent-guides",
