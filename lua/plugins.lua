@@ -212,6 +212,8 @@ require("packer").startup({
         { "kana/vim-textobj-user" },
       },
     })
+
+    -- Git times
     use({
       "lewis6991/gitsigns.nvim",
       requires = {
@@ -221,6 +223,13 @@ require("packer").startup({
         require("gitsigns").setup()
       end,
     })
+    use { 
+      "TimUntersberger/neogit", 
+      requires = { 
+        "nvim-lua/plenary.nvim",
+        "sindrets/diffview.nvim" ,
+      }
+    }
 
     -- Test runner
     use({

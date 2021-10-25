@@ -3,6 +3,7 @@ require("settings/colourscheme")
 
 pcall(require, "settings/ale")
 pcall(require, "settings/completion")
+pcall(require, "settings/git")
 pcall(require, "settings/lspconfig")
 pcall(require, "settings/mappings")
 pcall(require, "settings/movements")
