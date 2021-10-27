@@ -1,4 +1,5 @@
 local wk = require("which-key")
+require("plenary") -- Needed to stop neogit crash
 local neogit = require("neogit")
 
 neogit.setup({
