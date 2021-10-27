@@ -33,7 +33,7 @@ local wk = require("which-key")
 
 wk.register({
   f = {
-    name = "+file",
+    name = "+Telescope",
     b = { "<cmd>Telescope buffers<cr>", "Find recent buffers" },
     f = { "<cmd>Telescope find_files<cr>", "Find files" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep through the project dir" },

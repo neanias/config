@@ -49,7 +49,6 @@ local on_attach = function(client, bufnr)
       "Opens a floating window with the diagnostics for current line",
     },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Sets the location list" },
-    f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Formats the current buffer" },
   }, {
     noremap = true,
     silent = true,
