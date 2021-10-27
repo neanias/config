@@ -15,6 +15,8 @@ require("packer").startup({
   function(use)
     -- Let packer manage itself
     use("wbthomason/packer.nvim")
+    -- Cache all the things
+    use("lewis6991/impatient.nvim")
 
     use({
       "windwp/nvim-autopairs",
@@ -223,13 +225,13 @@ require("packer").startup({
         require("gitsigns").setup()
       end,
     })
-    use { 
-      "TimUntersberger/neogit", 
-      requires = { 
+    use({
+      "TimUntersberger/neogit",
+      requires = {
         "nvim-lua/plenary.nvim",
-        "sindrets/diffview.nvim" ,
-      }
-    }
+        "sindrets/diffview.nvim",
+      },
+    })
 
     -- Test runner
     use({
