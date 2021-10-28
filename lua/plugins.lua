@@ -21,7 +21,6 @@ require("packer").startup({
     use({
       "windwp/nvim-autopairs",
       config = function()
-        local remap = vim.api.nvim_set_keymap
         local npairs = require("nvim-autopairs")
 
         npairs.setup({
