@@ -36,16 +36,12 @@ require("packer").startup({
     -- Treesitter
     use({
       "nvim-treesitter/nvim-treesitter",
-      branch = "0.5-compat",
       run = ":TSUpdate", -- We recommend updating the parsers on update
     })
-    use("nvim-treesitter/nvim-treesitter-refactor")
     use({
       "romgrk/nvim-treesitter-context",
-    })
-    use({
+      "nvim-treesitter/nvim-treesitter-refactor",
       "nvim-treesitter/nvim-treesitter-textobjects",
-      branch = "0.5-compat",
     })
 
     -- To keep track of bindings
