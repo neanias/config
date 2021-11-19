@@ -23,7 +23,7 @@ function stripWhitespace()
   local first_changed = vim.fn.getpos("'[")
   local last_changed = vim.fn.getpos("']")
 
-  vim.cmd("silent exe 's/\\v\\s+$//e'")
+  vim.cmd("silent exe '%s/\\v\\s+$//e'")
 
   vim.fn.setpos("']", last_changed)
   vim.fn.setpos("'[", first_changed)
