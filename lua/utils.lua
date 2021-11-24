@@ -24,6 +24,7 @@ function stripWhitespace()
   local last_changed = vim.fn.getpos("']")
 
   vim.cmd("silent exe '%s/\\v\\s+$//e'")
+	vim.cmd("silent nohlsearch")
 
   vim.fn.setpos("']", last_changed)
   vim.fn.setpos("'[", first_changed)
