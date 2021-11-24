@@ -14,10 +14,10 @@ ts_config.setup({
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
+      init_selection = "<CR>",
+      scope_incremental = "<CR>",
+      node_incremental = "<Tab>",
+      node_decremental = "<S-Tab>",
     },
   },
   refactor = {
