@@ -84,6 +84,10 @@ require("packer").startup({
     use({
       "neovim/nvim-lspconfig",
     })
+    use({
+      "jose-elias-alvarez/null-ls.nvim",
+      requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    })
 
     use({
       "hrsh7th/nvim-cmp",
@@ -163,15 +167,6 @@ require("packer").startup({
       ft = { "typescript", "rust", "ruby", "lua" },
       cmd = { "ALEEnable", "ALEFix" },
       config = "vim.cmd[[ALEEnable]]",
-    })
-
-    use({
-      "jose-elias-alvarez/null-ls.nvim",
-      config = function()
-        require("null-ls").config({})
-        require("lspconfig")["null-ls"].setup({})
-      end,
-      requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     })
 
     use({ "jmcantrell/vim-virtualenv", ft = "python" })
