@@ -164,6 +164,16 @@ require("packer").startup({
       cmd = { "ALEEnable", "ALEFix" },
       config = "vim.cmd[[ALEEnable]]",
     })
+
+    use({
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require("null-ls").config({})
+        require("lspconfig")["null-ls"].setup({})
+      end,
+      requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    })
+
     use({ "jmcantrell/vim-virtualenv", ft = "python" })
     use({ "slashmili/alchemist.vim", ft = "elixir" })
 
