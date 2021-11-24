@@ -162,13 +162,6 @@ require("packer").startup({
     })
 
     -- Syntax & languages
-    use({
-      "dense-analysis/ale",
-      ft = { "typescript", "rust", "ruby", "lua" },
-      cmd = { "ALEEnable", "ALEFix" },
-      config = "vim.cmd[[ALEEnable]]",
-    })
-
     use({ "jmcantrell/vim-virtualenv", ft = "python" })
     use({ "slashmili/alchemist.vim", ft = "elixir" })
 
