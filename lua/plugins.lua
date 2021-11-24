@@ -173,13 +173,6 @@ require("packer").startup({
       cmd = { "ALEEnable", "ALEFix" },
       config = "vim.cmd[[ALEEnable]]",
     })
-    use({
-      "sheerun/vim-polyglot",
-      config = function()
-        vim.g.vim_markdown_folding_disabled = true
-        vim.g.vim_markdown_frontmatter = true
-      end,
-    })
     use({ "jmcantrell/vim-virtualenv", ft = "python" })
     use({ "slashmili/alchemist.vim", ft = "elixir" })
 
@@ -201,13 +194,6 @@ require("packer").startup({
         vim.g.indent_guides_start_level = 2
         vim.g.indent_guides_guide_size = 1
       end,
-    })
-    use({
-      "nelstrom/vim-textobj-rubyblock",
-      requires = {
-        { "lucapette/vim-textobj-underscore" },
-        { "kana/vim-textobj-user" },
-      },
     })
 
     -- Git times
