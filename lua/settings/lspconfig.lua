@@ -49,6 +49,8 @@ local on_attach = function(client, bufnr)
   })
 
   wk.register({
+    name = "+LSP",
+    f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format the current buffer" },
     wa = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add the folder at path to the workspace folders." },
     wr = {
       "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
@@ -64,7 +66,20 @@ local on_attach = function(client, bufnr)
     },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Sets the location list" },
   }, {
-		name = "LSP",
+    noremap = true,
+    silent = true,
+    prefix = "<leader>l",
+  })
+
+  wk.register({
+    name = "+LSP",
+    f = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Format the selected range" },
+    ca = {
+      "<cmd>lua vim.lsp.buf.range_code_action()<CR>",
+      "Selects a code action from the input list that is available",
+    },
+  }, {
+    mode = "v",
     noremap = true,
     silent = true,
     prefix = "<leader>l",
