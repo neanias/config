@@ -150,15 +150,6 @@ require("packer").startup({
       cmd = "UndotreeToggle",
     })
 
-    -- Check that it actually has ctags before kick-off
-    use({
-      "preservim/tagbar",
-      cond = function()
-        return vim.call("executable", "ctags") == 1
-      end,
-      cmd = "TagbarToggle",
-    })
-
     use({
       "AckslD/nvim-neoclip.lua",
       config = function()
