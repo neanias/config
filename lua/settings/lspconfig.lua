@@ -50,9 +50,10 @@ local on_attach = function(client, bufnr)
     },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Sets the location list" },
   }, {
+		name = "LSP",
     noremap = true,
     silent = true,
-    prefix = "<leader>",
+    prefix = "<leader>l",
   })
 end
 
