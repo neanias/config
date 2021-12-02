@@ -1,4 +1,3 @@
-local trouble = require("trouble.providers.telescope")
 local telescope = require("telescope")
 local actions = require("telescope.actions")
 
@@ -6,10 +5,8 @@ telescope.setup({
   defaults = {
     mappings = {
       i = {
-        ["<C-t>"] = trouble.open_with_trouble,
         ["<ESC>"] = actions.close,
       },
-      n = { ["<C-t>"] = trouble.open_with_trouble },
     },
   },
   pickers = {

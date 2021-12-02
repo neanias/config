@@ -60,17 +60,6 @@ require("packer").startup({
       end,
     })
 
-    use({
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup({
-          auto_preview = false,
-          auto_fold = true,
-        })
-      end,
-    })
-
     -- Finders
     use({
       "nvim-telescope/telescope.nvim",
