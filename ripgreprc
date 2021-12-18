@@ -1,0 +1,15 @@
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=150
+--max-columns-preview
+
+# Add Rails type for searching just Rails files
+--type-add
+rails:*.{gemspec,rb,erb,rbapi}
+--type-add
+rails:.irbrc
+--type-add
+rails:Gemfile
+--type-add
+rails:Rakefile
+
+--smart-case

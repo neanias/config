@@ -1,0 +1,33 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$package\
+$deno\
+$elixir\
+$erlang\
+$lua\
+$nodejs\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$memory_usage\
+$aws\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+[directory]
+repo_root_style = "green bold"
