@@ -1,17 +1,3 @@
-local null_ls = require("null-ls")
-
-local sources = {
-  null_ls.builtins.formatting.stylua,
-  null_ls.builtins.formatting.rubocop.with({
-    command = "bin/rubocop",
-  }),
-  null_ls.builtins.code_actions.gitsigns,
-}
-
-null_ls.config({
-  sources = sources,
-})
-
 local nvim_lsp = require("lspconfig")
 
 -- Use an on_attach function to only map the following keys
@@ -88,7 +74,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "null-ls", "solargraph" }
+local servers = { "solargraph" }
 for _, lsp in ipairs(servers) do
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
@@ -101,3 +87,18 @@ for _, lsp in ipairs(servers) do
     },
   })
 end
+
+local null_ls = require("null-ls")
+
+local sources = {
+  null_ls.builtins.formatting.stylua,
+  null_ls.builtins.formatting.rubocop.with({
+    command = "bin/rubocop",
+  }),
+  null_ls.builtins.code_actions.gitsigns,
+}
+
+null_ls.setup({
+  sources = sources,
+  on_attach = on_attach,
+})
