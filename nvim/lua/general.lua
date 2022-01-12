@@ -7,6 +7,8 @@ vim.opt.smartindent = true
 -- Needed for better colour support
 vim.opt.termguicolors = true
 
+-- Use spaces
+vim.opt.expandtab = true
 local indent = 2
 vim.opt.tabstop = indent
 vim.opt.shiftwidth = indent
