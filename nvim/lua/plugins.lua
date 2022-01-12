@@ -44,6 +44,12 @@ require("packer").startup({
       "nvim-treesitter/nvim-treesitter-textobjects",
     })
 
+    -- Allows for motions within/around underscores. e.g. `i_` or `a_`
+    use({
+      "lucapette/vim-textobj-underscore",
+      requires = "kana/vim-textobj-user",
+    })
+
     -- To keep track of bindings
     use({
       "folke/which-key.nvim",
@@ -75,7 +81,7 @@ require("packer").startup({
     })
     use({
       "jose-elias-alvarez/null-ls.nvim",
-      requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+      requires = { "nvim-lua/plenary.nvim" },
     })
 
     use({
