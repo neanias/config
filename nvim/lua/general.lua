@@ -24,6 +24,10 @@ vim.opt.smartcase = true
 vim.opt.lazyredraw = true
 vim.opt.hidden = true
 
+-- Split to the right and below
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- Shows matching bracket when inserting one
 vim.opt.showmatch = true
 -- For 2 for tenths of a second
