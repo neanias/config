@@ -190,13 +190,6 @@ require("packer").startup({
         require("gitsigns").setup()
       end,
     })
-    use({
-      "TimUntersberger/neogit",
-      requires = {
-        "nvim-lua/plenary.nvim",
-        "sindrets/diffview.nvim",
-      },
-    })
 
     -- Test runner
     use({
