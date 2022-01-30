@@ -83,6 +83,12 @@ require("packer").startup({
       "jose-elias-alvarez/null-ls.nvim",
       requires = { "nvim-lua/plenary.nvim" },
     })
+    use({
+      "j-hui/fidget.nvim",
+      config = function()
+        require("fidget").setup({})
+      end
+    })
 
     use({
       "hrsh7th/nvim-cmp",
