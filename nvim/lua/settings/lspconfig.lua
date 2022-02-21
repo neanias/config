@@ -15,8 +15,8 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     K = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Displays hover information about the symbol under the cursor" },
-    ["[d"] = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-    ["]d"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+    ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+    ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
   }, {
     noremap = true,
     silent = true,
@@ -47,10 +47,10 @@ local on_attach = function(client, bufnr)
     rn = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Renames all references to the symbol under the cursor" },
     ca = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Selects a code action from the input list that is available" },
     e = {
-      "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>",
+      "<cmd>lua vim.diagnostic.open_float()<CR>",
       "Opens a floating window with the diagnostics for current line",
     },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Sets the location list" },
+    q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Sets the location list" },
   }, {
     noremap = true,
     silent = true,
