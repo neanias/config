@@ -2,7 +2,29 @@ local ts_config = require("nvim-treesitter.configs")
 local ts_context_config = require("treesitter-context.config")
 
 ts_config.setup({
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+    "c",
+    "cpp",
+    "css",
+    "eex",
+    "elixir",
+    "heex",
+    "html",
+    "javascript",
+    "json",
+    "json5",
+    "lua",
+    "python",
+    "query",
+    "ruby",
+    "rust",
+    "scss",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+  },
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
     enable = true, -- false will disable the whole extension
