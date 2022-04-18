@@ -56,14 +56,14 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.close(),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(tab_mapping, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(reverse_tab_mapping, { "i", "s" }),
-  },
+  }),
 })
 
 -- you need setup cmp first put this after cmp.setup()
