@@ -53,11 +53,13 @@ vim.opt.wrap = false
 -- Set British English as the priority
 vim.opt.spelllang = "en_gb,en"
 
--- Strip trailing whitespace in Python and Ruby files
-vim.cmd("autocmd BufWritePre *.py,*.rb :lua stripWhitespace()")
-
 -- Highlight yanked text after yanking
-vim.cmd([[autocmd TextYankPost * silent! lua vim.highlight.on_yank {on_visual=false, timeout=300}]])
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({ on_visual = false, timeout = 300 })
+  end,
+})
 
 local neovim3_python_path = vim.loop.os_homedir() .. "/.pyenv/versions/neovim3/bin/python"
 if vim.loop.fs_stat(neovim3_python_path) then

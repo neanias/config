@@ -49,3 +49,9 @@ function closeWindowOrKillBuffer()
     vim.cmd("bdelete")
   end
 end
+
+-- Strip trailing whitespace in Python and Ruby files
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.py", "*.rb" },
+  callback = stripWhitespace
+})
