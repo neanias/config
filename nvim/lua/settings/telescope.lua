@@ -9,6 +9,11 @@ telescope.setup({
       },
     },
   },
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown({})
+    }
+  },
   pickers = {
     buffers = {
       sort_lastused = true,
@@ -25,6 +30,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("ui-select")
 
 local wk = require("which-key")
 

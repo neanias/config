@@ -79,6 +79,8 @@ require("packer").startup({
       },
     })
 
+    use({ "nvim-telescope/telescope-ui-select.nvim" })
+
     use({
       "neovim/nvim-lspconfig",
     })
