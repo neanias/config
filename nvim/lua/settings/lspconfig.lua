@@ -14,9 +14,9 @@ local on_attach = function(client, bufnr)
   local wk = require("which-key")
 
   wk.register({
-    K = { "<Cmd>lua vim.lsp.buf.hover()<CR>", "Displays hover information about the symbol under the cursor" },
-    ["[d"] = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-    ["]d"] = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+    K = { vim.lsp.buf.hover, "Displays hover information about the symbol under the cursor" },
+    ["[d"] = { vim.diagnostic.goto_prev, "Go to previous diagnostic" },
+    ["]d"] = { vim.diagnostic.goto_next, "Go to next diagnostic" },
   }, {
     noremap = true,
     silent = true,
@@ -24,10 +24,11 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    D = { "<Cmd>lua vim.lsp.buf.declaration()<CR>", "Jump to the declaration of the symbol under the cursor" },
-    d = { "<Cmd>lua vim.lsp.buf.definition()<CR>", "Jump to the definition of the symbol under the cursor" },
-    i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Lists all the implementations for the symbol" },
-    rf = { "<cmd>lua vim.lsp.buf.references()<CR>", "Lists all references to the symbol under the cursor" },
+    name = "+LSP",
+    D = { vim.lsp.buf.declaration, "Jump to the declaration of the symbol under the cursor" },
+    d = { vim.lsp.buf.definition, "Jump to the definition of the symbol under the cursor" },
+    i = { vim.lsp.buf.implementation, "Lists all the implementations for the symbol" },
+    rf = { vim.lsp.buf.references, "Lists all references to the symbol under the cursor" },
   }, {
     noremap = true,
     silent = true,
@@ -36,21 +37,20 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     name = "+LSP",
-    f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format the current buffer" },
-    wa = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add the folder at path to the workspace folders." },
-    wr = {
-      "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-      "Remove the folder at path from the workspace folders.",
-    },
+    f = { vim.lsp.buf.formatting, "Format the current buffer" },
+    wa = { vim.lsp.buf.add_workspace_folder, "Add the folder at path to the workspace folders." },
+    wr = { vim.lsp.buf.remove_workspace_folder, "Remove the folder at path from the workspace folders." },
     wl = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List workspace folders" },
-    D = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Jumps to the definition of the type of the symbol" },
-    rn = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Renames all references to the symbol under the cursor" },
-    ca = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Selects a code action from the input list that is available" },
-    e = {
-      "<cmd>lua vim.diagnostic.open_float()<CR>",
-      "Opens a floating window with the diagnostics for current line",
+    D = { vim.lsp.buf.type_definition, "Jumps to the definition of the type of the symbol" },
+    rn = { vim.lsp.buf.rename, "Renames all references to the symbol under the cursor" },
+    ca = { vim.lsp.buf.code_action, "Selects a code action from the input list that is available" },
+    e = { vim.diagnostic.open_float, "Opens a floating window with the diagnostics for current line" },
+    q = {
+      function()
+        vim.diagnostic.setqflist({ open = false })
+      end,
+      "Puts all diagnostics in the quickfix list",
     },
-    q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Sets the location list" },
   }, {
     noremap = true,
     silent = true,
@@ -59,11 +59,8 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     name = "+LSP",
-    f = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Format the selected range" },
-    ca = {
-      "<cmd>lua vim.lsp.buf.range_code_action()<CR>",
-      "Selects a code action from the input list that is available",
-    },
+    f = { vim.lsp.buf.range_formatting, "Format the selected range" },
+    ca = { vim.lsp.buf.range_code_action, "Selects a code action from the input list that is available" },
   }, {
     mode = "v",
     noremap = true,

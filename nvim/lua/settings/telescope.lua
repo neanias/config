@@ -13,18 +13,18 @@ telescope.setup({
   },
   extensions = {
     ["ui-select"] = {
-      require("telescope.themes").get_dropdown({})
-    }
+      require("telescope.themes").get_dropdown({}),
+    },
   },
   pickers = {
     buffers = {
       sort_lastused = true,
       mappings = {
         i = {
-          ["<c-d>"] = require("telescope.actions").delete_buffer,
+          ["<c-d>"] = actions.delete_buffer,
         },
         n = {
-          ["<c-d>"] = require("telescope.actions").delete_buffer,
+          ["<c-d>"] = actions.delete_buffer,
         },
       },
     },
@@ -47,7 +47,7 @@ wk.register({
     o = { "<cmd>Telescope oldfiles<cr>", "Search through recently opened files" },
     -- This is still Lua as it might be lazily loaded
     p = {
-      "<cmd>lua require('telescope').extensions.neoclip.default()<cr>",
+      telescope.extensions.neoclip.default,
       "Search through the clipboard to reassign the current paste",
     },
     s = { "<cmd>Telescope search_history<cr>", "Lists recent search history" },
