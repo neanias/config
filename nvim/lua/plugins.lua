@@ -35,7 +35,6 @@ require("packer").startup({
       end,
     })
 
-    -- { Neovim 0.5.0 plugins
     -- Treesitter
     use({
       "nvim-treesitter/nvim-treesitter",
@@ -68,6 +67,14 @@ require("packer").startup({
       requires = "nvim-lua/plenary.nvim",
       config = function()
         require("todo-comments").setup({})
+      end,
+    })
+
+    use({
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("trouble").setup({})
       end,
     })
 
@@ -123,7 +130,6 @@ require("packer").startup({
         require("lualine").setup({ options = { theme = "solarized_" .. background } })
       end,
     })
-    -- }
 
     -- TPope time
     use({
