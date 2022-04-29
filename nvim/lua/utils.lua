@@ -50,6 +50,22 @@ function closeWindowOrKillBuffer()
   end
 end
 
+require("which-key").register({
+  ["Q"] = {
+    closeWindowOrKillBuffer,
+    "Smart close the window or close the buffer",
+    silent = true,
+    noremap = true,
+  },
+
+  ["<leader>w"] = {
+    stripWhitespace,
+    "Strips trailling whitespace from the buffer",
+    silent = true,
+    noremap = true,
+  },
+})
+
 -- Strip trailing whitespace in Python and Ruby files
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.py", "*.rb" },

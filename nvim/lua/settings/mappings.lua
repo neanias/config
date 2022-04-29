@@ -18,23 +18,9 @@ wk.register({
   ["0"] = { "^", "Move to the first instance of whitespace on this line" },
   ["^"] = { "0", "Move to the first character on this line" },
 
-  ["Q"] = {
-    "<cmd>lua closeWindowOrKillBuffer()<CR>",
-    "Smart close the window or close the buffer",
-    silent = true,
-    noremap = true,
-  },
-
   ["<C-\\>"] = {
     "<cmd>NvimTreeFindFile<CR>",
     "Open the project tree and expose current file",
-    silent = true,
-    noremap = true,
-  },
-
-  ["<leader>w"] = {
-    "<Cmd>lua stripWhitespace()<CR>",
-    "Strips trailling whitespace from the buffer",
     silent = true,
     noremap = true,
   },
