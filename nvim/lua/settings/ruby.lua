@@ -1,2 +1,5 @@
 -- Set the syntax for .rbapi files to be Ruby
-vim.cmd("au BufNewFile,BufRead,BufReadPost *.rbapi set syntax=ruby")
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufReadPost" }, {
+  pattern = "*.rbapi",
+  command = [[set syntax=ruby]],
+})

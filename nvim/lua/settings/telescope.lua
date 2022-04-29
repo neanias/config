@@ -34,6 +34,15 @@ telescope.setup({
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
 
+local telescope_augroup_id = vim.api.nvim_create_augroup("telescope", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = telescope_augroup_id,
+  pattern = "TelescopePrompt",
+  callback = function()
+    vim.keymap.set("i", "<C-R>", "<C-R>", { silent = true, buffer = true })
+  end,
+})
+
 local wk = require("which-key")
 
 wk.register({
