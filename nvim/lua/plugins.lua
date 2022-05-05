@@ -238,8 +238,7 @@ require("packer").startup({
     -- Vim motions on speed
     use({
       "phaazon/hop.nvim",
-      as = "hop",
-      cmd = { "HopWord", "HopChar1" },
+      branch = "v1",
       config = function()
         require("hop").setup({})
       end,
