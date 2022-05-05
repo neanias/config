@@ -88,7 +88,20 @@ require("packer").startup({
       },
     })
 
-    use({ "nvim-telescope/telescope-ui-select.nvim" })
+    use({
+      "stevearc/dressing.nvim",
+      config = function()
+        require("dressing").setup({
+          input = {
+            -- No transparency for input window
+            winblend = 0,
+          },
+          select = {
+            telescope = require("telescope.themes").get_dropdown({}),
+          },
+        })
+      end,
+    })
 
     use({
       "neovim/nvim-lspconfig",
