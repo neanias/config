@@ -125,16 +125,9 @@ require("packer").startup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-    })
-    use({
-      "L3MON4D3/LuaSnip",
-      wants = "friendly-snippets",
-    })
-    use({
-      "saadparwaiz1/cmp_luasnip",
-    })
-    use({
       "rafamadriz/friendly-snippets",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
     })
 
     use({
