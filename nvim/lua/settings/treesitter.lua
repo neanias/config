@@ -11,6 +11,7 @@ ts_config.setup({
     "css",
     "eex",
     "elixir",
+    "embedded_template",
     "heex",
     "html",
     "javascript",
@@ -32,6 +33,7 @@ ts_config.setup({
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = {}, -- list of language that will be disabled
+    additional_vim_regex_highlighting = false,
   },
   indent = {
     enable = true,
