@@ -145,6 +145,7 @@ require("packer").startup({
       "tpope/vim-abolish",
       "tpope/vim-eunuch",
       "tpope/vim-fugitive",
+      "tpope/vim-rhubarb",
       "tpope/vim-obsession",
       "tpope/vim-projectionist",
       "tpope/vim-repeat",
