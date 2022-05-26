@@ -1,5 +1,5 @@
 local ts_config = require("nvim-treesitter.configs")
-local ts_context_config = require("treesitter-context.config")
+local ts_context = require("treesitter-context")
 
 -- Use Treesitter for fold markers
 vim.cmd([[set foldexpr=nvim_treesitter#foldexpr()]])

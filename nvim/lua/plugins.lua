@@ -41,7 +41,7 @@ require("packer").startup({
       run = ":TSUpdate", -- We recommend updating the parsers on update
     })
     use({
-      "romgrk/nvim-treesitter-context",
+      "nvim-treesitter/nvim-treesitter-context",
       "nvim-treesitter/nvim-treesitter-refactor",
       "nvim-treesitter/nvim-treesitter-textobjects",
     })
