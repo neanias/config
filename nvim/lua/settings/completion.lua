@@ -66,13 +66,6 @@ cmp.setup({
   }),
 })
 
--- you need setup cmp first put this after cmp.setup()
+-- We need to setup cmp first hence this being after cmp.setup()
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on(
-  "confirm_done",
-  cmp_autopairs.on_confirm_done({
-    map_char = { -- modifies the function or method delimiter by filetypes
-      tex = "{",
-    },
-  })
-)
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
