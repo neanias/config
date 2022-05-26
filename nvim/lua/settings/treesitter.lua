@@ -106,6 +106,6 @@ ts_config.setup({
   },
 })
 
-ts_context_config.setup({
+ts_context.setup({
   enable = true,
 })
