@@ -57,7 +57,10 @@ require("packer").startup({
       "folke/which-key.nvim",
       config = function()
         require("which-key").setup({
-          spelling = true,
+          spelling = {
+            enabled = true,
+            suggestions = 20,
+          },
         })
       end,
     })
