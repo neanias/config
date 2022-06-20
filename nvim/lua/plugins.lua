@@ -222,10 +222,20 @@ require("packer").startup({
 
     -- Test runner
     use({
-      "rcarriga/vim-ultest",
-      requires = { "vim-test/vim-test" },
-      run = ":UpdateRemotePlugins",
-      cmd = { "Ultest", "UltestNearest" },
+      "nvim-neotest/neotest",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "antoinemadec/FixCursorHold.nvim",
+        "olimorris/neotest-rspec",
+      },
+      config = function()
+        require("neotest").setup({
+          adapters = {
+            require("neotest-rspec"),
+          },
+        })
+      end,
     })
 
     -- Better search
