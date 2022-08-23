@@ -46,6 +46,11 @@ require("packer").startup({
       "nvim-treesitter/nvim-treesitter-textobjects",
     })
 
+    use({
+      "AckslD/nvim-FeMaco.lua",
+      config = [[require("femaco").setup()]],
+    })
+
     -- Allows for motions within/around underscores. e.g. `i_` or `a_`
     use({
       "lucapette/vim-textobj-underscore",

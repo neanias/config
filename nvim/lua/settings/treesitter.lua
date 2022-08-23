@@ -18,6 +18,7 @@ ts_config.setup({
     "json",
     "json5",
     "lua",
+    "markdown",
     "python",
     "query",
     "ruby",
