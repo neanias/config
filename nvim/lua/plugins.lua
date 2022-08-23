@@ -164,9 +164,23 @@ require("packer").startup({
 
     -- Better commenting
     use({
-      "preservim/nerdcommenter",
+      "numToStr/Comment.nvim",
       config = function()
-        vim.g.NERDSpaceDelims = true
+        require("Comment").setup({
+          toggler = {
+            line = "<leader>cc",
+            block = "<leader>cb",
+          },
+          opleader = {
+            line = "<leader>cc",
+            block = "<leader>cb",
+          },
+          extra = {
+            above = "<leader>cO",
+            below = "<leader>co",
+            eol = "<leader>cA",
+          },
+        })
       end,
     })
 
