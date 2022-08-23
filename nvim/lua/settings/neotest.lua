@@ -10,16 +10,28 @@ wk.register({
     "Run the whole test file",
   },
   t = {
-    neotest.run.run,
+    function()
+      neotest.run.run()
+    end,
     "Runs the nearest test",
   },
   x = {
-    neotest.run.stop,
+    function()
+      neotest.run.stop()
+    end,
     "Stop the test",
   },
   s = {
-    neotest.summary.toggle,
+    function()
+      neotest.summary.toggle()
+    end,
     "Toggle the summary window",
+  },
+  a = {
+    function()
+      neotest.run.run(vim.fn.getcwd())
+    end,
+    "Run the full test suite, presuming that vim's directory is the same as the project root.",
   },
 }, {
   prefix = "<leader>t",

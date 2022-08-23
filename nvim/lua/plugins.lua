@@ -251,11 +251,13 @@ require("packer").startup({
         "nvim-treesitter/nvim-treesitter",
         "antoinemadec/FixCursorHold.nvim",
         "olimorris/neotest-rspec",
+        "haydenmeade/neotest-jest",
       },
       config = function()
         require("neotest").setup({
           adapters = {
             require("neotest-rspec"),
+            require("neotest-jest"),
           },
         })
       end,
