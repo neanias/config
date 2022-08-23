@@ -8,6 +8,7 @@ telescope.setup({
       i = {
         ["<ESC>"] = actions.close,
         ["<C-T>"] = trouble.open_with_trouble,
+        ["<C-U>"] = false,
       },
     },
   },
