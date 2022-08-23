@@ -143,6 +143,11 @@ require("packer").startup({
         require("lualine").setup({ options = { theme = "solarized" } })
       end,
     })
+
+    use({
+      "kylechui/nvim-surround",
+      config = function()
+        require("nvim-surround").setup()
       end,
     })
 
@@ -155,7 +160,6 @@ require("packer").startup({
       "tpope/vim-obsession",
       "tpope/vim-projectionist",
       "tpope/vim-repeat",
-      "tpope/vim-surround",
       "tpope/vim-unimpaired",
     })
 
