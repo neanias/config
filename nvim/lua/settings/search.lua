@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 vim.o.hlsearch = true
-vim.g["incsearch#auto_nohlsearch"] = 1 
+vim.g["incsearch#auto_nohlsearch"] = 1
 
 wk.register({
   ["/"] = { "<Plug>(incsearch-forward)", "Incremental searching forwards" },

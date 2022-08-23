@@ -24,7 +24,7 @@ function stripWhitespace()
   local last_changed = vim.fn.getpos("']")
 
   vim.cmd("silent exe '%s/\\v\\s+$//e'")
-	vim.cmd("silent nohlsearch")
+  vim.cmd("silent nohlsearch")
 
   vim.fn.setpos("']", last_changed)
   vim.fn.setpos("'[", first_changed)
@@ -69,5 +69,5 @@ require("which-key").register({
 -- Strip trailing whitespace in Python and Ruby files
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.py", "*.rb" },
-  callback = stripWhitespace
+  callback = stripWhitespace,
 })
