@@ -131,12 +131,18 @@ require("packer").startup({
     })
 
     use({
-      "hoob3rt/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true },
-      as = "lualine",
+      "ishan9299/nvim-solarized-lua",
       config = function()
-        local background = vim.opt.background:get()
-        require("lualine").setup({ options = { theme = "solarized_" .. background } })
+        vim.cmd("colorscheme solarized")
+      end,
+    })
+    use({
+      "nvim-lualine/lualine.nvim",
+      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      config = function()
+        require("lualine").setup({ options = { theme = "solarized" } })
+      end,
+    })
       end,
     })
 
@@ -193,7 +199,6 @@ require("packer").startup({
     use("editorconfig/editorconfig-vim")
 
     -- Pretty colours
-    use("ishan9299/nvim-solarized-lua")
     use("p00f/nvim-ts-rainbow")
 
     -- Other stuff

@@ -1,6 +1,3 @@
--- pcall(require, "settings/colorscheme")
-require("settings/colourscheme")
-
 pcall(require, "settings/completion")
 pcall(require, "settings/git")
 pcall(require, "settings/lspconfig")
