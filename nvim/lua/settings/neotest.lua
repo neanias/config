@@ -33,6 +33,18 @@ wk.register({
     end,
     "Run the full test suite, presuming that vim's directory is the same as the project root.",
   },
+  n = {
+    function()
+      neotest.jump.next()
+    end,
+    "Jump to the next test",
+  },
+  p = {
+    function()
+      neotest.jump.prev()
+    end,
+    "Jump to the previous test",
+  }
 }, {
   prefix = "<leader>t",
 })
