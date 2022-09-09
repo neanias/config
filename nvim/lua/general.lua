@@ -36,7 +36,7 @@ vim.opt.mat = indent
 -- Don't write swapfiles
 vim.opt.swapfile = false
 
-local leader = ","
+local leader = " "
 vim.g.mapleader = leader
 vim.g.maplocalleader = leader
 
