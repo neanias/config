@@ -8,6 +8,7 @@ wk.register({
       ":tab Git commit<cr>",
       "Open Fugitive commit dialog",
     },
+    w = { ":Gwrite<cr>", "Stage the current file" },
   },
 }, {
   prefix = "<leader>",
