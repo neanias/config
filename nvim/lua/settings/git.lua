@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local gs = require("gitsigns")
 
 wk.register({
   g = {
@@ -8,14 +9,19 @@ wk.register({
       ":tab Git commit<cr>",
       "Open Fugitive commit dialog",
     },
-    w = { ":Gwrite<cr>", "Stage the current file" },
+    w = {
+      gs.stage_buffer,
+      "Stage the current buffer",
+    },
+    S = {
+      gs.stage_hunk,
+      "Stage the current hunk",
+    },
   },
 }, {
   prefix = "<leader>",
   noremap = true,
 })
-
-local gs = require("gitsigns")
 
 wk.register({
   ["]c"] = {
