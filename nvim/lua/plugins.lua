@@ -59,6 +59,7 @@ require("packer").startup({
     use({
       "AckslD/nvim-FeMaco.lua",
       config = [[require("femaco").setup()]],
+      cmd = "FeMaco",
     })
 
     -- Allows for motions within/around underscores. e.g. `i_` or `a_`
