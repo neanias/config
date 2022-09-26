@@ -48,6 +48,12 @@ ts_config.setup({
       node_decremental = "<S-Tab>",
     },
   },
+  playground = {
+    enable = true,
+  },
+  query_linter = {
+    enable = true,
+  },
   refactor = {
     smart_rename = {
       enable = true,
