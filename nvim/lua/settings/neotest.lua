@@ -44,7 +44,7 @@ wk.register({
       neotest.jump.prev()
     end,
     "Jump to the previous test",
-  }
+  },
 }, {
   prefix = "<leader>t",
 })
