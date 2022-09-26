@@ -9,7 +9,7 @@ end
 -- auto compile when there are changes in `plugins.lua`
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = "plugins.lua",
-  command = "PackerCompile",
+  command = [[source <afile> | PackerCompile]],
 })
 
 vim.cmd([[packadd packer.nvim]])
