@@ -49,12 +49,6 @@ require("packer").startup({
       "nvim-treesitter/playground",
       cmd = "TSPlaygroundToggle",
     })
-    use({
-      "lewis6991/spellsitter.nvim",
-      config = function()
-        require("spellsitter").setup()
-      end,
-    })
 
     use({
       "AckslD/nvim-FeMaco.lua",
