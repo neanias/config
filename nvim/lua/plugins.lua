@@ -78,17 +78,13 @@ require("packer").startup({
     use({
       "folke/todo-comments.nvim",
       requires = "nvim-lua/plenary.nvim",
-      config = function()
-        require("todo-comments").setup({})
-      end,
+      config = [[require("todo-comments").setup()]],
     })
 
     use({
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup({})
-      end,
+      config = [[require("trouble").setup()]],
     })
 
     -- Finders
@@ -123,9 +119,7 @@ require("packer").startup({
     })
     use({
       "j-hui/fidget.nvim",
-      config = function()
-        require("fidget").setup({})
-      end,
+      config = [[require("fidget").setup()]],
     })
 
     use({
@@ -140,9 +134,7 @@ require("packer").startup({
 
     use({
       "ishan9299/nvim-solarized-lua",
-      config = function()
-        vim.cmd("colorscheme solarized")
-      end,
+      config = [[vim.cmd("colorscheme solarized")]],
     })
     use({
       "nvim-lualine/lualine.nvim",
@@ -154,9 +146,7 @@ require("packer").startup({
 
     use({
       "kylechui/nvim-surround",
-      config = function()
-        require("nvim-surround").setup()
-      end,
+      config = [[require("nvim-surround").setup()]],
     })
 
     -- TPope time
