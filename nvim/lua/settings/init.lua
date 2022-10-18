@@ -1,4 +1,5 @@
 pcall(require, "settings/completion")
+pcall(require, "settings/commands")
 pcall(require, "settings/git")
 pcall(require, "settings/lspconfig")
 pcall(require, "settings/mappings")
