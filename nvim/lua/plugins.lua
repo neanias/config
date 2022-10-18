@@ -216,6 +216,10 @@ require("packer").startup({
 
     -- Pretty colours
     use("p00f/nvim-ts-rainbow")
+    use({
+      "NvChad/nvim-colorizer.lua",
+      config = [[require("colorizer").setup()]],
+    })
 
     -- Other stuff
     use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
