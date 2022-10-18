@@ -37,7 +37,12 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     name = "+LSP",
-    f = { vim.lsp.buf.formatting, "Format the current buffer" },
+    f = {
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
+      "Format the current buffer",
+    },
     wa = { vim.lsp.buf.add_workspace_folder, "Add the folder at path to the workspace folders." },
     wr = { vim.lsp.buf.remove_workspace_folder, "Remove the folder at path from the workspace folders." },
     wl = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List workspace folders" },
@@ -59,8 +64,13 @@ local on_attach = function(client, bufnr)
 
   wk.register({
     name = "+LSP",
-    f = { vim.lsp.buf.range_formatting, "Format the selected range" },
-    ca = { vim.lsp.buf.range_code_action, "Selects a code action from the input list that is available" },
+    f = {
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
+      "Format the selected range",
+    },
+    ca = { vim.lsp.buf.code_action, "Selects a code action from the input list that is available" },
   }, {
     mode = "v",
     noremap = true,
