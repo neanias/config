@@ -48,7 +48,7 @@ wk.register({
     g = { "<cmd>Telescope live_grep<cr>", "Grep through the project dir" },
     h = { "<cmd>Telescope help_tags<cr>", "Search for help tags" },
     j = { "<cmd>Telescope jumplist<cr>", "Search through jumplist" },
-    o = { "<cmd>Telescope oldfiles<cr>", "Search through recently opened files" },
+    o = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "Search through recently opened files" },
     -- This is still Lua as it might be lazily loaded
     p = {
       telescope.extensions.neoclip.default,
