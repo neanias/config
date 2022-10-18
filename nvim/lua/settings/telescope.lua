@@ -7,19 +7,22 @@ telescope.setup({
     mappings = {
       i = {
         ["<ESC>"] = actions.close,
-        ["<C-T>"] = trouble.open_with_trouble,
         ["<C-U>"] = false,
       },
     },
   },
   pickers = {
+    live_grep = {
+      mappings = {
+        i = {
+          ["<C-T>"] = trouble.open_with_trouble,
+        }
+      }
+    },
     buffers = {
       sort_lastused = true,
       mappings = {
         i = {
-          ["<c-d>"] = actions.delete_buffer,
-        },
-        n = {
           ["<c-d>"] = actions.delete_buffer,
         },
       },
