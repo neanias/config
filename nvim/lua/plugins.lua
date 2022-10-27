@@ -71,6 +71,9 @@ require("packer").startup({
             enabled = true,
             suggestions = 20,
           },
+          key_labels = {
+            ["<leader>"] = "SPC",
+          },
         })
       end,
     })
