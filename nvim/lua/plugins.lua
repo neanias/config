@@ -165,6 +165,12 @@ require("packer").startup({
         })
       end,
     })
+    use({
+      "akinsho/bufferline.nvim",
+      tag = "v2.*",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = [[require("bufferline").setup()]],
+    })
 
     use({
       "kylechui/nvim-surround",
