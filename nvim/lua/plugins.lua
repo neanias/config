@@ -373,6 +373,18 @@ require("packer").startup({
         require("hop").setup({})
       end,
     })
+
+    use({
+      "tamton-aquib/duck.nvim",
+      config = function()
+        vim.keymap.set("n", "<leader>dd", function()
+          require("duck").hatch()
+        end, { desc = "Hatch a duck" })
+        vim.keymap.set("n", "<leader>dk", function()
+          require("duck").cook()
+        end, { desc = "Cook a duck" })
+      end,
+    })
   end,
   config = {
     display = {
