@@ -96,6 +96,23 @@ require("packer").startup({
         { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
       },
     })
+    use({
+      "princejoogie/dir-telescope.nvim",
+      requires = { "nvim-telescope/telescope.nvim" },
+      config = function()
+        require("dir-telescope").setup({
+          hidden = true,
+          respect_gitignore = true,
+        })
+      end,
+    })
+    use({
+      "LukasPietzschmann/telescope-tabs",
+      requires = { "nvim-telescope/telescope.nvim" },
+      config = function()
+        require("telescope-tabs").setup()
+      end,
+    })
 
     use({
       "stevearc/dressing.nvim",

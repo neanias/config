@@ -16,8 +16,8 @@ telescope.setup({
       mappings = {
         i = {
           ["<C-T>"] = trouble.open_with_trouble,
-        }
-      }
+        },
+      },
     },
     buffers = {
       sort_lastused = true,
@@ -31,6 +31,7 @@ telescope.setup({
 })
 
 telescope.load_extension("fzf")
+telescope.load_extension("dir")
 
 local telescope_augroup_id = vim.api.nvim_create_augroup("telescope", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
@@ -47,6 +48,7 @@ wk.register({
   f = {
     name = "+Telescope",
     b = { "<cmd>Telescope buffers<cr>", "Find recent buffers" },
+    d = { "<cmd>Telescope dir find_files<cr>", "Find files in dir" },
     f = { "<cmd>Telescope find_files<cr>", "Find files" },
     g = { "<cmd>Telescope live_grep<cr>", "Grep through the project dir" },
     h = { "<cmd>Telescope help_tags<cr>", "Search for help tags" },
@@ -59,6 +61,7 @@ wk.register({
     },
     s = { "<cmd>Telescope search_history<cr>", "Lists recent search history" },
     t = { "<cmd>Telescope treesitter<cr>", "Search through treesitter tags" },
+    w = { require("telescope-tabs").list_tabs, "Search tabs" },
   },
 }, {
   prefix = "<leader>",
