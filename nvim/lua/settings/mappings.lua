@@ -26,6 +26,16 @@ wk.register({
   },
 })
 
+wk.register({
+  ["nz"] = {
+    require("neo-zoom").neo_zoom,
+    "Toggle NeoZoom window",
+  },
+}, {
+  prefix = "<leader>",
+  nowait = true,
+})
+
 -- Surround mappings
 
 -- Normal mode mappings

@@ -207,6 +207,12 @@ require("packer").startup({
       end,
     })
 
+    use({
+      "nyngwang/NeoZoom.lua",
+      config = function()
+        require("neo-zoom").setup()
+      end,
+    })
     -- Syntax & languages
     use({ "jmcantrell/vim-virtualenv", ft = "python" })
     use({ "slashmili/alchemist.vim", ft = "elixir" })
