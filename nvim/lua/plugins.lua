@@ -154,10 +154,15 @@ require("packer").startup({
       config = [[vim.cmd("colorscheme solarized")]],
     })
     use({
+
+    use({
       "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
       config = function()
-        require("lualine").setup({ options = { theme = "solarized" } })
+        require("lualine").setup({
+          options = { theme = "auto" },
+          extensions = { "nvim-tree", "fugitive" },
+        })
       end,
     })
 
