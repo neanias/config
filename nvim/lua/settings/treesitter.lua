@@ -6,6 +6,7 @@ vim.cmd([[set foldexpr=nvim_treesitter#foldexpr()]])
 
 ts_config.setup({
   ensure_installed = {
+    "bash",
     "c",
     "cpp",
     "css",
@@ -21,6 +22,7 @@ ts_config.setup({
     "markdown",
     "python",
     "query",
+    "regex",
     "ruby",
     "rust",
     "scss",

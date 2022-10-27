@@ -32,6 +32,7 @@ telescope.setup({
 
 telescope.load_extension("fzf")
 telescope.load_extension("dir")
+telescope.load_extension("noice")
 
 local telescope_augroup_id = vim.api.nvim_create_augroup("telescope", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {

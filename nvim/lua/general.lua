@@ -19,9 +19,9 @@ vim.opt.shiftwidth = indent
 -- Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.hlsearch = true
 
 -- Slightly better performance for redrawing
-vim.opt.lazyredraw = true
 vim.opt.hidden = true
 
 -- Split to the right and below
