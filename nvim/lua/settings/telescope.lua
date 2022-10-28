@@ -54,6 +54,7 @@ wk.register({
     g = { "<cmd>Telescope live_grep<cr>", "Grep through the project dir" },
     h = { "<cmd>Telescope help_tags<cr>", "Search for help tags" },
     j = { "<cmd>Telescope jumplist<cr>", "Search through jumplist" },
+    l = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search through lines in the buffer" },
     o = { "<cmd>Telescope oldfiles cwd_only=true<cr>", "Search through recently opened files" },
     -- This is still Lua as it might be lazily loaded
     p = {
