@@ -154,7 +154,12 @@ require("packer").startup({
 
     use({
       "neanias/everforest-nvim",
-      config = [[vim.cmd("colorscheme everforest")]]
+      config = function()
+        require("everforest").setup({
+          background = "medium",
+        })
+        vim.cmd([[colorscheme everforest]])
+      end
     })
 
     use({
