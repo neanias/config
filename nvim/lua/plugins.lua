@@ -373,7 +373,6 @@ require("packer").startup({
       requires = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "antoinemadec/FixCursorHold.nvim",
         "olimorris/neotest-rspec",
         "haydenmeade/neotest-jest",
       },
