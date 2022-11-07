@@ -153,10 +153,9 @@ require("packer").startup({
     })
 
     use({
-      "ishan9299/nvim-solarized-lua",
-      config = [[vim.cmd("colorscheme solarized")]],
+      "neanias/everforest-nvim",
+      config = [[vim.cmd("colorscheme everforest")]]
     })
-    use({
 
     use({
       "nvim-lualine/lualine.nvim",
