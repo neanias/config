@@ -41,7 +41,6 @@ require("packer").startup({
       run = ":TSUpdate", -- We recommend updating the parsers on update
     })
     use({
-      "nvim-treesitter/nvim-treesitter-context",
       "nvim-treesitter/nvim-treesitter-refactor",
       "nvim-treesitter/nvim-treesitter-textobjects",
     })
@@ -134,6 +133,10 @@ require("packer").startup({
 
     use("neovim/nvim-lspconfig")
     use({
+      "SmiteshP/nvim-navic",
+      requires = "neovim/nvim-lspconfig",
+    })
+    use({
       "jose-elias-alvarez/null-ls.nvim",
       requires = { "nvim-lua/plenary.nvim" },
     })
@@ -165,21 +168,6 @@ require("packer").startup({
     use({
       "nvim-lualine/lualine.nvim",
       requires = { "kyazdani42/nvim-web-devicons", opt = true },
-      config = function()
-        require("lualine").setup({
-          options = { theme = "auto" },
-          extensions = { "nvim-tree", "fugitive" },
-          sections = {
-            lualine_x = {
-              {
-                require("noice").api.statusline.mode.get,
-                cond = require("noice").api.statusline.mode.has,
-                color = { fg = "#ff9e64" },
-              },
-            },
-          },
-        })
-      end,
     })
     use({
       "akinsho/bufferline.nvim",
