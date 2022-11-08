@@ -131,6 +131,10 @@ require("packer").startup({
       end,
     })
 
+    use({
+      "folke/neodev.nvim",
+      config = [[require("neodev").setup()]],
+    })
     use("neovim/nvim-lspconfig")
     use({
       "SmiteshP/nvim-navic",
