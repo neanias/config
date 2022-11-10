@@ -18,13 +18,14 @@ lualine.setup({
       "NvimTree",
       statusline = {
         "fugitive",
-      }
+      },
     },
+    globalstatus = true,
   },
   extensions = { "nvim-tree", "fugitive" },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "branch", "diagnostics" },
+    lualine_b = { "branch" },
     lualine_c = {},
     lualine_x = {
       {
@@ -43,7 +44,7 @@ lualine.setup({
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { "filename" },
+    lualine_c = { "branch" },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},
@@ -54,7 +55,10 @@ lualine.setup({
         "filename",
         path = 1,
       },
+    },
+    lualine_b = {
       "diff",
+      "diagnostics",
     },
     lualine_c = { { navic.get_location, cond = navic.is_available } },
     lualine_x = { "filetype" },
@@ -62,7 +66,7 @@ lualine.setup({
     lualine_z = { "location" },
   },
   inactive_winbar = {
-    lualine_a = { "filename" },
+    lualine_c = { "filename" },
     lualine_x = { window, "location" },
     lualine_z = {},
   },
