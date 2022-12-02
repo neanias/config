@@ -10,16 +10,12 @@ function stripWhitespace()
   end
 
   -- Keep the cursor position and these marks:
-  local original_cursor = vim.fn.getcurpos()
-  local first_changed = vim.fn.getpos("'[")
-  local last_changed = vim.fn.getpos("']")
+  local save = vim.fn.winsaveview()
 
-  vim.cmd("silent exe '%s/\\v\\s+$//e'")
+  vim.cmd("keepjumps keeppatterns silent exe '%s/\\v\\s+$//e'")
   vim.cmd("silent nohlsearch")
 
-  vim.fn.setpos("']", last_changed)
-  vim.fn.setpos("'[", first_changed)
-  vim.fn.setpos(".", original_cursor)
+  vim.fn.winrestview(save)
 end
 
 function closeWindowOrKillBuffer()
