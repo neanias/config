@@ -15,14 +15,3 @@ vim.api.nvim_create_autocmd("FileType", {
   command = [[nnoremap <buffer><silent> q :quit<CR>]],
   desc = "Remaps q to close man pages",
 })
-
-local silicon_utils = require("silicon.utils")
-local group = vim.api.nvim_create_augroup("SiliconRefresh", { clear = true })
-vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-  group = group,
-  callback = function()
-    silicon_utils.build_tmTheme()
-    silicon_utils.reload_silicon_cache({ async = true })
-  end,
-  desc = "Reload silicon themes cache on colorscheme switch",
-})

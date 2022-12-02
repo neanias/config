@@ -234,12 +234,6 @@ require("packer").startup({
     })
 
     use({
-      "narutoxy/silicon.lua",
-      requires = { "nvim-lua/plenary.nvim" },
-      config = [[require("silicon").setup()]],
-    })
-
-    use({
       "AckslD/nvim-neoclip.lua",
       config = function()
         require("neoclip").setup()
