@@ -163,6 +163,16 @@ require("packer").startup({
           background = "medium",
         })
         vim.cmd([[colorscheme everforest]])
+      end,
+    })
+    use({
+      "JManch/sunset.nvim",
+      config = function()
+        require("sunset").setup({
+          -- Edinburgh co-ords
+          latitude = 55.943175,
+          longitude = -3.208831,
+        })
       end
     })
 
