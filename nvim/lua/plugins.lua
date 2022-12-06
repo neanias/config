@@ -184,7 +184,13 @@ require("packer").startup({
       "akinsho/bufferline.nvim",
       tag = "v2.*",
       requires = "kyazdani42/nvim-web-devicons",
-      config = [[require("bufferline").setup()]],
+      config = function()
+        require("bufferline").setup({
+          options = {
+            diagnostics = "nvim_lsp",
+          },
+        })
+      end,
     })
 
     use({
