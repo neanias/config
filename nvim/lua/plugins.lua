@@ -121,8 +121,10 @@ require("packer").startup({
       config = function()
         require("dressing").setup({
           input = {
-            -- No transparency for input window
-            winblend = 0,
+            win_options = {
+              -- No transparency for input window
+              winblend = 0,
+            },
           },
           select = {
             telescope = require("telescope.themes").get_dropdown({}),
