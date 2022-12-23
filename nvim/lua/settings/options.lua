@@ -13,9 +13,6 @@ local indent = 2
 vim.opt.tabstop = indent
 vim.opt.shiftwidth = indent
 
--- Is this needed?
--- vim.cmd("runtime macros/matchit.vim")
-
 -- Searching
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -53,15 +50,19 @@ vim.opt.wrap = false
 -- Set British English as the priority
 vim.opt.spelllang = "en_gb,en"
 
--- Highlight yanked text after yanking
-vim.api.nvim_create_autocmd("TextYankPost", {
-  pattern = "*",
-  callback = function()
-    vim.highlight.on_yank({ on_visual = false, timeout = 300 })
-  end,
-})
+-- 100k lines of scrollback in terminal buffer:
+vim.opt.scrollback = -1
 
 local neovim3_python_path = vim.loop.os_homedir() .. "/.pyenv/versions/neovim3/bin/python"
 if vim.loop.fs_stat(neovim3_python_path) then
   vim.g.python3_host_prog = neovim3_python_path
 end
+
+-- Undo & backup options
+local backups_path = vim.fn.stdpath("config") .. "/backups"
+vim.cmd("silent !mkdir " .. backups_path .. " > /dev/null 2>&1")
+vim.o.undodir = backups_path
+vim.o.undofile = true
+
+-- Have the undotree be in a panel on the RHS
+vim.g.undotree_WindowLayout = 3
