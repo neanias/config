@@ -173,4 +173,12 @@ return {
       end, { desc = "Cook a duck" })
     end,
   },
+  {
+    "cshuaimin/ssr.nvim",
+    init = function()
+      vim.keymap.set({ "n", "x" }, "<leader>sr", function()
+        require("ssr").open()
+      end, { desc = "Structural Replace" })
+    end,
+  },
 }
