@@ -64,6 +64,7 @@ return {
   },
   {
     "danymat/neogen",
+    cmd = "Neogen",
     config = function()
       require("neogen").setup({ snippet_engine = "luasnip" })
     end,
@@ -126,8 +127,8 @@ return {
   -- Ruby/Rails plugins
   {
     "tpope/vim-rails",
-    cmd = { "A", "AS", "AT", "AV", "Eview", "Emodel", "Econtroller" },
     ft = { "ruby", "eruby" },
+    cmd = { "A", "AS", "AT", "AV", "Eview", "Emodel", "Econtroller" },
   },
   {
     "tpope/vim-rake",
