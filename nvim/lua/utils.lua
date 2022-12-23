@@ -1,11 +1,13 @@
-local function atTipOfUndo()
+local M = {}
+
+local function at_tip_of_undo()
   local tree = vim.fn.undotree()
   return tree.seq_last == tree.seq_cur
 end
 
-function stripWhitespace()
+function M.strip_whitespace()
   -- Only do if the buffer is modifiable and we are at the tip of an undo tree
-  if not (vim.bo.modifiable and atTipOfUndo()) then
+  if not (vim.bo.modifiable and at_tip_of_undo()) then
     return
   end
 
@@ -18,7 +20,7 @@ function stripWhitespace()
   vim.fn.winrestview(save)
 end
 
-function closeWindowOrKillBuffer()
+function M.close_window_or_kill_buffer()
   local window_number = vim.fn["winnr"]("$")
   local range_of_windows = vim.fn.range(1, window_number)
   local windows_attached_to_the_buffer = vim.fn.filter(range_of_windows, "winbufnr(v:val) == bufnr('%')")
@@ -37,24 +39,4 @@ function closeWindowOrKillBuffer()
   end
 end
 
-require("which-key").register({
-  ["Q"] = {
-    closeWindowOrKillBuffer,
-    "Smart close the window or close the buffer",
-    silent = true,
-    noremap = true,
-  },
-
-  ["<leader>w"] = {
-    stripWhitespace,
-    "Strips trailling whitespace from the buffer",
-    silent = true,
-    noremap = true,
-  },
-})
-
--- Strip trailing whitespace in Python and Ruby files
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.py", "*.rb" },
-  callback = stripWhitespace,
-})
+return M
