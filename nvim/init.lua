@@ -1,11 +1,11 @@
--- Must be first so that it can handle caching
-require("impatient")
+require("settings.options")
+require("settings.lazy")
 
--- NOTE: Can this plugins require be deferred to load at the end?
--- Does that need lazy loading of all plugins?
-require("plugins")
-
-require("utils")
-require("general")
-
-require("settings")
+-- After we've loaded the plugins, run the settings
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    require("settings.commands")
+    require("settings.mappings")
+  end,
+})
