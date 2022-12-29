@@ -19,6 +19,7 @@ function M.config()
 
   ---@type lspconfig.options
   local servers = {
+    pyright = {},
     rust_analyzer = {
       settings = {
         ["rust-analyzer"] = {
