@@ -51,23 +51,17 @@ return {
   {
     "phaazon/hop.nvim",
     version = "~2.0.0",
-    config = function()
-      require("hop").setup({})
-    end,
+    config = true,
   },
   {
     "NvChad/nvim-colorizer.lua",
     event = "BufReadPre",
-    config = function()
-      require("colorizer").setup({})
-    end,
+    config = true,
   },
   {
     "danymat/neogen",
     cmd = "Neogen",
-    config = function()
-      require("neogen").setup({ snippet_engine = "luasnip" })
-    end,
+    config = { snippet_engine = "luasnip" },
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -75,29 +69,21 @@ return {
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-      require("nvim-tree").setup({})
-    end,
+    config = true,
   },
 
   {
     "folke/todo-comments.nvim",
     event = "BufReadPost",
-    config = function()
-      require("todo-comments").setup()
-    end,
+    config = true,
   },
   {
     "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup()
-    end,
+    config = true,
   },
   {
     "AckslD/nvim-FeMaco.lua",
-    config = function()
-      require("femaco").setup()
-    end,
+    config = true,
     cmd = "FeMaco",
   },
   {
@@ -107,21 +93,17 @@ return {
   {
     "JManch/sunset.nvim",
     lazy = false,
-    config = function()
-      require("sunset").setup({
-        -- Edinburgh co-ords
-        latitude = 55.943175,
-        longitude = -3.208831,
-      })
-    end,
+    config = {
+      -- Edinburgh co-ords
+      latitude = 55.943175,
+      longitude = -3.208831,
+    },
   },
   {
     "kylechui/nvim-surround",
     event = "BufReadPost",
     keys = { "S", "ys", "yS" },
-    config = function()
-      require("nvim-surround").setup()
-    end,
+    config = true,
   },
 
   -- Ruby/Rails plugins
@@ -142,17 +124,13 @@ return {
 
   {
     "AckslD/nvim-neoclip.lua",
-    config = function()
-      require("neoclip").setup()
-    end,
+    config = true,
   },
 
   {
     "nyngwang/NeoZoom.lua",
     keys = { "<leader>nz" },
-    config = function()
-      require("neo-zoom").setup()
-    end,
+    config = true,
   },
   {
     "gennaro-tedesco/nvim-jqx",
@@ -176,10 +154,15 @@ return {
   },
   {
     "cshuaimin/ssr.nvim",
-    init = function()
-      vim.keymap.set({ "n", "x" }, "<leader>sr", function()
-        require("ssr").open()
-      end, { desc = "Structural Replace" })
-    end,
+    keys = {
+      {
+        "<leader>sr",
+        function()
+          require("ssr").open()
+        end,
+        mode = { "n", "x" },
+        desc = "Structural replace",
+      },
+    },
   },
 }

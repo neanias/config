@@ -5,18 +5,14 @@ local M = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     {
       "princejoogie/dir-telescope.nvim",
-      config = function()
-        require("dir-telescope").setup({
-          hidden = true,
-          respect_gitignore = true,
-        })
-      end,
+      config = {
+        hidden = true,
+        respect_gitignore = true,
+      },
     },
     {
       "LukasPietzschmann/telescope-tabs",
-      config = function()
-        require("telescope-tabs").setup()
-      end,
+      config = true,
     },
     "benfowler/telescope-luasnip.nvim",
     "neanias/telescope-lines.nvim",
