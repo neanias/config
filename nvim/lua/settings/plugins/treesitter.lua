@@ -10,7 +10,7 @@ local M = {
       "nvim-treesitter/playground",
       cmd = "TSPlaygroundToggle",
     },
-    "p00f/nvim-ts-rainbow",
+    "mrjones2014/nvim-ts-rainbow",
   },
 }
 
