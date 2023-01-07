@@ -38,8 +38,18 @@ return {
     event = "BufReadPre",
   },
   {
-    "AndrewRadev/splitjoin.vim",
-    cmd = { "SplitjoinJoin", "SplitjoinSplit" },
+    "ckolkey/ts-node-action",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    keys = {
+      {
+        "sj",
+        function()
+          require("ts-node-action").node_action()
+        end,
+        mode = { "n" },
+        desc = "Trigger node action",
+      },
+    },
   },
   {
     "nvim-tree/nvim-web-devicons",
@@ -102,7 +112,7 @@ return {
   {
     "kylechui/nvim-surround",
     event = "BufReadPost",
-    keys = { "S", "ys", "yS" },
+    keys = { "S", "ys", "yS", "cs" },
     config = true,
   },
 

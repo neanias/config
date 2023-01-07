@@ -237,14 +237,6 @@ wk.register({
   prefix = "g",
 })
 
--- SplitJoin
-wk.register({
-  j = { "<Cmd>SplitjoinSplit<CR>", "Smart split 2 lines using SplitJoin" },
-  k = { "<Cmd>SplitjoinJoin<CR>", "Smart join 2 lines using SplitJoin" },
-}, {
-  prefix = "s",
-})
-
 -- Terminal mode
 wk.register({
   ["<ESC>"] = { "<C-\\><C-n>" },
