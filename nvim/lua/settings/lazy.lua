@@ -21,7 +21,7 @@ require("lazy").setup("settings.plugins", {
   install = {
     colorscheme = { "everforest", "habamax" },
   },
-  checker = { enabled = true },
+  checker = { enabled = false },
   performance = {
     rtp = {
       disabled_plugins = {
