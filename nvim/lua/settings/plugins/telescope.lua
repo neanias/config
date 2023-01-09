@@ -1,6 +1,5 @@
 local M = {
   "nvim-telescope/telescope.nvim",
-  cmd = "Telescope",
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     {
@@ -21,7 +20,6 @@ local M = {
 
 function M.config()
   local telescope = require("telescope")
-  local builtin = require("telescope.builtin")
   local actions = require("telescope.actions")
   local trouble = require("trouble.providers.telescope")
 
