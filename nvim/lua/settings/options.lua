@@ -33,6 +33,10 @@ vim.opt.mat = indent
 -- Don't write swapfiles
 vim.opt.swapfile = false
 
+-- Show leading spaces
+vim.opt.list = true
+vim.opt.listchars:append("lead:⋅")
+
 local leader = " "
 vim.g.mapleader = leader
 vim.g.maplocalleader = leader
