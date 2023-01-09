@@ -113,8 +113,8 @@ return {
   },
   {
     "kylechui/nvim-surround",
-    event = "BufReadPost",
-    keys = { "S", "ys", "yS", "cs" },
+    -- event = "BufReadPost",
+    keys = { { "S", mode = "v" }, "ys", "yS", "cs", "ds" },
     config = true,
   },
 
