@@ -5,7 +5,7 @@ local M = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     {
       "princejoogie/dir-telescope.nvim",
-      config = {
+      opts = {
         hidden = true,
         respect_gitignore = true,
       },

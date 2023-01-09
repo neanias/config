@@ -2,7 +2,7 @@ return {
   "akinsho/bufferline.nvim",
   event = "BufReadPre",
   version = "~3.1.0",
-  config = {
+  opts = {
     options = {
       diagnostics = "nvim_lsp",
       offsets = {

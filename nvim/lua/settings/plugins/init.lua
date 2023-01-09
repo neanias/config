@@ -71,7 +71,7 @@ return {
   {
     "danymat/neogen",
     cmd = "Neogen",
-    config = { snippet_engine = "luasnip" },
+    opts = { snippet_engine = "luasnip" },
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -103,7 +103,7 @@ return {
   {
     "JManch/sunset.nvim",
     lazy = false,
-    config = {
+    opts = {
       -- Edinburgh co-ords
       latitude = 55.943175,
       longitude = -3.208831,
