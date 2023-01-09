@@ -97,8 +97,10 @@ return {
     cmd = "FeMaco",
   },
   {
-    "lucapette/vim-textobj-underscore",
-    dependencies = { "kana/vim-textobj-user" },
+    "chrisgrieser/nvim-various-textobjs",
+    opts = {
+      useDefaultKeymaps = true,
+    },
   },
   {
     "JManch/sunset.nvim",

@@ -44,6 +44,7 @@
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "a8c86f48c1030acee22b9e071e3c531de77bf253" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "4a42b30376c1bd625ab5016c2079631d531d797a" },
   "nvim-ts-rainbow": { "branch": "master", "commit": "ef95c15a935f97c65a80e48e12fe72d49aacf9b9" },
+  "nvim-various-textobjs": { "branch": "main", "commit": "66cb3a5bf9b869e6df7927b0f000d4d3de89a9b5" },
   "nvim-web-devicons": { "branch": "master", "commit": "7f55bc36eddec87597167a97de5b690997edaf7d" },
   "playground": { "branch": "master", "commit": "8a887bcf66017bd775a0fb19c9d8b7a4d6759c48" },
   "plenary.nvim": { "branch": "master", "commit": "9d81624fbcedd3dd43b38d7e13a1e7b3f873d8cd" },
@@ -65,8 +66,6 @@
   "vim-rake": { "branch": "master", "commit": "e08049f812d241bbc72127aeafa8afa2f6720886" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-rhubarb": { "branch": "master", "commit": "cad60fe382f3f501bbb28e113dfe8c0de6e77c75" },
-  "vim-textobj-underscore": { "branch": "master", "commit": "41fcdacaa5c763063a4b4f715cc22962075f22d6" },
-  "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "which-key.nvim": { "branch": "main", "commit": "85f69b07afce4ea77c58ae9a3aeb4e6c918b4d34" }
 }
