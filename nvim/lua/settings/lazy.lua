@@ -13,7 +13,10 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("settings.plugins", {
-  defaults = { lazy = true },
+  defaults = {
+    lazy = true,
+    version = "*",
+  },
   dev = {
     patterns = jit.os:find("Windows") and {} or { "neanias" },
     path = "~/Programming/nvim-plugins",

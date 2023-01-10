@@ -10,18 +10,22 @@ return {
   {
     "tpope/vim-projectionist",
     cmd = { "A", "AS", "AV" },
+    version = false,
   },
   {
     "tpope/vim-unimpaired",
     event = "BufReadPost",
+    version = false,
   },
   {
     "tpope/vim-repeat",
     keys = ".",
+    version = false,
   },
   {
     "tpope/vim-fugitive",
     event = "BufReadPre",
+    version = false,
   },
   {
     "tpope/vim-rhubarb",
@@ -113,7 +117,7 @@ return {
   },
   {
     "kylechui/nvim-surround",
-    -- event = "BufReadPost",
+    version = false,
     keys = { { "S", mode = "v" }, "ys", "yS", "cs", "ds" },
     config = true,
   },
@@ -123,10 +127,12 @@ return {
     "tpope/vim-rails",
     ft = { "ruby", "eruby" },
     cmd = { "A", "AS", "AT", "AV", "Eview", "Emodel", "Econtroller" },
+    version = false,
   },
   {
     "tpope/vim-rake",
     ft = "ruby",
+    version = false,
   },
 
   {
@@ -151,6 +157,7 @@ return {
   {
     "junegunn/vim-easy-align",
     cmd = "EasyAlign",
+    version = false,
   },
   {
     "tamton-aquib/duck.nvim",
