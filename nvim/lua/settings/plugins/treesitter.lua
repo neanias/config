@@ -38,6 +38,7 @@ function M.config()
       "json5",
       "lua",
       "markdown",
+      "markdown_inline",
       "python",
       "query",
       "regex",
