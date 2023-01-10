@@ -9,7 +9,9 @@ local M = {
 }
 
 function M.config()
-  require("neodev").setup()
+  require("neodev").setup({
+    library = { plugins = { "neotest" }, types = true },
+  })
   require("mason")
 
   local function on_attach(client, bufnr)
