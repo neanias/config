@@ -142,7 +142,16 @@ return {
 
   {
     "nyngwang/NeoZoom.lua",
-    keys = { "<leader>nz" },
+    keys = {
+      {
+        "<leader>nz",
+        function()
+          require("neo-zoom").neo_zoom()
+        end,
+        desc = "Toggle NeoZoom window",
+        nowait = true,
+      },
+    },
     config = true,
   },
   {

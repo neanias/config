@@ -180,12 +180,6 @@ wk.register({
     x = { "<cmd>Trouble<cr>", "Open Trouble dialogue" },
   },
 
-  ["nz"] = {
-    require("neo-zoom").neo_zoom,
-    "Toggle NeoZoom window",
-    nowait = true,
-  },
-
   -- Hop
   ["<leader>"] = {
     name = "+hop",
