@@ -1,8 +1,6 @@
 local wk = require("which-key")
 local util = require("utils")
 local gs = require("gitsigns")
-local hop = require("hop")
-local hop_hint = require("hop.hint")
 local neotest = require("neotest")
 
 wk.setup({
@@ -174,20 +172,38 @@ wk.register({
     name = "+hop",
     w = {
       function()
-        hop.hint_words({ direction = hop_hint.HintDirection.AFTER_CURSOR })
+        local hop = require("hop")
+        hop.hint_words({ direction = require("hop.hint").HintDirection.AFTER_CURSOR })
       end,
       "Search for hop directions",
     },
     b = {
       function()
-        hop.hint_words({ direction = hop_hint.HintDirection.BEFORE_CURSOR })
+        local hop = require("hop")
+        hop.hint_words({ direction = require("hop.hint").HintDirection.BEFORE_CURSOR })
       end,
       "Search for hop directions",
     },
-    f = { hop.hint_char1, "Search for hop directions to a certain char" },
-    l = { hop.hint_lines_skip_whitespace, "Hop to a specific line" },
-    p = { hop.hint_patterns, "Hop based on a pattern" },
+    f = {
+      function()
+        require("hop").hint_char1()
+      end,
+      "Search for hop directions to a certain char",
+    },
+    l = {
+      function()
+        require("hop").hint_lines_skip_whitespace()
+      end,
+      "Hop to a specific line",
+    },
+    p = {
+      function()
+        require("hop").hint_patterns()
+      end,
+      "Hop based on a pattern",
+    },
   },
+
   d = { name = "+duck" },
 }, {
   prefix = "<leader>",
