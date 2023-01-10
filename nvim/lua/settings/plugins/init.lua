@@ -31,11 +31,6 @@ return {
     "tpope/vim-rhubarb",
     command = { "GBrowse" },
   },
-  {
-    -- TODO: write Lua replacement to handle case changes
-    "tpope/vim-abolish",
-    keys = { "crs", "crm", "crc", "cru", "cr-", "cr.", "cr<space>", "crt" },
-  },
 
   {
     "gpanders/editorconfig.nvim",
