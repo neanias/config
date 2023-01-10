@@ -4,8 +4,6 @@ local gs = require("gitsigns")
 local hop = require("hop")
 local hop_hint = require("hop.hint")
 local neotest = require("neotest")
-local telescope = require("telescope")
-local telescope_builtin = require("telescope.builtin")
 
 wk.setup({
   show_help = false,
@@ -74,20 +72,11 @@ wk.register({
     h = { "<cmd>Telescope help_tags<cr>", "Search for help tags" },
     j = { "<cmd>Telescope jumplist<cr>", "Search through jumplist" },
     l = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Search through lines in the buffer" },
-    o = {
-      function()
-        telescope_builtin.oldfiles({ only_cwd = true })
-      end,
-      "Search through recently opened files",
-    },
-    -- This is still Lua as it might be lazily loaded
-    p = {
-      telescope.extensions.neoclip.default,
-      "Search through the clipboard to reassign the current paste",
-    },
+    o = { "<cmd>Telescope oldfiles only_cwd=true<cr>", "Search through recently opened files" },
+    p = { "<cmd>Telescope neoclip<cr>", "Search through the clipboard to reassign the current paste" },
     s = { "<cmd>Telescope search_history<cr>", "Lists recent search history" },
     t = { "<cmd>Telescope treesitter<cr>", "Search through treesitter tags" },
-    w = { require("telescope-tabs").list_tabs, "Search tabs" },
+    w = { "<cmd>Telescope telescope-tabs list_tabs<cr>", "Search tabs" },
   },
 
   g = {
