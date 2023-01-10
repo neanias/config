@@ -1,7 +1,6 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  enabled = true,
   opts = {
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -26,14 +25,6 @@ return {
           find = "written",
         },
         opts = { skip = true },
-      },
-    },
-    views = {
-      cmdline_popup = {
-        position = {
-          row = 5,
-          col = "50%",
-        },
       },
     },
   },
