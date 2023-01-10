@@ -46,16 +46,6 @@ wk.register({
 
 -- Normal mode mappings
 wk.register({
-  ['"'] = { 'ysiw"', "Wrap the word under the cursor in double quotes" },
-  ["'"] = { "ysiw'", "Wrap the word under the cursor in single quotes" },
-  ["("] = { "ysiw(", "Wrap the word under the cursor in brackets, but with spaces around the word" },
-  [")"] = { "ysiw)", "Wrap the word under the cursor in brackets" },
-  ["["] = { "ysiw[", "Wrap the word under the cursor in square brackets, but with spaces around the word" },
-  ["]"] = { "ysiw]", "Wrap the word under the cursor in square brackets" },
-  ["{"] = { "ysiw{", "Wrap the word under the cursor in curly brackets, but with spaces around the word" },
-  ["}"] = { "ysiw}", "Wrap the word under the cursor in curly brackets" },
-  ["`"] = { "ysiw`", "Wrap the word under the cursor in backticks" },
-
   w = {
     util.strip_whitespace,
     "Strips trailling whitespace from the buffer",
@@ -207,23 +197,6 @@ wk.register({
   d = { name = "+duck" },
 }, {
   prefix = "<leader>",
-})
-
--- Visual mode mappings
-wk.register({
-  ["#"] = { 'c#{<C-r>}"}<ESC>', "Wrap the word under the cursor in a Ruby interpolation hash" },
-  ['"'] = { 'c"<C-r>""<ESC>', "Wrap the word under the cursor in double quotes" },
-  ["'"] = { "c'<C-r>\"'<ESC>", "Wrap the word under the cursor in single quotes" },
-  ["("] = { 'c( <C-r>" )<ESC>', "Wrap the word under the cursor in brackets with spaces around the word" },
-  [")"] = { 'c(<C-r>")<ESC>', "Wrap the word under the cursor in brackets" },
-  ["["] = { 'c[ <C-r>" ]<ESC>', "Wrap the word under the cursor in square brackets with spaces around the word" },
-  ["]"] = { 'c[<C-r>"]<ESC>', "Wrap the word under the cursor in square brackets" },
-  ["{"] = { 'c{ <C-r>" }<ESC>', "Wrap the word under the cursor in curly brackets with spaces around the word" },
-  ["}"] = { 'c{<C-r>"}<ESC>', "Wrap the word under the cursor in curly brackets" },
-  ["`"] = { 'c`<C-r>"`<ESC>', "Wrap the word under the cursor in backticks" },
-}, {
-  prefix = "<leader>",
-  mode = "v",
 })
 
 wk.register({
