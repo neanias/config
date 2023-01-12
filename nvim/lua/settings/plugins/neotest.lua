@@ -54,7 +54,7 @@ local M = {
       end,
       desc = "Jump to the previous test",
     },
-  }
+  },
 }
 
 function M.config()
