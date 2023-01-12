@@ -89,7 +89,7 @@ wk.register({
     },
     lb = {
       function()
-        gs.toggle_current_blame_line()
+        gs.toggle_current_line_blame()
       end,
       "Toggle showing inline blame",
     },
