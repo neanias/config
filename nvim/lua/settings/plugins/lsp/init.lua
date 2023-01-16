@@ -24,6 +24,7 @@ function M.config()
 
   ---@type lspconfig.options
   local servers = {
+    denols = {},
     pyright = {},
     rust_analyzer = {
       settings = {
