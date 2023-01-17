@@ -1,5 +1,5 @@
 local wk = require("which-key")
-local util = require("utils")
+local utils = require("utils")
 local gs = require("gitsigns")
 
 wk.setup({
@@ -36,7 +36,7 @@ wk.register({
   },
 
   Q = {
-    util.close_window_or_kill_buffer,
+    utils.close_window_or_kill_buffer,
     "Smart close the window or close the buffer",
   },
 })
@@ -46,7 +46,7 @@ wk.register({
 -- Normal mode mappings
 wk.register({
   w = {
-    util.strip_whitespace,
+    utils.strip_whitespace,
     "Strips trailling whitespace from the buffer",
     silent = true,
   },
