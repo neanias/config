@@ -97,9 +97,10 @@ return {
   },
   {
     "chrisgrieser/nvim-various-textobjs",
-    opts = {
-      useDefaultKeymaps = true,
-    },
+    event = "BufReadPost",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
+    end,
   },
   {
     "JManch/sunset.nvim",
