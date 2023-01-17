@@ -32,12 +32,6 @@ function M.setup(client, buf)
       callback = require("settings.plugins.lsp.formatting").format,
       group = group,
     })
-    -- vim.cmd([[
-    --   augroup LspFormat
-    --     autocmd! * <buffer>
-    --     autocmd BufWritePre <buffer> lua require("config.plugins.lsp.formatting").format()
-    --   augroup END
-    -- ]])
   end
 end
 
