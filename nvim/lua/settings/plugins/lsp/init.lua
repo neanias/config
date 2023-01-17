@@ -20,12 +20,33 @@ function M.config()
     end
     require("settings.plugins.lsp.formatting").setup(client, bufnr)
     require("settings.plugins.lsp.keys").setup(client, bufnr)
+
+    local callback = function()
+      local params = vim.lsp.util.make_text_document_params(bufnr)
+
+      client.request("textDocument/diagnostic", { textDocument = params }, function(err, result)
+        if err then
+          return
+        end
+
+        vim.lsp.diagnostic.on_publish_diagnostics(
+          nil,
+          vim.tbl_extend("keep", params, { diagnostics = result.items }),
+          { client_id = client.id }
+        )
+      end)
+    end
+
+    if client.name == "ruby_ls" then
+      callback()
+    end
   end
 
   ---@type lspconfig.options
   local servers = {
     denols = {},
     pyright = {},
+    ruby_ls = {},
     rust_analyzer = {
       settings = {
         ["rust-analyzer"] = {
@@ -37,7 +58,6 @@ function M.config()
         },
       },
     },
-    solargraph = {},
     sumneko_lua = {
       single_file_support = true,
       settings = {
