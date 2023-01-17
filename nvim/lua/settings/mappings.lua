@@ -95,6 +95,9 @@ wk.register({
     },
   },
 
+  r = {
+    name = "+refactoring",
+  },
   t = {
     name = "+test",
   },
