@@ -153,6 +153,9 @@ return {
       },
     },
     config = true,
+    opts = {
+      exclude_buftypes = { "terminal" },
+    },
   },
   {
     "gennaro-tedesco/nvim-jqx",
