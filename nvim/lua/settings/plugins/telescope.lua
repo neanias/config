@@ -17,6 +17,11 @@ local M = {
     },
     "benfowler/telescope-luasnip.nvim",
     "neanias/telescope-lines.nvim",
+    {
+      "danielfalk/smart-open.nvim",
+      branch = "0.1.x",
+      dependencies = { "kkharji/sqlite.lua" },
+    },
   },
 }
 
@@ -51,6 +56,11 @@ function M.config()
         },
       },
     },
+    extensions = {
+      smart_open = {
+        match_algorithm = "fzf",
+      },
+    },
   })
 
   telescope.load_extension("fzf")
@@ -59,6 +69,7 @@ function M.config()
   telescope.load_extension("telescope-tabs")
   telescope.load_extension("luasnip")
   telescope.load_extension("neoclip")
+  telescope.load_extension("smart_open")
 
   local telescope_augroup_id = vim.api.nvim_create_augroup("telescope", { clear = true })
   vim.api.nvim_create_autocmd("FileType", {
