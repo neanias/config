@@ -7,18 +7,20 @@ return {
       debounce = 150,
       save_after_format = false,
       sources = {
-        nls.builtins.formatting.stylua,
+        nls.builtins.code_actions.cspell,
+        nls.builtins.code_actions.gitsigns,
+        nls.builtins.diagnostics.cspell,
+        nls.builtins.diagnostics.flake8,
         nls.builtins.diagnostics.markdownlint,
+        nls.builtins.formatting.black,
+        nls.builtins.formatting.isort,
         nls.builtins.formatting.prettierd.with({
           filetypes = { "markdown" }, -- only runs `deno fmt` for markdown
         }),
         nls.builtins.formatting.rubocop.with({
           command = { "bin/rubocop" },
         }),
-        nls.builtins.code_actions.gitsigns,
-        nls.builtins.formatting.isort,
-        nls.builtins.formatting.black,
-        nls.builtins.diagnostics.flake8,
+        nls.builtins.formatting.stylua,
       },
       root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", ".git"),
     })
