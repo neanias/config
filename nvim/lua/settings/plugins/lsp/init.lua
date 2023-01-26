@@ -5,6 +5,7 @@ local M = {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+    "jose-elias-alvarez/typescript.nvim",
   },
 }
 
@@ -42,7 +43,14 @@ function M.config()
     end
   end
 
-  ---@type lspconfig.options
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      local buffer = args.buf
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      on_attach(client, buffer)
+    end,
+  })
+
   local servers = {
     denols = {},
     pyright = {},
@@ -91,21 +99,36 @@ function M.config()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-  ---@type _.lspconfig.options
-  local options = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    flags = {
-      debounce_text_changes = 150,
-    },
-  }
+  local function setup(server)
+    local server_opts = servers[server] or {}
+    server_opts.capabilities = capabilities
 
-  for server, opts in pairs(servers) do
-    opts = vim.tbl_deep_extend("force", {}, options, opts or {})
-    require("lspconfig")[server].setup(opts)
+    if server == "tsserver" then
+      require("typescript").setup({ server = server_opts })
+      return true
+    end
+
+    require("lspconfig")[server].setup(server_opts)
   end
 
-  require("settings.plugins.null-ls").setup(options)
+  local mlsp = require("mason-lspconfig")
+  local available = mlsp.get_available_servers()
+
+  local ensure_installed = {} ---@type string[]
+  for server, server_opts in pairs(servers) do
+    if server_opts then
+      server_opts = server_opts == true and {} or server_opts
+      -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
+      if server_opts.mason == false or not vim.tbl_contains(available, server) then
+        setup(server)
+      else
+        ensure_installed[#ensure_installed + 1] = server
+      end
+    end
+  end
+
+  require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+  require("mason-lspconfig").setup_handlers({ setup })
 end
 
 return M
