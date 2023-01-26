@@ -29,7 +29,7 @@ return {
   },
   {
     "tpope/vim-rhubarb",
-    command = { "GBrowse" },
+    cmd = { "GBrowse" },
   },
 
   {
@@ -38,7 +38,6 @@ return {
   },
   {
     "ckolkey/ts-node-action",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
     keys = {
       {
         "sj",
