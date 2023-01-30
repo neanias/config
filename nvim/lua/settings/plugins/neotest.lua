@@ -38,7 +38,7 @@ local M = {
       function()
         require("neotest").run.run(vim.fn.getcwd())
       end,
-      desc = "Run the full test suite, presuming that vim's directory is the same as the project root.",
+      desc = "Run the full test suite",
     },
     {
       "<leader>tn",

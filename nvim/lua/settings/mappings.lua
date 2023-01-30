@@ -47,7 +47,7 @@ wk.register({
 wk.register({
   w = {
     utils.strip_whitespace,
-    "Strips trailling whitespace from the buffer",
+    "Strips trailing whitespace from the buffer",
     silent = true,
   },
   f = {
@@ -111,7 +111,7 @@ wk.register({
     d = { "<cmd>Trouble document_diagnostics<cr>", "Show document LSP diagnostics in Trouble" },
     l = { "<cmd>Trouble loclist<cr>", "Open loclist in Trouble dialogue" },
     q = { "<cmd>Trouble quickfix<cr>", "Open quickfix list in Trouble" },
-    t = { "<cmd>TroubleToggle<cr>", "Toggle Trougle window" },
+    t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble window" },
     w = { "<cmd>Trouble workspace_diagnostics<cr>", "Show workspace LSP diagnostics in Trouble" },
     x = { "<cmd>Trouble<cr>", "Open Trouble dialogue" },
   },
