@@ -2,17 +2,6 @@ local wk = require("which-key")
 local utils = require("utils")
 local gs = require("gitsigns")
 
-wk.setup({
-  show_help = false,
-  spelling = {
-    enabled = true,
-    suggestions = 20,
-  },
-  key_labels = {
-    ["<leader>"] = "SPC",
-  },
-})
-
 -- General mappings
 wk.register({
   -- Create window splits more easily

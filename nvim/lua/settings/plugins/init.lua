@@ -1,6 +1,5 @@
 return {
   "nvim-lua/plenary.nvim",
-  "folke/which-key.nvim",
   "folke/neodev.nvim",
   "MunifTanjim/nui.nvim",
   "rcarriga/nvim-notify",
@@ -80,6 +79,21 @@ return {
     config = true,
   },
 
+  {
+    "folke/which-key.nvim",
+    opts = {
+      show_help = false,
+      plugins = {
+        spelling = {
+          enabled = true,
+          suggestions = 20,
+        },
+      },
+      key_labels = {
+        ["<leader>"] = "SPC",
+      },
+    },
+  },
   {
     "folke/todo-comments.nvim",
     event = "BufReadPost",
