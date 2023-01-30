@@ -57,15 +57,7 @@ wk.register({
 
   g = {
     name = "+git",
-    s = { ":tab Git<cr>", "Open Fugitive viewer" },
-    c = {
-      ":tab Git commit<cr>",
-      "Open Fugitive commit dialog",
-    },
-    w = {
-      gs.stage_buffer,
-      "Stage the current buffer",
-    },
+    D = { "<cmd>DiffviewFileHistory %<cr>", "Open file history for current file" },
     S = {
       gs.stage_hunk,
       "Stage the current hunk",
@@ -76,11 +68,21 @@ wk.register({
       end,
       "Blame line",
     },
+    c = { ":tab Git commit<cr>", "Open Fugitive commit dialog" },
+    d = { "<cmd>DiffviewOpen -uno<cr>", "Open diffview" },
     lb = {
       function()
         gs.toggle_current_line_blame()
       end,
       "Toggle showing inline blame",
+    },
+    s = {
+      ":tab Git<cr>",
+      "Open Fugitive viewer",
+    },
+    w = {
+      gs.stage_buffer,
+      "Stage the current buffer",
     },
   },
 

@@ -30,6 +30,13 @@ return {
     "tpope/vim-rhubarb",
     event = "BufReadPre",
   },
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    opts = {
+      enhanced_diff_hl = true,
+    },
+  },
 
   {
     "gpanders/editorconfig.nvim",
