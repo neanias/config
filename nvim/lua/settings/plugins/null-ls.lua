@@ -9,7 +9,12 @@ return {
       sources = {
         nls.builtins.code_actions.cspell,
         nls.builtins.code_actions.gitsigns,
-        nls.builtins.diagnostics.cspell,
+        nls.builtins.diagnostics.cspell.with({
+          -- Force the severity to be HINT
+          diagnostics_postprocess = function(diagnostic)
+            diagnostic.severity = vim.diagnostic.severity.HINT
+          end,
+        }),
         nls.builtins.diagnostics.flake8,
         nls.builtins.diagnostics.markdownlint,
         nls.builtins.formatting.black,
