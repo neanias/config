@@ -20,7 +20,6 @@ function M.config()
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
     end
-    require("settings.plugins.lsp.formatting").setup(client, bufnr)
     require("settings.plugins.lsp.keys").setup(client, bufnr)
 
     local callback = function()
