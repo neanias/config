@@ -6,12 +6,14 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 -- Needed for better colour support
 vim.opt.termguicolors = true
+vim.opt.signcolumn = "yes" -- Always show sign column
 
 -- Use spaces
-vim.opt.expandtab = true
 local indent = 2
-vim.opt.tabstop = indent
+vim.opt.expandtab = true
+vim.opt.shiftround = true
 vim.opt.shiftwidth = indent
+vim.opt.tabstop = indent
 
 -- Searching
 vim.opt.ignorecase = true
@@ -25,10 +27,18 @@ vim.opt.hidden = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Shows matching bracket when inserting one
+-- Shows matching bracket when inserting one...
 vim.opt.showmatch = true
--- For 2 for tenths of a second
-vim.opt.mat = indent
+-- ...for 2 tenths of a second
+vim.opt.mat = 2
+
+-- Hide mode, since lualine shows us that anyway
+vim.opt.showmode = false
+-- Confirm to save changes before exiting modified buffer
+vim.opt.confirm = true
+
+-- Use Ripgrep
+vim.opt.grepprg = "rg --vimgrep"
 
 -- Don't write swapfiles
 vim.opt.swapfile = false
@@ -44,6 +54,7 @@ vim.g.maplocalleader = leader
 -- Keep 8 lines of scrolloff visible where possible. (Shows next 8 lines as
 -- approaching the bottom.)
 vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
 
 -- Ignore generated files
 vim.opt.wildignore = { "*.o", "*~", "*.pyc" }
