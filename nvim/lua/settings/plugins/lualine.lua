@@ -20,10 +20,12 @@ function M.config()
         "lspinfo",
         "checkhealth",
         "man",
-        "NvimTree",
         statusline = {
           "fugitive",
         },
+      },
+      ignore_focus = {
+        "NvimTree",
       },
       globalstatus = true,
     },
