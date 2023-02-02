@@ -49,6 +49,7 @@ function M.setup(client, buffer)
       d = { vim.lsp.buf.definition, "Jump to the definition of the symbol under the cursor" },
       i = { vim.lsp.buf.implementation, "Lists all the implementations for the symbol" },
       rf = { vim.lsp.buf.references, "Lists all references to the symbol under the cursor" },
+      R = { "<cmd>Trouble lsp_references<cr>", "Reveal LSP references under cursor in Trouble" },
     },
     K = { vim.lsp.buf.hover, "Displays hover information about the symbol under the cursor" },
     ["[d"] = { vim.diagnostic.goto_prev, "Go to previous diagnostic" },

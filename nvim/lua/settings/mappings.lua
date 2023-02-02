@@ -149,12 +149,6 @@ wk.register({
   prefix = "<leader>",
 })
 
-wk.register({
-  R = { "<cmd>Trouble lsp_references<cr>", "Reveal LSP references under cursor in Trouble" },
-}, {
-  prefix = "g",
-})
-
 -- Terminal mode
 wk.register({
   ["<ESC>"] = { "<C-\\><C-n>" },
