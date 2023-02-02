@@ -12,9 +12,23 @@ return {
     version = false,
   },
   {
-    "tpope/vim-unimpaired",
-    event = "BufReadPost",
+    "echasnovski/mini.basics",
+    event = "VeryLazy",
     version = false,
+    opts = {
+      options = {
+        basic = false,
+      },
+      mappings = {
+        option_toggle_prefix = "yo",
+      },
+      autocommands = {
+        basic = false,
+      },
+    },
+    config = function(_, opts)
+      require("mini.basics").setup(opts)
+    end,
   },
   {
     "tpope/vim-repeat",

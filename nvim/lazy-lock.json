@@ -24,6 +24,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "422b9745143150e16cd3fe331c74f6737de75e72" },
   "mason.nvim": { "branch": "main", "commit": "2469bfc2538652cb0cf88c129f67d38e46a9cb59" },
   "mini.align": { "branch": "main", "commit": "f35e3e8a0372b4cd76d8b28d511068cda95a49ec" },
+  "mini.basics": { "branch": "main", "commit": "0bdaa51d305488245ec98c718a5cfa36cfe3d463" },
   "neoconf.nvim": { "branch": "main", "commit": "f4c375b5a1c4992a42938e6a50accc17586a123b" },
   "neodev.nvim": { "branch": "main", "commit": "b836d7f573d9612e8f5c3c1eea7acbe8929ff968" },
   "neogen": { "branch": "main", "commit": "fbc3952024d2c0d57b92a3802e9e29c789abcd18" },
@@ -70,6 +71,5 @@
   "vim-rake": { "branch": "master", "commit": "e08049f812d241bbc72127aeafa8afa2f6720886" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-rhubarb": { "branch": "master", "commit": "cad60fe382f3f501bbb28e113dfe8c0de6e77c75" },
-  "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "which-key.nvim": { "branch": "main", "commit": "16ed12a8493628c377606da2ebac50d80736ed37" }
 }
