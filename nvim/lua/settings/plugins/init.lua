@@ -183,9 +183,11 @@ return {
     ft = { "json", "yaml" },
   },
   {
-    "junegunn/vim-easy-align",
-    cmd = "EasyAlign",
-    version = false,
+    "echasnovski/mini.align",
+    event = "VeryLazy",
+    config = function()
+      require("mini.align").setup({})
+    end,
   },
   {
     "tamton-aquib/duck.nvim",

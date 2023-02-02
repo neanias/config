@@ -150,10 +150,6 @@ wk.register({
 })
 
 wk.register({
-  a = {
-    { "<Plug>(EasyAlign)", "Start interactive EasyAlign for a motion/text object (e.g. gaip)" },
-    { "<Plug>(EasyAlign)", "Start interactive EasyAlign in visual mode (e.g. vipga)", mode = "x" },
-  },
   R = { "<cmd>Trouble lsp_references<cr>", "Reveal LSP references under cursor in Trouble" },
 }, {
   prefix = "g",
