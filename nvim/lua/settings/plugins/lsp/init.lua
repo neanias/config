@@ -7,6 +7,15 @@ local M = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "b0o/SchemaStore.nvim", version = false },
     "jose-elias-alvarez/typescript.nvim",
+    "ray-x/lsp_signature.nvim",
+    {
+      "glepnir/lspsaga.nvim",
+      cmd = "Lspsaga",
+      opts = {
+        lightbulb = { enable = false },
+        symbol_in_winbar = { enable = false },
+      },
+    },
   },
 }
 
@@ -144,6 +153,7 @@ function M.config()
 
   require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
   require("mason-lspconfig").setup_handlers({ setup })
+  require("lsp_signature").setup()
 end
 
 return M

@@ -22,10 +22,14 @@ function M.setup(client, buffer)
           mode = "v",
         },
       },
+      b = {
+        "<cmd>Lspsaga show_buf_diagnostics<cr>",
+        "Show buffer diagnositcs",
+      },
       c = {
         name = "+code",
         r = {
-          vim.lsp.buf.rename,
+          "<cmd>Lspsaga rename<cr>",
           "Renames all references to the symbol under the cursor",
           cond = capabilities.renameProvider,
         },
@@ -34,8 +38,12 @@ function M.setup(client, buffer)
           { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code action", mode = "v" },
         },
       },
-      D = { vim.lsp.buf.type_definition, "Jumps to the definition of the type of the symbol" },
-      e = { vim.diagnostic.open_float, "Opens a floating window with the diagnostics for current line" },
+      d = { "<cmd>Lspsaga peek_definition<cr>", "Peek the definition of the symbol under the cursor" },
+      D = { "<cmd>Lspsaga lsp_finder<cr>", "Reveals the definition of the type of the symbol" },
+      e = {
+        "<cmd>Lspsaga show_line_diagnostics ++quiet<cr>",
+        "Opens a floating window with the diagnostics for current line",
+      },
       q = {
         function()
           vim.diagnostic.setqflist({ open = false })
@@ -46,14 +54,14 @@ function M.setup(client, buffer)
     g = {
       name = "+LSP",
       D = { vim.lsp.buf.declaration, "Jump to the declaration of the symbol under the cursor" },
-      d = { vim.lsp.buf.definition, "Jump to the definition of the symbol under the cursor" },
+      d = { "<cmd>Lspsaga goto_definition<cr>", "Jump to the definition of the symbol under the cursor" },
       i = { vim.lsp.buf.implementation, "Lists all the implementations for the symbol" },
       rf = { vim.lsp.buf.references, "Lists all references to the symbol under the cursor" },
       R = { "<cmd>Trouble lsp_references<cr>", "Reveal LSP references under cursor in Trouble" },
     },
-    K = { vim.lsp.buf.hover, "Displays hover information about the symbol under the cursor" },
-    ["[d"] = { vim.diagnostic.goto_prev, "Go to previous diagnostic" },
-    ["]d"] = { vim.diagnostic.goto_next, "Go to next diagnostic" },
+    K = { "<cmd>Lspsaga hover_doc<cr>", "Displays hover information about the symbol under the cursor" },
+    ["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", "Go to previous diagnostic" },
+    ["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<cr>", "Go to next diagnostic" },
   }
 
   wk.register(keymap)
