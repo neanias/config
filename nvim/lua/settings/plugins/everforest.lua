@@ -9,6 +9,8 @@ function M.config()
   everforest.setup({
     background = "medium",
     transparent_background_level = 0,
+    italics = true,
+    disable_italic_comments = false,
   })
   everforest.load()
 end
