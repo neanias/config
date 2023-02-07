@@ -31,6 +31,23 @@ return {
     end,
   },
   {
+    "echasnovski/mini.move",
+    event = "VeryLazy",
+    version = false,
+    opts = {
+      mappings = {
+        up = "[e",
+        down = "]e",
+
+        line_up = "[e",
+        line_down = "]e",
+      },
+    },
+    config = function(_, opts)
+      require("mini.move").setup(opts)
+    end,
+  },
+  {
     "tpope/vim-repeat",
     keys = ".",
     version = false,
