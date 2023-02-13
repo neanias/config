@@ -90,7 +90,7 @@ function M.config()
         },
       },
     },
-    sumneko_lua = {
+    lua_ls = {
       single_file_support = true,
       settings = {
         Lua = {
