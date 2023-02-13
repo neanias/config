@@ -11,10 +11,6 @@ local M = {
         respect_gitignore = true,
       },
     },
-    {
-      "LukasPietzschmann/telescope-tabs",
-      config = true,
-    },
     "benfowler/telescope-luasnip.nvim",
     "neanias/telescope-lines.nvim",
   },
@@ -56,7 +52,6 @@ function M.config()
   telescope.load_extension("fzf")
   telescope.load_extension("dir")
   telescope.load_extension("noice")
-  telescope.load_extension("telescope-tabs")
   telescope.load_extension("luasnip")
   telescope.load_extension("neoclip")
 
