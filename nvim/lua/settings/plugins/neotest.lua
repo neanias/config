@@ -3,6 +3,7 @@ local M = {
   dependencies = {
     "olimorris/neotest-rspec",
     "haydenmeade/neotest-jest",
+    "nvim-neotest/neotest-python",
   },
   keys = {
     {
@@ -41,14 +42,14 @@ local M = {
       desc = "Run the full test suite",
     },
     {
-      "<leader>tn",
+      "]t",
       function()
         require("neotest").jump.next()
       end,
       desc = "Jump to the next test",
     },
     {
-      "<leader>tp",
+      "[t",
       function()
         require("neotest").jump.prev()
       end,
@@ -62,6 +63,7 @@ function M.config()
     adapters = {
       require("neotest-rspec"),
       require("neotest-jest"),
+      require("neotest-python"),
     },
   })
 end
