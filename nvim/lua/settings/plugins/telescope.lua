@@ -56,6 +56,7 @@ local M = {
       "<cmd>Telescope neoclip<cr>",
       desc = "Search through the clipboard to reassign the current paste",
     },
+    { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Resume last Telescope picker" },
     { "<leader>fs", "<cmd>Telescope search_history<cr>", desc = "Lists recent search history" },
     { "<leader>ft", "<cmd>Telescope treesitter<cr>", desc = "Search through treesitter tags" },
     {
