@@ -7,7 +7,6 @@ return {
       debounce = 150,
       save_after_format = false,
       sources = {
-        nls.builtins.code_actions.cspell,
         nls.builtins.code_actions.gitsigns,
         nls.builtins.diagnostics.flake8,
         nls.builtins.diagnostics.markdownlint,

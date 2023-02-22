@@ -6,7 +6,6 @@ local M = {
   opts = {
     ensure_installed = {
       "black",
-      "cspell",
       "deno",
       "eslint_d",
       "flake8",
