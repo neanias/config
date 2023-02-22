@@ -15,6 +15,57 @@ local M = {
     "neanias/telescope-lines.nvim",
     "molecule-man/telescope-menufacture",
   },
+  keys = {
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find recent buffers" },
+    {
+      "<leader>fd",
+      function()
+        require("telescope").extensions.menufacture.find_files()
+      end,
+      desc = "find files in dir",
+    },
+    {
+      "<leader>ff",
+      function()
+        require("telescope").extensions.menufacture.find_files()
+      end,
+      desc = "Find files in dir",
+    },
+    {
+      "<leader>fg",
+      function()
+        require("telescope").extensions.menufacture.live_grep()
+      end,
+      desc = "Grep through the project dir",
+    },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Search for help tags" },
+    { "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Search through jumplist" },
+    {
+      "<leader>fl",
+      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
+      desc = "Search through lines in the buffer",
+    },
+    { "<leader>fm", "<cmd>Telescope man_pages<cr>", desc = "Search through the man pages" },
+    {
+      "<leader>fo",
+      "<cmd>Telescope oldfiles only_cwd=true<cr>",
+      desc = "Search through recently opened files",
+    },
+    {
+      "<leader>fp",
+      "<cmd>Telescope neoclip<cr>",
+      desc = "Search through the clipboard to reassign the current paste",
+    },
+    { "<leader>fs", "<cmd>Telescope search_history<cr>", desc = "Lists recent search history" },
+    { "<leader>ft", "<cmd>Telescope treesitter<cr>", desc = "Search through treesitter tags" },
+    {
+      "<leader>fw",
+      function()
+        require("telescope").extensions.menufacture.grep_string()
+      end,
+      desc = "Searches for the word under the cursor",
+    },
+  },
 }
 
 function M.config()
