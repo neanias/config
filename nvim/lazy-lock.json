@@ -63,6 +63,7 @@
   "sunset.nvim": { "branch": "main", "commit": "0d771f704ec3801b9010968b113d43a8f7e0f4f4" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope-luasnip.nvim": { "branch": "master", "commit": "849c4ee1951f34041a26744d2a88284545564ff0" },
+  "telescope-menufacture": { "branch": "main", "commit": "44aa65bd42290fca37bb466f257295dbc869a13c" },
   "telescope.nvim": { "branch": "master", "commit": "203bf5609137600d73e8ed82703d6b0e320a5f36" },
   "todo-comments.nvim": { "branch": "main", "commit": "077c59586d9d0726b0696dc5680eb863f4e04bc5" },
   "trouble.nvim": { "branch": "main", "commit": "3bd029284d368cf70cc6fb4a5cbb9ae2231c239d" },

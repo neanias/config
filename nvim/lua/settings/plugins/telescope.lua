@@ -13,6 +13,7 @@ local M = {
     },
     "benfowler/telescope-luasnip.nvim",
     "neanias/telescope-lines.nvim",
+    "molecule-man/telescope-menufacture",
   },
 }
 
@@ -47,13 +48,23 @@ function M.config()
         },
       },
     },
+    extensions = {
+      menufacture = {
+        mappings = {
+          main_menu = {
+            [{ "i", "n" }] = "<C-f>",
+          },
+        },
+      },
+    },
   })
 
   telescope.load_extension("fzf")
   telescope.load_extension("dir")
-  telescope.load_extension("noice")
   telescope.load_extension("luasnip")
+  telescope.load_extension("menufacture")
   telescope.load_extension("neoclip")
+  telescope.load_extension("noice")
 
   local telescope_augroup_id = vim.api.nvim_create_augroup("telescope", { clear = true })
   vim.api.nvim_create_autocmd("FileType", {
