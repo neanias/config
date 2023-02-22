@@ -18,12 +18,12 @@ return {
   },
   {
     "tpope/vim-fugitive",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
     version = false,
   },
   {
     "tpope/vim-rhubarb",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "sindrets/diffview.nvim",
@@ -35,7 +35,7 @@ return {
 
   {
     "gpanders/editorconfig.nvim",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
   },
   {
     "ckolkey/ts-node-action",
@@ -64,7 +64,7 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
-    event = "BufReadPre",
+    event = { "BufReadPre", "BufNewFile" },
     config = true,
   },
   {
@@ -98,7 +98,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
-    event = "BufReadPost",
+    event = { "BufReadPost", "BufNewFile" },
     config = true,
   },
   {
@@ -112,7 +112,7 @@ return {
   },
   {
     "chrisgrieser/nvim-various-textobjs",
-    event = "BufReadPost",
+    event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("various-textobjs").setup({ useDefaultKeymaps = true })
     end,
