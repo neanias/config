@@ -61,6 +61,8 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 
 alias tree="exa --tree"
+# Switches Bat themes based on dark/light mode
+alias cat="bat --theme=\"\$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo 'Everforest Dark' || echo 'Everforest Light')\""
 
 #############
 #  HISTORY  #
