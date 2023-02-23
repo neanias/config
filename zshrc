@@ -47,6 +47,7 @@ setopt AUTO_PARAM_SLASH
 #############
 
 alias be="bundle exec"
+alias ls="exa"
 alias la="exa -a"
 alias ll="exa -alh"
 alias ga="git add"
