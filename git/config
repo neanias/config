@@ -115,18 +115,19 @@
   default = current
 [core]
   autocrlf = input
-  pager = "{                                                           \
-      COLUMNS=$(tput cols);                                            \
-      if [ $COLUMNS -ge 80 ] && [ -z $FZF_PREVIEW_COLUMNS ]; then      \
-          delta --side-by-side -w $COLUMNS;                            \
-      elif [ $COLUMNS -ge 160 ] && [ ! -z $FZF_PREVIEW_COLUMNS ]; then \
-          delta --side-by-side -w $FZF_PREVIEW_COLUMNS;                \
-      else                                                             \
-          delta;                                                       \
-      fi                                                               \
-  }"
+  pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
   editor = nvim
 	excludesFile = /Users/williammathewson/.config/git/ignore
+[delta]
+  features = "decorations"
+  hyperlinks = true
+  navigate = true
+[delta "light-mode"]
+  light = true
+  syntax-theme = "Everforest Light"
+[delta "dark-mode"]
+  light = false
+  syntax-theme = "Everforest Dark"
 [advice]
   statusHints = false
 [diff]
@@ -157,3 +158,7 @@
 	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
+[rebase]
+	updateRefs = true
+[interactive]
+	diffFilter = delta --color-only --features=interactive
