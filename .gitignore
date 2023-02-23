@@ -1,3 +1,5 @@
 backups/
 devkit/
 yarn/
+# We don't need the version info, just the latest versions
+Brewfile.lock.json
