@@ -142,6 +142,17 @@ return {
         ruby = 115,
         python = 88,
       },
+      disabled_type = {
+        "help",
+        "text",
+        "markdown",
+        "qf",
+        "lspinfo",
+        "checkhealth",
+        "man",
+        "lazy",
+        "gitcommit",
+      },
     },
   },
 
