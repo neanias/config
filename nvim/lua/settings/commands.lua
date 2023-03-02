@@ -15,6 +15,11 @@ vim.api.nvim_create_autocmd("FileType", {
   command = [[nnoremap <buffer><silent> q :quit<CR>]],
   desc = "Remaps q to close man pages",
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitconfig",
+  command = [[set spell]],
+  desc = "Enable spelling by default in Git commit messages"
+})
 
 -- Set the syntax for .rbapi files to be Ruby
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufReadPost" }, {
