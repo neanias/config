@@ -20,6 +20,8 @@ function M.config()
 
   -- Use Treesitter for fold markers
   vim.cmd([[set foldexpr=nvim_treesitter#foldexpr()]])
+  vim.opt.foldenable = false -- Disable folding at startup
+  vim.opt.foldmethod = "expr"
 
   ts_config.setup({
     ensure_installed = {
