@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Remaps q to close man pages",
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "gitconfig",
+  pattern = "gitcommit",
   command = [[set spell]],
   desc = "Enable spelling by default in Git commit messages"
 })
