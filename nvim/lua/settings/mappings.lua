@@ -72,12 +72,9 @@ wk.register({
     },
   },
 
-  r = {
-    name = "+refactoring",
-  },
-  t = {
-    name = "+test",
-  },
+  r = { name = "+refactoring" },
+  s = { name = "+debug" },
+  t = { name = "+test" },
 
   -- UndoTree
   u = { "<Cmd>UndotreeToggle<CR>", "Opens the UndoTree" },
