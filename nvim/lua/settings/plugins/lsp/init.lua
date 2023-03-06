@@ -1,5 +1,6 @@
 local M = {
   "neovim/nvim-lspconfig",
+  version = false, -- Latest tag is behind
   name = "lsp",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
