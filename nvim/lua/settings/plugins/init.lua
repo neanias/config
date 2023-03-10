@@ -111,13 +111,6 @@ return {
     cmd = "FeMaco",
   },
   {
-    "chrisgrieser/nvim-various-textobjs",
-    event = { "BufReadPost", "BufNewFile" },
-    config = function()
-      require("various-textobjs").setup({ useDefaultKeymaps = true })
-    end,
-  },
-  {
     "JManch/sunset.nvim",
     lazy = false,
     opts = {
