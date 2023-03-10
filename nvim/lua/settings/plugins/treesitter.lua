@@ -11,7 +11,7 @@ local M = {
       "nvim-treesitter/playground",
       cmd = "TSPlaygroundToggle",
     },
-    "mrjones2014/nvim-ts-rainbow",
+    "HiPhish/nvim-ts-rainbow2",
   },
 }
 
@@ -94,7 +94,10 @@ function M.config()
     },
     rainbow = {
       enable = true,
-      extended_mode = true,
+      query = {
+        "rainbow-parens",
+        html = "rainbow-tags",
+      },
     },
     textobjects = {
       select = {
