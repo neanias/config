@@ -36,17 +36,26 @@ function M.config()
       lualine_c = {},
       lualine_x = {
         {
-          require("noice").api.status.mode.get,
-          cond = require("noice").api.status.mode.has,
-        },
-        {
           require("noice").api.status.command.get,
           cond = require("noice").api.status.command.has,
         },
+        {
+          require("noice").api.status.mode.get,
+          cond = require("noice").api.status.mode.has,
+        },
         "searchcount",
       },
-      lualine_y = {},
-      lualine_z = {},
+      lualine_y = {
+        {
+          require("lazy.status").updates,
+          cond = require("lazy.status").has_updates,
+        },
+      },
+      lualine_z = {
+        function()
+          return " " .. os.date("%d/%m")
+        end,
+      },
     },
     inactive_sections = {
       lualine_a = {},
