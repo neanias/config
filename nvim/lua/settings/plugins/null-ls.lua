@@ -8,8 +8,8 @@ return {
       save_after_format = false,
       sources = {
         nls.builtins.code_actions.gitsigns,
-        nls.builtins.diagnostics.flake8,
         nls.builtins.diagnostics.markdownlint,
+        nls.builtins.diagnostics.ruff,
         nls.builtins.formatting.black,
         nls.builtins.formatting.isort,
         nls.builtins.formatting.prettierd.with({
