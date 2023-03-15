@@ -2,17 +2,20 @@ vim.cmd("filetype plugin indent on")
 
 -- Basics
 vim.opt.number = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
 -- Needed for better colour support
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes" -- Always show sign column
 
--- Use spaces
+-- Indentation
 local indent = 2
-vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.breakindent = true
+vim.opt.copyindent = true
+vim.opt.expandtab = true -- Use spaces rather than tabs
+vim.opt.preserveindent = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = indent
+vim.opt.smartindent = true
 vim.opt.tabstop = indent
 
 -- Searching
@@ -61,6 +64,7 @@ vim.opt.wildignore = { "*.o", "*~", "*.pyc" }
 
 -- Don't soft warp text if it's off the side of the window
 vim.opt.wrap = false
+vim.opt.linebreak = true
 
 -- Set British English as the priority
 vim.opt.spelllang = "en_gb,en"
