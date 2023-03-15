@@ -81,3 +81,13 @@ vim.o.undofile = true
 
 -- Have the undotree be in a panel on the RHS
 vim.g.undotree_WindowLayout = 3
+
+-- Folding
+-- Enable fold for nvim-ufo
+vim.opt.foldenable = true
+-- Set high foldlevel for nvim-ufo
+vim.opt.foldlevel = 99
+-- Start with all code unfolded
+vim.opt.foldlevelstart = 99
+-- Show foldcolumn when we reach nvim 0.9
+vim.opt.foldcolumn = vim.fn.has("nvim-0.9") == 1 and "1" or "0"

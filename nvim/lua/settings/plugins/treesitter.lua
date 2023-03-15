@@ -18,11 +18,6 @@ local M = {
 function M.config()
   local ts_config = require("nvim-treesitter.configs")
 
-  -- Use Treesitter for fold markers
-  vim.cmd([[set foldexpr=nvim_treesitter#foldexpr()]])
-  vim.opt.foldenable = false -- Disable folding at startup
-  vim.opt.foldmethod = "expr"
-
   ts_config.setup({
     ensure_installed = {
       "bash",
