@@ -38,16 +38,19 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
   {
-    "ckolkey/ts-node-action",
+    "Wansmer/treesj",
     keys = {
       {
         "sj",
         function()
-          require("ts-node-action").node_action()
+          require("treesj").toggle()
         end,
         mode = { "n" },
-        desc = "Trigger node action",
+        desc = "Toggle node",
       },
+    },
+    opts = {
+      use_default_keymaps = false,
     },
   },
   {
