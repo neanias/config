@@ -118,6 +118,7 @@ function M.config()
         },
       },
     },
+    terraformls = {},
     tsserver = {},
   }
 

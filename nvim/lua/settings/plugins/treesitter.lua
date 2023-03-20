@@ -43,6 +43,7 @@ function M.config()
       "ruby",
       "rust",
       "scss",
+      "terraform",
       "toml",
       "tsx",
       "typescript",
