@@ -17,6 +17,19 @@ local M = {
         symbol_in_winbar = { enable = false },
       },
     },
+    {
+      "SmiteshP/nvim-navic",
+      init = function()
+        -- Silence Navic warnings (frequent)
+        vim.g.navic_silence = true
+      end,
+    },
+    {
+      "SmiteshP/nvim-navbuddy",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+      },
+    },
   },
 }
 
@@ -29,6 +42,7 @@ function M.config()
   local function on_attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
       require("nvim-navic").attach(client, bufnr)
+      require("nvim-navbuddy").attach(client, bufnr)
     end
     require("settings.plugins.lsp.keys").setup(client, bufnr)
 

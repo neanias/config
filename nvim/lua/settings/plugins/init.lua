@@ -4,12 +4,8 @@ return {
   "MunifTanjim/nui.nvim",
   "rcarriga/nvim-notify",
   "williamboman/mason-lspconfig.nvim",
+
   {
-    "SmiteshP/nvim-navic",
-    init = function ()
-      -- Silence Navic warnings (frequent)
-      vim.g.navic_silence = true
-    end
   },
 
   {
