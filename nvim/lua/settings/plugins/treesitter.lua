@@ -22,6 +22,7 @@ function M.config()
     ensure_installed = {
       "bash",
       "c",
+      "c_sharp",
       "cpp",
       "css",
       "eex",
