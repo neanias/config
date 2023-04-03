@@ -156,9 +156,9 @@ return {
     "JManch/sunset.nvim",
     lazy = false,
     opts = {
-      -- Edinburgh co-ords
-      latitude = 55.943175,
-      longitude = -3.208831,
+      -- London :'( co-ords
+      latitude = 51.507340,
+      longitude = -0.127647,
     },
   },
   {
