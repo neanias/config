@@ -12,33 +12,25 @@ return {
     keys = {
       {
         "w",
-        function()
-          require("spider").motion("w")
-        end,
+        [[<cmd>lua require("spider").motion("w")<CR>]],
         mode = { "n", "o", "x" },
         desc = "Spider-w",
       },
       {
         "e",
-        function()
-          require("spider").motion("e")
-        end,
+        [[<cmd>lua require("spider").motion("e")<CR>]],
         mode = { "n", "o", "x" },
         desc = "Spider-e",
       },
       {
         "b",
-        function()
-          require("spider").motion("b")
-        end,
+        [[<cmd>lua require("spider").motion("b")<CR>]],
         mode = { "n", "o", "x" },
         desc = "Spider-b",
       },
       {
         "ge",
-        function()
-          require("spider").motion("ge")
-        end,
+        [[<cmd>lua require("spider").motion("ge")<CR>]],
         mode = { "n", "o", "x" },
         desc = "Spider-ge",
       },
