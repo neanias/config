@@ -60,6 +60,11 @@ local M = {
     { "<leader>fs", "<cmd>Telescope search_history<cr>", desc = "Lists recent search history" },
     { "<leader>ft", "<cmd>Telescope treesitter<cr>", desc = "Search through treesitter tags" },
     {
+      "<leader>fv",
+      "<Cmd>Telescope vim_options<cr>",
+      desc = "Show vim options",
+    },
+    {
       "<leader>fw",
       function()
         require("telescope").extensions.menufacture.grep_string()
