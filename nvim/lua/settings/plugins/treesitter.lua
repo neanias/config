@@ -11,7 +11,10 @@ local M = {
       "nvim-treesitter/playground",
       cmd = "TSPlaygroundToggle",
     },
-    "HiPhish/nvim-ts-rainbow2",
+    {
+      "HiPhish/nvim-ts-rainbow2",
+      version = false,
+    },
   },
 }
 
