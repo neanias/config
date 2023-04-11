@@ -29,6 +29,7 @@ vim.opt.hidden = true
 -- Split to the right and below
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.splitkeep = "screen"
 
 -- Shows matching bracket when inserting one...
 vim.opt.showmatch = true
@@ -93,5 +94,8 @@ vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 -- Start with all code unfolded
 vim.opt.foldlevelstart = 99
--- Show foldcolumn when we reach nvim 0.9
-vim.opt.foldcolumn = vim.fn.has("nvim-0.9") == 1 and "1" or "0"
+vim.opt.foldcolumn = "0"
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
+
+-- Status column
+-- vim.opt.statuscolumn = "%s %C %l"

@@ -72,6 +72,8 @@ wk.register({
     },
   },
 
+  ["ii"] = { "<Cmd>Inspect<CR>", "Reveal treesitter capture groups under cursor" },
+
   r = { name = "+refactoring" },
   s = { name = "+debug" },
   t = { name = "+test" },
