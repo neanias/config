@@ -16,9 +16,9 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = "Remaps q to close man pages",
 })
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "gitcommit",
+  pattern = { "gitcommit", "markdown" },
   command = [[set spell]],
-  desc = "Enable spelling by default in Git commit messages"
+  desc = "Enable spelling by default in prose files"
 })
 
 -- Set the syntax for .rbapi files to be Ruby
