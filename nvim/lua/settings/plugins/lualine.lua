@@ -29,19 +29,27 @@ function M.config()
       },
       globalstatus = true,
     },
-    extensions = { "nvim-tree", "fugitive" },
+    extensions = { "nvim-tree", "fugitive", "lazy" },
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = {},
       lualine_x = {
         {
-          require("noice").api.status.command.get,
-          cond = require("noice").api.status.command.has,
+          function()
+            return require("noice").api.status.command.get()
+          end,
+          cond = function()
+            return package.loaded["noice"] and require("noice").api.status.command.has()
+          end,
         },
         {
-          require("noice").api.status.mode.get,
-          cond = require("noice").api.status.mode.has,
+          function()
+            return require("noice").api.status.mode.get()
+          end,
+          cond = function()
+            return package.loaded["noice"] and require("noice").api.status.mode.has()
+          end,
         },
         "searchcount",
       },
@@ -78,8 +86,12 @@ function M.config()
       },
       lualine_c = {
         {
-          require("nvim-navic").get_location,
-          cond = require("nvim-navic").is_available,
+          function()
+            return require("nvim-navic").get_location()
+          end,
+          cond = function()
+            return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+          end,
         },
       },
       lualine_x = { "filetype" },
