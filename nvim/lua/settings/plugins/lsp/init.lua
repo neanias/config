@@ -64,6 +64,13 @@ function M.config()
 
     if client.name == "ruby_ls" then
       callback()
+
+      local ruby_group = vim.api.nvim_create_augroup("ruby_ls", { clear = false })
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePre", "InsertLeave", "TextChanged" }, {
+        buffer = bufnr,
+        callback = callback,
+        group = ruby_group,
+      })
     end
   end
 
