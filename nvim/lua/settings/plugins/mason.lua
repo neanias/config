@@ -5,6 +5,7 @@ local M = {
   },
   opts = {
     ensure_installed = {
+      "actionlint",
       "black",
       "deno",
       "eslint_d",
