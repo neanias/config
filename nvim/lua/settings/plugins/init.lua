@@ -81,6 +81,22 @@ return {
     },
   },
   {
+    "ckolkey/ts-node-action",
+    dependencies = "nvim-treesitter",
+    keys = {
+      {
+        "sk",
+        function()
+          require("ts-node-action").node_action()
+        end,
+        mode = { "n" },
+        desc = "Toggle node",
+      },
+    },
+    opts = {},
+  },
+
+  {
     "nvim-tree/nvim-web-devicons",
     config = function()
       require("nvim-web-devicons").setup({ default = true })
