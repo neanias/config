@@ -15,6 +15,9 @@ local M = {
       opts = {
         lightbulb = { enable = false },
         symbol_in_winbar = { enable = false },
+        diagnostic = {
+          border_follow = false,
+        },
       },
     },
     "SmiteshP/nvim-navic",
