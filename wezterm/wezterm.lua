@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+require("on")
 
 local config = {}
 
@@ -26,10 +27,12 @@ config.font = wezterm.font_with_fallback({
   "Symbols Nerd Font Mono",
 })
 
-config.default_cursor_style = "SteadyBar"
+config.default_cursor_style = "SteadyBlock"
 
 -- Swap composition keys so left Alt behaves normally
 config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = false
+
+config.use_fancy_tab_bar = false
 
 return config
