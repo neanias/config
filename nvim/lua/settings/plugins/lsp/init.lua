@@ -96,8 +96,38 @@ function M.config()
         },
       },
     },
-    pyright = {},
-    ruby_ls = {},
+    omnisharp = {},
+    pylsp = {
+      autostart = false,
+      cmd = { "poetry", "run", "pylsp" },
+      settings = {
+        pylsp = {
+          plugins = {
+            pycodestyle = {
+              maxLineLength = 88,
+            },
+          },
+        },
+      },
+    },
+    pyright = {
+      cmd = { "poetry", "run", "pyright-langserver", "--stdio" },
+    },
+    ruby_ls = {
+      init_options = {
+        enabledFeatures = {
+          codeActions = true,
+          diagnostics = true,
+          documentHighlights = true,
+          documentSymbols = true,
+          formatting = true,
+          hover = true,
+          inlayHint = true,
+          onTypeFormatting = true,
+          semanticHighlighting = true,
+        },
+      },
+    },
     rust_analyzer = {
       settings = {
         ["rust-analyzer"] = {
@@ -127,7 +157,11 @@ function M.config()
           },
           workspace = {
             -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
+            library = vim.tbl_extend(
+              "force",
+              vim.api.nvim_get_runtime_file("", true),
+              { "${3rd}/luassert/library", "${3rd}/luv/library" }
+            ),
           },
           -- Do not send telemetry data containing a randomized but unique identifier
           telemetry = {
