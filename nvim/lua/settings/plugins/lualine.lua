@@ -33,7 +33,11 @@ function M.config()
     sections = {
       lualine_a = { "mode" },
       lualine_b = { "branch" },
-      lualine_c = {},
+      lualine_c = {
+        function()
+          return require("NeoComposer.ui").status_recording()
+        end,
+      },
       lualine_x = {
         {
           function()
