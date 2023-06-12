@@ -61,8 +61,6 @@
   "playground": { "branch": "master", "commit": "2b81a018a49f8e476341dfcb228b7b808baba68b" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
   "promise-async": { "branch": "main", "commit": "38a4575da9497326badd3995e768b4ccf0bb153e" },
-  "refactoring.nvim": { "branch": "master", "commit": "08bcc40638cd4debd5184f934971858e1c5acff4" },
-  "smartcolumn.nvim": { "branch": "main", "commit": "0c572e3eae48874f25b74394a486f38cadb5c958" },
   "sqlite.lua": { "branch": "master", "commit": "6c00ab414dc1b69621b145908c582b747f24b46e" },
   "ssr.nvim": { "branch": "main", "commit": "e5768511518a397fa712f26389ba30d0404990de" },
   "sunset.nvim": { "branch": "main", "commit": "3da65f6717f64600f4eab9cdb73506d681ed0d45" },

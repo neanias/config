@@ -171,29 +171,6 @@ return {
     keys = { { "S", mode = "v" }, "ys", "yS", "cs", "ds" },
     config = true,
   },
-  {
-    "m4xshen/smartcolumn.nvim",
-    version = false,
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      colorcolumn = 100,
-      custom_colorcolumn = {
-        ruby = 115,
-        python = 88,
-      },
-      disabled_type = {
-        "help",
-        "text",
-        "markdown",
-        "qf",
-        "lspinfo",
-        "checkhealth",
-        "man",
-        "lazy",
-        "gitcommit",
-      },
-    },
-  },
 
   -- Ruby/Rails plugins
   {
