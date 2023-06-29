@@ -22,10 +22,14 @@ return {
       mode = { "n", "x", "o" },
       function()
         require("flash").jump({
-          search = { mode = "search" },
-          highlight = { label = { after = { 0, 0 } } },
-          pattern = "^\\S*",
+          search = { mode = "search", max_length = 0 },
+          highlight = {
+            label = { after = { 0, 0 } },
+            matches = false,
+          },
+          pattern = "^\\s*\\S\\?", -- match non-whitespace at start plus any character (ignores empty lines)
         })
+        vim.cmd([[normal! ^]])
       end,
       desc = "Hop to a specific line",
     },
