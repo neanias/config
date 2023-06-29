@@ -92,41 +92,8 @@ wk.register({
     x = { "<cmd>Trouble<cr>", "Open Trouble dialogue" },
   },
 
-  -- Hop
   ["<leader>"] = {
-    name = "+hop",
-    w = {
-      function()
-        local hop = require("hop")
-        hop.hint_words({ direction = require("hop.hint").HintDirection.AFTER_CURSOR })
-      end,
-      "Search for hop directions",
-    },
-    b = {
-      function()
-        local hop = require("hop")
-        hop.hint_words({ direction = require("hop.hint").HintDirection.BEFORE_CURSOR })
-      end,
-      "Search for hop directions",
-    },
-    f = {
-      function()
-        require("hop").hint_char1()
-      end,
-      "Search for hop directions to a certain char",
-    },
-    l = {
-      function()
-        require("hop").hint_lines_skip_whitespace()
-      end,
-      "Hop to a specific line",
-    },
-    p = {
-      function()
-        require("hop").hint_patterns()
-      end,
-      "Hop based on a pattern",
-    },
+    name = "+flash",
   },
 
   d = { name = "+duck" },

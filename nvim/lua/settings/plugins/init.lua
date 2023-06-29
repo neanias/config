@@ -104,11 +104,6 @@ return {
   },
 
   {
-    "phaazon/hop.nvim",
-    version = "~2.0.0",
-    config = true,
-  },
-  {
     "NvChad/nvim-colorizer.lua",
     event = { "BufReadPre", "BufNewFile" },
     config = true,
