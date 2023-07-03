@@ -8,6 +8,7 @@ return {
       save_after_format = false,
       sources = {
         nls.builtins.code_actions.gitsigns,
+        nls.builtins.diagnostics.actionlint,
         nls.builtins.diagnostics.markdownlint,
         nls.builtins.diagnostics.ruff,
         nls.builtins.formatting.black,
