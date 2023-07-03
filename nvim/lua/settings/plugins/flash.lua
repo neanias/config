@@ -23,10 +23,8 @@ return {
       function()
         require("flash").jump({
           search = { mode = "search", max_length = 0 },
-          highlight = {
-            label = { after = { 0, 0 } },
-            matches = false,
-          },
+          highlight = { matches = false },
+          label = { after = { 0, 0 } },
           pattern = "^\\s*\\S\\?", -- match non-whitespace at start plus any character (ignores empty lines)
         })
         vim.cmd([[normal! ^]])
