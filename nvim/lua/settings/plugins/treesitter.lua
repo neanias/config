@@ -15,6 +15,8 @@ local M = {
       "HiPhish/nvim-ts-rainbow2",
       version = false,
     },
+    "RRethy/nvim-treesitter-endwise",
+    "windwp/nvim-ts-autotag",
   },
 }
 
@@ -60,6 +62,8 @@ function M.config()
       enable = true,
       enable_autocmd = false,
     },
+    endwise = { enable = true },
+    autotag = { enable = true },
     highlight = {
       enable = true, -- false will disable the whole extension
       disable = {}, -- list of language that will be disabled
