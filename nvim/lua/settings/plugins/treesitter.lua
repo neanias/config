@@ -11,10 +11,6 @@ local M = {
       "nvim-treesitter/playground",
       cmd = "TSPlaygroundToggle",
     },
-    {
-      "HiPhish/nvim-ts-rainbow2",
-      version = false,
-    },
     "RRethy/nvim-treesitter-endwise",
     "windwp/nvim-ts-autotag",
   },
@@ -107,13 +103,6 @@ function M.config()
         keymaps = {
           smart_rename = "grr",
         },
-      },
-    },
-    rainbow = {
-      enable = true,
-      query = {
-        "rainbow-parens",
-        html = "rainbow-tags",
       },
     },
     textobjects = {
