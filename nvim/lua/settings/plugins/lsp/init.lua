@@ -10,7 +10,7 @@ local M = {
     "jose-elias-alvarez/typescript.nvim",
     "ray-x/lsp_signature.nvim",
     {
-      "glepnir/lspsaga.nvim",
+      "nvimdev/lspsaga.nvim",
       cmd = "Lspsaga",
       opts = {
         lightbulb = { enable = false },
