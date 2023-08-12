@@ -48,6 +48,12 @@ function M.config()
 
       client.request("textDocument/diagnostic", { textDocument = params }, function(err, result)
         if err then
+          local err_msg = string.format("diagnostics error - %s", vim.inspect(err))
+          vim.lsp.log.error(err_msg)
+          return
+        end
+
+        if not result then
           return
         end
 
