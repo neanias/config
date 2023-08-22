@@ -19,17 +19,6 @@ local M = {
 function M.config()
   local ts_config = require("nvim-treesitter.configs")
 
-  local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-  parser_configs.xml = {
-    install_info = {
-      url = "https://github.com/Trivernis/tree-sitter-xml",
-      files = { "src/parser.c" },
-      generate_requires_npm = true,
-      branch = "main",
-    },
-    filetype = "xml",
-  }
-
   ts_config.setup({
     ensure_installed = {
       "bash",
