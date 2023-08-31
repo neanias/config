@@ -93,7 +93,7 @@ wk.register({
   },
 
   ["<leader>"] = {
-    name = "+flash",
+    name = "+hop",
   },
 
   d = { name = "+duck" },
