@@ -45,5 +45,51 @@ return {
       end,
       desc = "Hop based on a pattern",
     },
+    {
+      "t",
+      mode = { "n", "v", "o" },
+      function()
+        local hop = require("hop")
+        hop.hint_char1({
+          direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+          current_line_only = true,
+          hint_offset = -1,
+        })
+      end,
+    },
+    {
+      "T",
+      mode = { "n", "v", "o" },
+      function()
+        local hop = require("hop")
+        hop.hint_char1({
+          direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+          current_line_only = true,
+          hint_offset = -1,
+        })
+      end,
+    },
+    {
+      "f",
+      mode = { "n", "v", "o" },
+      function()
+        local hop = require("hop")
+        hop.hint_char1({
+          direction = require("hop.hint").HintDirection.AFTER_CURSOR,
+          current_line_only = true,
+        })
+      end,
+    },
+    {
+      "F",
+      mode = { "n", "v", "o" },
+      function()
+        local hop = require("hop")
+        hop.hint_char1({
+          direction = require("hop.hint").HintDirection.BEFORE_CURSOR,
+          current_line_only = true,
+        })
+      end,
+    },
   },
 }
