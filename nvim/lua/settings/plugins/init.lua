@@ -243,20 +243,4 @@ return {
       },
     },
   },
-  {
-    "ecthelionvi/NeoComposer.nvim",
-    dependencies = { "kkharji/sqlite.lua" },
-    opts = {
-      colors = {
-        fg = "#939f91",
-        bg = "#f4f0d9",
-        red = "#f85552",
-        blue = "#3a94c5",
-        green = "#8da101",
-      },
-      keymaps = {
-        play_macro = "W",
-      },
-    },
-  },
 }
