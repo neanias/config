@@ -1,21 +1,30 @@
 local M = {
   "lukas-reineke/indent-blankline.nvim",
+  main = "ibl",
   event = { "BufReadPre", "BufNewFile" },
   keys = {
     {
       "<leader>ig",
-      function()
-        require("indent_blankline.commands").toggle()
-      end,
+      "<cmd>IBLToggle<cr>",
       desc = "Toggle indent guides",
     },
   },
   opts = {
     enabled = false,
-    use_treesitter = true,
-    show_current_context = true,
-    show_current_context_start = true,
-    filetype_exclude = { "help", "Trouble", "lazy" },
+    exclude = {
+      filetypes = { "help", "Trouble", "lazy" },
+    },
+    scope = {
+      highlight = {
+        "RainbowDelimiterRed",
+        "RainbowDelimiterYellow",
+        "RainbowDelimiterBlue",
+        "RainbowDelimiterOrange",
+        "RainbowDelimiterGreen",
+        "RainbowDelimiterViolet",
+        "RainbowDelimiterCyan",
+      },
+    },
   },
 }
 
