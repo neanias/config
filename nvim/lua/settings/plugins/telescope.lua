@@ -14,6 +14,7 @@ local M = {
     "benfowler/telescope-luasnip.nvim",
     "neanias/telescope-lines.nvim",
     "molecule-man/telescope-menufacture",
+    "johmsalas/text-case.nvim",
   },
   keys = {
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find recent buffers" },
@@ -122,6 +123,7 @@ function M.config()
   telescope.load_extension("menufacture")
   telescope.load_extension("neoclip")
   telescope.load_extension("noice")
+  telescope.load_extension("textcase")
 
   local telescope_augroup_id = vim.api.nvim_create_augroup("telescope", { clear = true })
   vim.api.nvim_create_autocmd("FileType", {
