@@ -4,13 +4,6 @@ local M = {
   version = false,
   dependencies = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    {
-      "princejoogie/dir-telescope.nvim",
-      opts = {
-        hidden = true,
-        respect_gitignore = true,
-      },
-    },
     "benfowler/telescope-luasnip.nvim",
     "neanias/telescope-lines.nvim",
     "molecule-man/telescope-menufacture",
@@ -118,7 +111,6 @@ function M.config()
   })
 
   telescope.load_extension("fzf")
-  telescope.load_extension("dir")
   telescope.load_extension("luasnip")
   telescope.load_extension("menufacture")
   telescope.load_extension("neoclip")
