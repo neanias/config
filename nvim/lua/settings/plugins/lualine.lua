@@ -34,9 +34,14 @@ function M.config()
       lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = {
-        function()
-          return require("NeoComposer.ui").status_recording()
-        end,
+        {
+          function()
+            return require("nvim-navic").get_location()
+          end,
+          cond = function()
+            return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+          end,
+        },
       },
       lualine_x = {
         {
@@ -55,7 +60,14 @@ function M.config()
             return package.loaded["noice"] and require("noice").api.status.mode.has()
           end,
         },
-        "searchcount",
+        {
+          function()
+            return require("noice").api.status.search.get()
+          end,
+          cond = function()
+            return package.loaded["noice"] and require("noice").api.status.search.has()
+          end,
+        },
       },
       lualine_y = {
         {
@@ -87,16 +99,6 @@ function M.config()
       lualine_b = {
         "diff",
         "diagnostics",
-      },
-      lualine_c = {
-        {
-          function()
-            return require("nvim-navic").get_location()
-          end,
-          cond = function()
-            return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-          end,
-        },
       },
       lualine_x = { "filetype" },
       lualine_y = { window, "progress" },
