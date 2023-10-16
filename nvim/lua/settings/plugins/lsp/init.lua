@@ -53,13 +53,14 @@ function M.config()
           return
         end
 
-        if not result then
-          return
+        local diagnostic_items = {}
+        if result then
+          diagnostic_items = result.items
         end
 
         vim.lsp.diagnostic.on_publish_diagnostics(
           nil,
-          vim.tbl_extend("keep", params, { diagnostics = result.items }),
+          vim.tbl_extend("keep", params, { diagnostics = diagnostic_items }),
           { client_id = client.id }
         )
       end)
@@ -165,7 +166,7 @@ function M.config()
             -- Make the server aware of Neovim runtime files
             library = vim.tbl_extend(
               "force",
-              vim.api.nvim_get_runtime_file("", true),
+              vim.api.nvim_get_runtime_file("", true), -- This is slow, but gives us lots of info
               { "${3rd}/luassert/library", "${3rd}/luv/library" }
             ),
           },
