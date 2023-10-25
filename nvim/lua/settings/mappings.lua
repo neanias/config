@@ -40,6 +40,7 @@ wk.register({
     silent = true,
   },
   f = { name = "+Telescope" },
+  c = { name = "+comment" },
 
   g = {
     name = "+git",

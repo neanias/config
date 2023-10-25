@@ -2,8 +2,16 @@ local M = {
   "numToStr/Comment.nvim",
   version = false,
   keys = {
-    { "<leader>cc", mode = { "n", "v" } },
-    { "<leader>cb", mode = { "n", "v" } },
+    {
+      "<leader>cc",
+      mode = { "n", "v" },
+      desc = "Line-wise comment"
+    },
+    {
+      "<leader>cb",
+      mode = { "n", "v" },
+      desc = "Block-wise comment"
+    },
   },
   dependencies = {
     "JoosepAlviste/nvim-ts-context-commentstring",
