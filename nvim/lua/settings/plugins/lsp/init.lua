@@ -7,7 +7,6 @@ local M = {
     "hrsh7th/cmp-nvim-lsp",
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "b0o/SchemaStore.nvim", version = false },
-    "jose-elias-alvarez/typescript.nvim",
     "ray-x/lsp_signature.nvim",
     {
       "nvimdev/lspsaga.nvim",
@@ -222,11 +221,6 @@ function M.config(_, opts)
     local server_opts = vim.tbl_deep_extend("force", {
       capabilities = vim.deepcopy(capabilities),
     }, servers[server] or {})
-
-    if server == "tsserver" then
-      require("typescript").setup({ server = server_opts })
-      return true
-    end
 
     require("lspconfig")[server].setup(server_opts)
   end
