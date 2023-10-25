@@ -28,9 +28,123 @@ local M = {
       },
     },
   },
+  opts = {
+    diagnostics = {
+      underline = true,
+      update_in_insert = false,
+      virtual_text = {
+        spacing = 4,
+        source = "if_many",
+        prefix = "●",
+      },
+      serverity_sort = true,
+    },
+    inlay_hints = {
+      enabled = false,
+    },
+    format = {
+      formatting_options = nil,
+      timeout_ms = nil,
+    },
+    servers = {
+      denols = {},
+      jsonls = {
+        -- lazy-load schemastore when needed
+        on_new_config = function(new_config)
+          new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+          vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+        end,
+        settings = {
+          json = {
+            format = {
+              enable = true,
+            },
+            validate = { enable = true },
+          },
+        },
+      },
+      omnisharp = {},
+      pylsp = {
+        autostart = false,
+        cmd = { "poetry", "run", "pylsp" },
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                maxLineLength = 88,
+              },
+            },
+          },
+        },
+      },
+      pyright = {
+        cmd = { "poetry", "run", "pyright-langserver", "--stdio" },
+      },
+      ruby_ls = {
+        init_options = {
+          enabledFeatures = {
+            codeActions = true,
+            diagnostics = true,
+            documentHighlights = true,
+            documentSymbols = true,
+            formatting = true,
+            hover = true,
+            inlayHint = true,
+            onTypeFormatting = true,
+            semanticHighlighting = true,
+          },
+        },
+      },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = { allFeatures = true },
+            checkOnSave = {
+              command = "clippy",
+              extraArgs = { "--no-deps" },
+            },
+          },
+        },
+      },
+      lua_ls = {
+        single_file_support = true,
+        settings = {
+          Lua = {
+            completion = {
+              workspaceWord = true,
+              callSnippet = "Both",
+            },
+            runtime = {
+              -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              -- Get the language server to recognize the `vim` global
+              globals = { "vim" },
+            },
+            workspace = {
+              -- Make the server aware of Neovim runtime files
+              library = vim.tbl_extend(
+                "force",
+                vim.api.nvim_get_runtime_file("", true), -- This is slow, but gives us lots of info
+                { "${3rd}/luassert/library", "${3rd}/luv/library" }
+              ),
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      },
+      tailwindcss = {},
+      terraformls = {},
+      tsserver = {},
+    },
+  },
 }
 
-function M.config()
+function M.config(_, opts)
   require("neodev").setup({
     library = { plugins = { "neotest" }, types = true },
   })
@@ -86,108 +200,28 @@ function M.config()
     end,
   })
 
-  local servers = {
-    denols = {},
-    jsonls = {
-      -- lazy-load schemastore when needed
-      on_new_config = function(new_config)
-        new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-        vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-      end,
-      settings = {
-        json = {
-          format = {
-            enable = true,
-          },
-          validate = { enable = true },
-        },
-      },
-    },
-    omnisharp = {},
-    pylsp = {
-      autostart = false,
-      cmd = { "poetry", "run", "pylsp" },
-      settings = {
-        pylsp = {
-          plugins = {
-            pycodestyle = {
-              maxLineLength = 88,
-            },
-          },
-        },
-      },
-    },
-    pyright = {
-      cmd = { "poetry", "run", "pyright-langserver", "--stdio" },
-    },
-    ruby_ls = {
-      init_options = {
-        enabledFeatures = {
-          codeActions = true,
-          diagnostics = true,
-          documentHighlights = true,
-          documentSymbols = true,
-          formatting = true,
-          hover = true,
-          inlayHint = true,
-          onTypeFormatting = true,
-          semanticHighlighting = true,
-        },
-      },
-    },
-    rust_analyzer = {
-      settings = {
-        ["rust-analyzer"] = {
-          cargo = { allFeatures = true },
-          checkOnSave = {
-            command = "clippy",
-            extraArgs = { "--no-deps" },
-          },
-        },
-      },
-    },
-    lua_ls = {
-      single_file_support = true,
-      settings = {
-        Lua = {
-          completion = {
-            workspaceWord = true,
-            callSnippet = "Both",
-          },
-          runtime = {
-            -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { "vim" },
-          },
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.tbl_extend(
-              "force",
-              vim.api.nvim_get_runtime_file("", true), -- This is slow, but gives us lots of info
-              { "${3rd}/luassert/library", "${3rd}/luv/library" }
-            ),
-          },
-          -- Do not send telemetry data containing a randomized but unique identifier
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
-    },
-    terraformls = {},
-    tsserver = {},
-  }
+  vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-  capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+  local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+  local capabilities = vim.tbl_deep_extend(
+    "force",
+    {},
+    vim.lsp.protocol.make_client_capabilities(),
+    has_cmp and cmp_nvim_lsp.default_capabilities() or {},
+    opts.capabilities or {},
+    {
+      textDocument = {
+        foldingRange = { dynamicRegistration = false, lineFoldingOnly = true },
+      },
+    }
+  )
+
+  local servers = opts.servers
 
   local function setup(server)
-    local server_opts = servers[server] or {}
-    server_opts.capabilities = capabilities
+    local server_opts = vim.tbl_deep_extend("force", {
+      capabilities = vim.deepcopy(capabilities),
+    }, servers[server] or {})
 
     if server == "tsserver" then
       require("typescript").setup({ server = server_opts })
