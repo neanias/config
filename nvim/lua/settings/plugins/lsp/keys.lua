@@ -9,19 +9,6 @@ function M.setup(client, buffer)
     buffer = buffer,
     ["<leader>l"] = {
       name = "+LSP",
-      f = {
-        {
-          require("settings.plugins.lsp.formatting").format,
-          "Format the current buffer",
-          cond = capabilities.documentFormatting,
-        },
-        {
-          require("settings.plugins.lsp.formatting").format,
-          "Format range",
-          cond = capabilities.documentRangeFormatting,
-          mode = "v",
-        },
-      },
       b = {
         "<cmd>Lspsaga show_buf_diagnostics<cr>",
         "Show buffer diagnositcs",
