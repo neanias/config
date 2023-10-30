@@ -22,19 +22,19 @@ return {
         "isort",
         "ruff",
       },
-      ruby = {
-        rubocop = { command = "bin/rubocop" },
-      },
+      ruby = { "rubocop" },
       sh = {
         "shellcheck",
         "shfmt",
       },
+      ["_"] = { "trim_whitespace" },
     },
     formatters = {
       injected = { ignore_errors = false },
+      rubocop = { command = "bin/rubocop" },
     },
   },
-  init = function ()
+  init = function()
     vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
-  end
+  end,
 }
