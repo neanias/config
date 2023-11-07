@@ -1,6 +1,5 @@
 return {
-  "phaazon/hop.nvim",
-  version = "~2.0.0",
+  "smoka7/hop.nvim",
   config = true,
   keys = {
     {
@@ -8,7 +7,7 @@ return {
       mode = { "n", "x", "o" },
       function()
         local hop = require("hop")
-        hop.hint_words({ direction = require("hop.hint").HintDirection.AFTER_CURSOR })
+        hop.hint_camel_case({ direction = require("hop.hint").HintDirection.AFTER_CURSOR })
       end,
       desc = "Search for hop directions",
     },
@@ -17,7 +16,7 @@ return {
       mode = { "n", "x", "o" },
       function()
         local hop = require("hop")
-        hop.hint_words({ direction = require("hop.hint").HintDirection.BEFORE_CURSOR })
+        hop.hint_camel_case({ direction = require("hop.hint").HintDirection.BEFORE_CURSOR })
       end,
       desc = "Search for hop directions",
     },
@@ -44,6 +43,14 @@ return {
         require("hop").hint_patterns()
       end,
       desc = "Hop based on a pattern",
+    },
+    {
+      "<leader><leader>t",
+      mode = { "n", "x", "o" },
+      function()
+        require("hop").hint_nodes()
+      end,
+      desc = "Hop based on treesitter nodes",
     },
     {
       "t",

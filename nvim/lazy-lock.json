@@ -15,7 +15,7 @@
   "duck.nvim": { "branch": "main", "commit": "8f18dd79c701698fc150119ef642c1881ce6a538" },
   "friendly-snippets": { "branch": "main", "commit": "43727c2ff84240e55d4069ec3e6158d74cb534b6" },
   "gitsigns.nvim": { "branch": "main", "commit": "bb808fc7376ed7bac0fbe8f47b83d4bf01738167" },
-  "hop.nvim": { "branch": "master", "commit": "90db1b2c61b820e230599a04fedcd2679e64bd07" },
+  "hop.nvim": { "branch": "master", "commit": "ccf8e08dcc08126b1b12b32c5c76e42f6008ed56" },
   "indent-blankline.nvim": { "branch": "master", "commit": "29be0919b91fb59eca9e90690d76014233392bef" },
   "lazy.nvim": { "branch": "main", "commit": "16603c6917435d8446f7357cb61095138a417085" },
   "lsp": { "branch": "master", "commit": "d0467b9574b48429debf83f8248d8cee79562586" },
