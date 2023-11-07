@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "gitcommit", "markdown" },
   command = [[set spell]],
-  desc = "Enable spelling by default in prose files"
+  desc = "Enable spelling by default in prose files",
 })
 
 -- Set the syntax for .rbapi files to be Ruby
@@ -55,9 +55,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Update navic lazily in large files
 vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function ()
+  callback = function()
     if vim.api.nvim_buf_line_count(0) > 10000 then
       vim.b.navic_lazy_update_context = true
     end
-  end
+  end,
+})
+
+-- Resize splits when the window resizes
+vim.api.nvim_create_autocmd("VimResized", {
+  command = [[wincmd =]],
 })
