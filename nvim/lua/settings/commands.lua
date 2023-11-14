@@ -1,34 +1,43 @@
+local function augroup(name)
+  return vim.api.nvim_create_augroup("neanias_" .. name, { clear = true })
+end
+
 -- create directories when needed, when saving a file
 vim.api.nvim_create_autocmd("BufWritePre", {
-  group = vim.api.nvim_create_augroup("auto_create_dir", { clear = true }),
-  command = [[call mkdir(expand('<afile>:p:h'), 'p')]],
+  group = augroup("auto_create_dir"),
+  callback = function(event)
+    if event.match:match("^%w%w+://") then
+      return
+    end
+    local file = vim.loop.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
 })
 
 -- windows to close with "q"
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "help", "startuptime", "qf", "lspinfo", "checkhealth" },
-  command = [[nnoremap <buffer><silent> q :close<CR>]],
+  group = augroup("close_with_q"),
+  pattern = { "help", "startuptime", "qf", "lspinfo", "checkhealth", "man" },
   desc = "Remaps q to close this buffer type",
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "man",
-  command = [[nnoremap <buffer><silent> q :quit<CR>]],
-  desc = "Remaps q to close man pages",
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "gitcommit", "markdown" },
-  command = [[set spell]],
-  desc = "Enable spelling by default in prose files",
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
 })
 
--- Set the syntax for .rbapi files to be Ruby
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead", "BufReadPost" }, {
-  pattern = "*.rbapi",
-  command = [[set syntax=ruby]],
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("spelling"),
+  pattern = { "gitcommit", "markdown" },
+  desc = "Enable spelling by default in prose files",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
 })
 
 -- Highlight yanked text after yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
+  group = augroup("highlight_yank"),
   pattern = "*",
   callback = function()
     vim.highlight.on_yank({ on_visual = false, timeout = 300 })
@@ -37,11 +46,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Strip trailing whitespace in Python and Ruby files
 vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup("strip_whitespace"),
   pattern = { "*.py", "*.rb" },
   callback = require("utils").strip_whitespace,
 })
 
-vim.cmd([[autocmd TermOpen term://* startinsert]])
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup("start_insert_in_terminal"),
+  pattern = "term://*",
+  command = [[startinsert]],
+})
 
 -- Enable Ctrl-R pasting in the Telescope prompt
 local telescope_augroup_id = vim.api.nvim_create_augroup("telescope", { clear = true })
@@ -55,6 +69,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Update navic lazily in large files
 vim.api.nvim_create_autocmd("BufEnter", {
+  group = augroup("lazy_update_navic"),
   callback = function()
     if vim.api.nvim_buf_line_count(0) > 10000 then
       vim.b.navic_lazy_update_context = true
@@ -64,5 +79,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- Resize splits when the window resizes
 vim.api.nvim_create_autocmd("VimResized", {
-  command = [[wincmd =]],
+  group = augroup("resize_splits"),
+  callback = function()
+    local current_tab = vim.fn.tabpagenr()
+    vim.cmd("tabdo wincmd =")
+    vim.cmd("tabnext " .. current_tab)
+  end,
 })
