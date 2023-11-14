@@ -48,7 +48,7 @@ return {
       "<leader><leader>t",
       mode = { "n", "x", "o" },
       function()
-        require("hop").hint_nodes()
+        require("hop-treesitter").hint_nodes()
       end,
       desc = "Hop based on treesitter nodes",
     },
