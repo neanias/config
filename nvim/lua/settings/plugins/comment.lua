@@ -5,16 +5,24 @@ local M = {
     {
       "<leader>cc",
       mode = { "n", "v" },
-      desc = "Line-wise comment"
+      desc = "Line-wise comment",
     },
     {
       "<leader>cb",
       mode = { "n", "v" },
-      desc = "Block-wise comment"
+      desc = "Block-wise comment",
     },
   },
   dependencies = {
-    "JoosepAlviste/nvim-ts-context-commentstring",
+    {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      opts = {
+        enable_autocmd = false,
+        languages = {
+          ruby = "# %s",
+        }
+      },
+    },
   },
 }
 

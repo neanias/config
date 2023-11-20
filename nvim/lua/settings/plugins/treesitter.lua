@@ -58,10 +58,6 @@ function M.config()
       "yaml",
     },
     ignore_install = {}, -- List of parsers to ignore installing
-    context_commentstring = {
-      enable = true,
-      enable_autocmd = false,
-    },
     endwise = { enable = true },
     autotag = { enable = true },
     highlight = {
