@@ -99,3 +99,10 @@ vim.o.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
 
 -- Status column
 -- vim.opt.statuscolumn = "%s %C %l"
+
+-- Make builtin completion menus slightly transparent
+vim.o.pumblend = 10
+-- Make popup menu smaller
+vim.o.pumheight = 10
+-- Make floating windows slightly transparent
+vim.o.winblend = 10
