@@ -1,55 +1,55 @@
 vim.cmd("filetype plugin indent on")
 
 -- Basics
-vim.opt.number = true
+vim.o.number = true
 -- Needed for better colour support
-vim.opt.termguicolors = true
-vim.opt.signcolumn = "yes" -- Always show sign column
+vim.o.termguicolors = true
+vim.o.signcolumn = "yes" -- Always show sign column
 
 -- Indentation
 local indent = 2
-vim.opt.autoindent = true
-vim.opt.breakindent = true
-vim.opt.copyindent = true
-vim.opt.expandtab = true -- Use spaces rather than tabs
-vim.opt.preserveindent = true
-vim.opt.shiftround = true
-vim.opt.shiftwidth = indent
-vim.opt.smartindent = true
-vim.opt.tabstop = indent
+vim.o.autoindent = true
+vim.o.breakindent = true
+vim.o.copyindent = true
+vim.o.expandtab = true -- Use spaces rather than tabs
+vim.o.preserveindent = true
+vim.o.shiftround = true
+vim.o.shiftwidth = indent
+vim.o.smartindent = true
+vim.o.tabstop = indent
 
 -- Searching
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.hlsearch = true
 
 -- Slightly better performance for redrawing
-vim.opt.hidden = true
+vim.o.hidden = true
 
 -- Split to the right and below
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-vim.opt.splitkeep = "screen"
+vim.o.splitright = true
+vim.o.splitbelow = true
+vim.o.splitkeep = "screen"
 
 -- Shows matching bracket when inserting one...
-vim.opt.showmatch = true
+vim.o.showmatch = true
 -- ...for 2 tenths of a second
-vim.opt.mat = 2
+vim.o.mat = 2
 
 -- Hide mode, since lualine shows us that anyway
-vim.opt.showmode = false
+vim.o.showmode = false
 -- Confirm to save changes before exiting modified buffer
-vim.opt.confirm = true
+vim.o.confirm = true
 
 -- Use Ripgrep
-vim.opt.grepprg = "rg --vimgrep"
+vim.o.grepprg = "rg --vimgrep"
 
 -- Don't write swapfiles
-vim.opt.swapfile = false
+vim.o.swapfile = false
 
--- Show leading spaces
-vim.opt.list = true
-vim.opt.listchars:append("lead:⋅")
+-- Show leading spaces and other "hidden" chars
+vim.o.list = true
+vim.opt.listchars:append("lead:⋅,extends:…,precedes:…,nbsp:␣")
 
 local leader = " "
 vim.g.mapleader = leader
@@ -57,21 +57,21 @@ vim.g.maplocalleader = leader
 
 -- Keep 8 lines of scrolloff visible where possible. (Shows next 8 lines as
 -- approaching the bottom.)
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+vim.o.scrolloff = 8
+vim.o.sidescrolloff = 8
 
 -- Ignore generated files
 vim.opt.wildignore = { "*.o", "*~", "*.pyc" }
 
 -- Don't soft warp text if it's off the side of the window
-vim.opt.wrap = false
-vim.opt.linebreak = true
+vim.o.wrap = false
+vim.o.linebreak = true
 
 -- Set British English as the priority
-vim.opt.spelllang = "en_gb,en"
+vim.o.spelllang = "en_gb,en"
 
 -- 100k lines of scrollback in terminal buffer:
-vim.opt.scrollback = -1
+vim.o.scrollback = -1
 
 local neovim3_python_path = vim.loop.os_homedir() .. "/.pyenv/versions/neovim3/bin/python"
 if vim.loop.fs_stat(neovim3_python_path) then
@@ -89,13 +89,13 @@ vim.g.undotree_WindowLayout = 3
 
 -- Folding
 -- Enable fold for nvim-ufo
-vim.opt.foldenable = true
+vim.o.foldenable = true
 -- Set high foldlevel for nvim-ufo
-vim.opt.foldlevel = 99
+vim.o.foldlevel = 99
 -- Start with all code unfolded
-vim.opt.foldlevelstart = 99
-vim.opt.foldcolumn = "0"
-vim.opt.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
+vim.o.foldlevelstart = 99
+vim.o.foldcolumn = "0"
+vim.o.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
 
 -- Status column
 -- vim.opt.statuscolumn = "%s %C %l"
