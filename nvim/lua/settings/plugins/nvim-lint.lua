@@ -35,6 +35,11 @@ return {
       end
     end
 
+    -- As a rule of thumb, we want to use a bundle-specific version of rubocop
+    local rubocop = lint.linters.rubocop
+    rubocop.cmd = "bundle"
+    rubocop.args = { "exec", "rubocop", "--format", "json", "--force-exclusion" }
+
     function M.lint()
       -- Use nvim-lint's logic first:
       -- * checks if linters exist for the full filetype first
