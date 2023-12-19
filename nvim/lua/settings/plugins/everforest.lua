@@ -11,6 +11,9 @@ function M.config()
     transparent_background_level = 0,
     italics = true,
     disable_italic_comments = false,
+    on_highlights = function(hl, _)
+      hl["@symbol"] = { link = "@field" }
+    end,
   })
   everforest.load()
 end
