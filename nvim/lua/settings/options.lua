@@ -79,7 +79,7 @@ if vim.loop.fs_stat(neovim3_python_path) then
 end
 
 -- Undo & backup options
-local backups_path = vim.fn.stdpath("config") .. "/backups"
+local backups_path = vim.fn.stdpath("cache") .. "/backups"
 vim.cmd("silent !mkdir " .. backups_path .. " > /dev/null 2>&1")
 vim.o.undodir = backups_path
 vim.o.undofile = true
