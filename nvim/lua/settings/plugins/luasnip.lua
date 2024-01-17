@@ -1,20 +1,23 @@
 local M = {
   "L3MON4D3/LuaSnip",
-  version = "~1.2.0",
+  version = "~2.2.0",
   dependencies = {
     "rafamadriz/friendly-snippets",
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
   },
+  build = "make install_jsregexp",
 }
 
 function M.config()
   local luasnip = require("luasnip")
   require("neogen")
 
-  luasnip.config.setup({
-    history = true,
+  require("luasnip.loaders.from_vscode").lazy_load()
+  luasnip.filetype_extend("ruby", { "rails" })
+
+  luasnip.setup({
+    link_roots = true,
+    keep_roots = true,
+    link_children = true,
     enable_autosnippets = true,
   })
 
