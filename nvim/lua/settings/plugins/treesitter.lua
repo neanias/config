@@ -24,6 +24,7 @@ function M.config()
       "bash",
       "c",
       "c_sharp",
+      "comment",
       "cpp",
       "css",
       "eex",
