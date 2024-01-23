@@ -139,6 +139,7 @@ local M = {
       tailwindcss = {},
       terraformls = {},
       tsserver = {},
+      vimls = {},
     },
   },
 }
