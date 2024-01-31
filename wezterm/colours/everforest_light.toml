@@ -7,7 +7,7 @@ ansi = [
   "#3A94C5",
   "#DF69BA",
   "#35A77C",
-  "#DFDDC8"
+  "#DFDDC8",
 ]
 
 brights = [
@@ -18,16 +18,35 @@ brights = [
   "#7FBBB3",
   "#D699B6",
   "#83C092",
-  "#D3C6AA"
+  "#D3C6AA",
 ]
 
 foreground = "#5C6A72"
 background = "#FDF6E3"
 cursor_bg = "#5C6A72"
+cursor_border = "#5C6A72"
 cursor_fg = "#FDF6E3"
+selection_bg = "#EAEDC8"
+selection_fg = "#5C6A72"
+split = "#3A94C5"
+compose_cursor = "#F57D26"
+scrollbar_thumb = "#F4F0D9"
 
 [colors.tab_bar]
 background = "#FDF6E3"
+inactive_tab_edge = "#EFEBD4"
+
+[colors.tab_bar.active_tab]
+fg_color = "#EFEBD4"
+bg_color = "#3A94C5"
+
+[colors.tab_bar.inactive_tab]
+fg_color = "#E0DCC7"
+bg_color = "#F4F0D9"
+
+[colors.tab_bar.inactive_tab_hover]
+fg_color = "#3A94C5"
+bg_color = "#F4F0D9"
 
 [colors.tab_bar.new_tab]
 bg_color = "#FDF6E3"
