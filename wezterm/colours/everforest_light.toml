@@ -26,6 +26,19 @@ background = "#FDF6E3"
 cursor_bg = "#5C6A72"
 cursor_fg = "#FDF6E3"
 
+[colors.tab_bar]
+background = "#FDF6E3"
+
+[colors.tab_bar.new_tab]
+bg_color = "#FDF6E3"
+fg_color = "#DFDDC8"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#5C6A72"
+fg_color = "#D3C6AA"
+intensity = "Bold"
+
 [metadata]
 name = "Everforest Light"
 origin_url = "https://github.com/neanias/config"
