@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-require("on")
 
 local config = {}
 
@@ -7,8 +6,14 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+require("tabs").setup(config)
+
 local colours = require("colours")
 colours.apply_color_scheme(config)
+
+wezterm.add_to_config_reload_watch_list(
+  config.color_scheme_dirs[1] .. config.color_scheme:lower():gsub(" ", "_") .. ".toml"
+)
 
 config.font_size = 13.0
 config.font = wezterm.font_with_fallback({
