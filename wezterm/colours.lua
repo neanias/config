@@ -24,13 +24,13 @@ end
 function colours.fetch_colour_scheme()
   local colour_scheme = scheme_for_appearance(get_appearance())
   return wezterm.color.load_scheme(
-    os.getenv("HOME") .. "/.config/wezterm/colours/" .. scheme_to_filename(colour_scheme)
+    wezterm.home_dir .. "/.config/wezterm/colours/" .. scheme_to_filename(colour_scheme)
   )
 end
 
 function colours.apply_color_scheme(config)
   config.color_scheme = scheme_for_appearance(get_appearance())
-  config.color_scheme_dirs = { os.getenv("HOME") .. "/.config/wezterm/colours/" }
+  config.color_scheme_dirs = { wezterm.home_dir .. "/.config/wezterm/colours/" }
 end
 
 return colours
