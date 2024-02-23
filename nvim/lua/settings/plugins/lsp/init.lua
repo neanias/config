@@ -82,17 +82,22 @@ local M = {
       ruby_ls = {
         init_options = {
           enabledFeatures = {
-            codeActions = true,
-            diagnostics = true,
+            codeActions = false,
+            completion = true,
+            diagnostics = false,
             documentHighlights = true,
             documentSymbols = true,
-            formatting = true,
+            foldingRange = true,
+            formatting = false,
             hover = true,
             inlayHint = true,
             onTypeFormatting = true,
             semanticHighlighting = true,
           },
         },
+      },
+      standardrb = {
+        cmd = { "bundle", "exec", "standardrb", "--lsp" },
       },
       rust_analyzer = {
         settings = {

@@ -22,7 +22,7 @@ return {
         "isort",
         "ruff",
       },
-      ruby = { "rubocop" },
+      ruby = { "standardrb" },
       sh = {
         "shellcheck",
         "shfmt",
@@ -31,7 +31,7 @@ return {
     },
     formatters = {
       injected = { ignore_errors = false },
-      rubocop = { command = "bin/rubocop" },
+      standardrb = { command = "bin/standardrb" },
     },
   },
   init = function()

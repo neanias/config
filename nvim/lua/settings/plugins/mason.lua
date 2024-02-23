@@ -13,7 +13,6 @@ local M = {
       "luacheck",
       "markdownlint",
       "prettierd",
-      "rubocop",
       "ruff",
       "selene",
       "shellcheck",

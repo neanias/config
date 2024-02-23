@@ -7,7 +7,7 @@ return {
       ["*"] = { "woke" },
       eruby = { "erb_lint" },
       markdown = { "markdownlint" },
-      ruby = { "rubocop", "ruby" },
+      ruby = { "ruby", "standardrb" },
       yaml = { "actionlint" },
     },
   },
@@ -35,10 +35,10 @@ return {
       end
     end
 
-    -- As a rule of thumb, we want to use a bundle-specific version of rubocop
-    local rubocop = lint.linters.rubocop
-    rubocop.cmd = "bundle"
-    rubocop.args = { "exec", "rubocop", "--format", "json", "--force-exclusion" }
+    -- As a rule of thumb, we want to use a bundle-specific version of Standard
+    local standardrb = lint.linters.standardrb
+    standardrb.cmd = "bin/standardrb"
+    standardrb.args = { "--stdin", "%:p", "--format", "json", "--force-exclusion" }
 
     function M.lint()
       -- Use nvim-lint's logic first:
