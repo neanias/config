@@ -1,3 +1,6 @@
+--- Creates a namespaced autogroup
+---@param name string a vim-acceptable group name (alphanumeric, underscored)
+---@return number # The id of the new augroup
 local function augroup(name)
   return vim.api.nvim_create_augroup("neanias_" .. name, { clear = true })
 end
