@@ -86,3 +86,10 @@ vim.api.nvim_create_autocmd("VimResized", {
     vim.cmd("tabnext " .. current_tab)
   end,
 })
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+  desc = "Open file at the last position it was edited earlier",
+  group = augroup("open_file_at_last_edit"),
+  pattern = "*",
+  command = [[silent! normal! g`"zv]],
+})
