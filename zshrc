@@ -47,9 +47,9 @@ setopt AUTO_PARAM_SLASH
 #############
 
 alias be="bundle exec"
-alias ls="exa"
-alias la="exa -a"
-alias ll="exa -alh"
+alias ls="eza"
+alias la="eza -a"
+alias ll="eza -alh"
 alias ga="git add"
 alias gf="git fetch"
 alias gpl="git pull"
