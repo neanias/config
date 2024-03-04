@@ -12,7 +12,7 @@ function M.config()
     italics = true,
     disable_italic_comments = false,
     on_highlights = function(hl, _)
-      hl["@symbol"] = { link = "@field" }
+      hl["@string.special.symbol.ruby"] = { link = "@field" }
     end,
   })
   everforest.load()
