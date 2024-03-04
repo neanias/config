@@ -3,7 +3,6 @@ return {
   "folke/neodev.nvim",
   "MunifTanjim/nui.nvim",
   "rcarriga/nvim-notify",
-  "williamboman/mason-lspconfig.nvim",
 
   {
     "chrisgrieser/nvim-spider",
