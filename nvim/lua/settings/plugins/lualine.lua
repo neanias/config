@@ -3,6 +3,17 @@ local M = {
   event = "VeryLazy",
 }
 
+function M.init()
+  vim.g.lualine_laststatus = vim.o.laststatus
+  if vim.fn.argc(-1) > 0 then
+    -- Set an empty statusline till lualine loads
+    vim.o.statusline = " "
+  else
+    -- Hide the statusline on the starter page
+    vim.o.laststatus = 0
+  end
+end
+
 function M.config()
   local lualine = require("lualine")
 
