@@ -18,6 +18,13 @@ frequent development environment). This is an attempt to consolidate my
     1. This may require a reboot of nvim afterwards
 6. Set any personal git config overrides in `~/.gitconfig.user`
 
+## Notes
+
+To get bat theme working, run `bat cache --build`.
+
+To set up GPG sub-keys for signing, follow [the guide on GPG sub-keys with
+Git](https://secure-git.guide/007_GPG-How-to-create-a-subkey-for-signing).
+
 ## To investigate
 
 - [ ] Making this more configurable per machine (i.e. having local configs that
