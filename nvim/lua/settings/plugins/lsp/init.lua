@@ -95,6 +95,7 @@ local M = {
             onTypeFormatting = true,
             semanticHighlighting = true,
           },
+          formatter = "none",
         },
       },
       standardrb = {
@@ -162,40 +163,6 @@ function M.config(_, opts)
       require("nvim-navbuddy").attach(client, bufnr)
     end
     require("settings.plugins.lsp.keys").setup(client, bufnr)
-
-    local callback = function()
-      local params = vim.lsp.util.make_text_document_params(bufnr)
-
-      client.request("textDocument/diagnostic", { textDocument = params }, function(err, result)
-        if err then
-          local err_msg = string.format("diagnostics error - %s", vim.inspect(err))
-          vim.lsp.log.error(err_msg)
-          return
-        end
-
-        local diagnostic_items = {}
-        if result then
-          diagnostic_items = result.items
-        end
-
-        vim.lsp.diagnostic.on_publish_diagnostics(
-          nil,
-          vim.tbl_extend("keep", params, { diagnostics = diagnostic_items }),
-          { client_id = client.id }
-        )
-      end)
-    end
-
-    if client.name == "ruby_ls" then
-      callback()
-
-      local ruby_group = vim.api.nvim_create_augroup("ruby_ls", { clear = false })
-      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePre", "InsertLeave", "TextChanged" }, {
-        buffer = bufnr,
-        callback = callback,
-        group = ruby_group,
-      })
-    end
   end
 
   vim.api.nvim_create_autocmd("LspAttach", {
