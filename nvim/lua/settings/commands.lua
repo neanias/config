@@ -55,9 +55,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("TermOpen", {
-  group = augroup("start_insert_in_terminal"),
-  pattern = "term://*",
-  command = [[startinsert]],
+  group = augroup("terminal_config"),
+  callback = function (event)
+    vim.cmd("setlocal nonumber")
+    vim.cmd("setlocal norelativenumber")
+    vim.cmd("startinsert!")
+    vim.bo[event.buf].buflisted = false
+  end
 })
 
 -- Enable Ctrl-R pasting in the Telescope prompt
@@ -95,4 +99,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup("open_file_at_last_edit"),
   pattern = "*",
   command = [[silent! normal! g`"zv]],
+})
+
+vim.api.nvim_create_user_command("Tterm", function(input)
+  local command = input.args
+  if command == "" or command == nil then
+    command = vim.env.SHELL
+  end
+  vim.cmd("tabnew term://" .. command)
+end, {
+  nargs = "*", -- Any number of args permitted
+  desc = "Run the command in terminal in a new tab",
 })
