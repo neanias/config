@@ -112,7 +112,6 @@
   autocrlf = input
   pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
   editor = nvim
-	excludesFile = /Users/williammathewson/.config/git/ignore
 [delta]
   features = "decorations"
   hyperlinks = true
