@@ -80,7 +80,7 @@ local M = {
       pyright = {
         cmd = { "poetry", "run", "pyright-langserver", "--stdio" },
       },
-      ruby_ls = {
+      ruby_lsp = {
         init_options = {
           enabledFeatures = {
             codeActions = false,
