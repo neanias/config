@@ -43,6 +43,7 @@ vim.o.confirm = true
 
 -- Use Ripgrep
 vim.o.grepprg = "rg --vimgrep"
+vim.o.grepformat = "%f:%l:%c:%m"
 
 -- Don't write swapfiles
 vim.o.swapfile = false
