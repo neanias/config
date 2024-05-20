@@ -7,10 +7,6 @@ local M = {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-refactor",
     "nvim-treesitter/nvim-treesitter-textobjects",
-    {
-      "nvim-treesitter/playground",
-      cmd = "TSPlaygroundToggle",
-    },
     "RRethy/nvim-treesitter-endwise",
     "windwp/nvim-ts-autotag",
   },
