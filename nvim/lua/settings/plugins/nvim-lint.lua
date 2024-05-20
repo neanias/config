@@ -1,18 +1,6 @@
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
-  keys = {
-    {
-      "[d",
-      vim.diagnostic.goto_prev,
-      desc = "Go to previous diagnostic",
-    },
-    {
-      "]d",
-      vim.diagnostic.goto_next,
-      desc = "Go to previous diagnostic",
-    },
-  },
   opts = {
     events = { "BufWritePost", "BufReadPost", "InsertLeave" },
     linters_by_ft = {
