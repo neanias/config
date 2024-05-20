@@ -1,7 +1,7 @@
 return {
   "akinsho/bufferline.nvim",
   event = { "BufReadPre", "BufNewFile" },
-  version = "~3.1.0",
+  version = "~4.6.0",
   opts = {
     options = {
       diagnostics = "nvim_lsp",
