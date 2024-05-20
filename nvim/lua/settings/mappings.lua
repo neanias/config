@@ -64,7 +64,7 @@ wk.register({
       "Toggle showing inline blame",
     },
     s = {
-      ":tab Git<cr>",
+      ":$tab Git<cr>",
       "Open Fugitive viewer",
     },
     w = {
