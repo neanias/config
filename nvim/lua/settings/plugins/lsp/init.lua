@@ -120,6 +120,10 @@ local M = {
               workspaceWord = true,
               callSnippet = "Both",
             },
+            hint = {
+              enable = true,
+              arrayIndex = "Auto",
+            },
             runtime = {
               -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
               version = "LuaJIT",
@@ -170,6 +174,8 @@ function M.config(_, opts)
       local buffer = args.buf
       local client = vim.lsp.get_client_by_id(args.data.client_id)
       on_attach(client, buffer)
+
+      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
     end,
   })
 
