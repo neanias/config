@@ -71,7 +71,7 @@ local M = {
 function M.config()
   local telescope = require("telescope")
   local actions = require("telescope.actions")
-  local trouble = require("trouble.providers.telescope")
+  local open_with_trouble = require("trouble.sources.telescope").open
 
   telescope.setup({
     defaults = {
@@ -86,7 +86,7 @@ function M.config()
       live_grep = {
         mappings = {
           i = {
-            ["<C-T>"] = trouble.open_with_trouble,
+            ["<C-T>"] = open_with_trouble,
           },
         },
       },
