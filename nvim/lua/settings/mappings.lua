@@ -23,6 +23,7 @@ wk.register({
     "<cmd>NvimTreeFindFile<CR>",
     "Open the project tree and expose current file",
   },
+  ["<leader>cc"] = { "gcc", "Comment current line", remap = true },
 
   Q = {
     utils.close_window_or_kill_buffer,
@@ -107,4 +108,11 @@ wk.register({
   ["<Leader><ESC>"] = { "<C-\\><C-n>" },
 }, {
   mode = "t",
+})
+
+-- Visual mode
+wk.register({
+  ["<leader>cc"] = { "gc", "Toggle comment for selection", remap = true },
+}, {
+  mode = "v",
 })
