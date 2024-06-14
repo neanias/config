@@ -1,6 +1,13 @@
 return {
   "nvim-lua/plenary.nvim",
-  "folke/neodev.nvim",
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {
+      library = { "luvit-meta/library", words = { "vim%.uv" } },
+    },
+  },
+  { "Bilal2453/luvit-meta", lazy = true },
   "MunifTanjim/nui.nvim",
   "rcarriga/nvim-notify",
 
