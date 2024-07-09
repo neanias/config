@@ -14,7 +14,7 @@ wk.register({
   ["<C-h>"] = { "<C-W>h", "Move to the window on the left" },
   ["<C-l>"] = { "<C-W>l", "Move to the window on the right" },
 
-  ["//"] = { ":noh<CR>", "Clear the current search highlighting", noremap = false },
+  ["//"] = { "<Cmd>noh<CR>", "Clear the current search highlighting", noremap = false },
 
   ["0"] = { "^", "Move to the first instance of whitespace on this line" },
   ["^"] = { "0", "Move to the first character on this line" },
