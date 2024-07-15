@@ -32,6 +32,19 @@ wk.register({
 })
 
 -- Surround mappings
+wk.register({
+  ['"'] = { 'ysiw"', "Wrap the word under the cursor in double quotes", remap = true },
+  ["'"] = { "ysiw'", "Wrap the word under the cursor in single quotes", remap = true },
+  ["("] = { "ysiw(", "Wrap the word under the cursor in brackets, but with spaces around the word", remap = true },
+  [")"] = { "ysiw)", "Wrap the word under the cursor in brackets", remap = true },
+  ["["] = { "ysiw[", "Wrap the word under the cursor in square brackets, but with spaces around the word", remap = true },
+  ["]"] = { "ysiw]", "Wrap the word under the cursor in square brackets", remap = true },
+  ["{"] = { "ysiw{", "Wrap the word under the cursor in curly brackets, but with spaces around the word", remap = true },
+  ["}"] = { "ysiw}", "Wrap the word under the cursor in curly brackets", remap = true },
+  ["`"] = { "ysiw`", "Wrap the word under the cursor in backticks", remap = true },
+}, {
+  prefix = "<leader>",
+})
 
 -- Normal mode mappings
 wk.register({
