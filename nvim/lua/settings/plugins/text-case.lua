@@ -33,7 +33,7 @@ return {
     {
       "crt",
       "<cmd>TextCaseOpenTelescope<CR>",
-      desc = "Select text conversion"
-    }
+      desc = "Select text conversion",
+    },
   },
 }

@@ -56,12 +56,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("TermOpen", {
   group = augroup("terminal_config"),
-  callback = function (event)
+  callback = function(event)
     vim.cmd("setlocal nonumber")
     vim.cmd("setlocal norelativenumber")
     vim.cmd("startinsert!")
     vim.bo[event.buf].buflisted = false
-  end
+  end,
 })
 
 -- Enable Ctrl-R pasting in the Telescope prompt
