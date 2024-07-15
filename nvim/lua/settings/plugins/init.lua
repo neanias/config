@@ -138,8 +138,13 @@ return {
           suggestions = 20,
         },
       },
-      key_labels = {
-        ["<leader>"] = "SPC",
+      replace = {
+        key = {
+          function(key)
+            return require("which-key.view").format(key)
+          end,
+          { "<leader>", "SPC" },
+        },
       },
     },
   },

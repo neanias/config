@@ -3,129 +3,132 @@ local utils = require("utils")
 local gs = require("gitsigns")
 
 -- General mappings
-wk.register({
+wk.add({
   -- Create window splits more easily
-  ["vv"] = { "<C-W>v", "Split a window vertically" },
-  ["ss"] = { "<C-W>s", "Split a window vertically" },
+  { "ss", "<C-W>s", desc = "Split a window vertically" },
+  { "vv", "<C-W>v", desc = "Split a window vertically" },
 
   -- Move around windows more easily
-  ["<C-j>"] = { "<C-W>j", "Move to the window below" },
-  ["<C-k>"] = { "<C-W>k", "Move to the window above" },
-  ["<C-h>"] = { "<C-W>h", "Move to the window on the left" },
-  ["<C-l>"] = { "<C-W>l", "Move to the window on the right" },
+  { "<C-h>", "<C-W>h", desc = "Move to the window on the left" },
+  { "<C-j>", "<C-W>j", desc = "Move to the window below" },
+  { "<C-k>", "<C-W>k", desc = "Move to the window above" },
+  { "<C-l>", "<C-W>l", desc = "Move to the window on the right" },
 
-  ["//"] = { "<Cmd>noh<CR>", "Clear the current search highlighting", noremap = false },
-
-  ["0"] = { "^", "Move to the first instance of whitespace on this line" },
-  ["^"] = { "0", "Move to the first character on this line" },
-
-  ["<C-\\>"] = {
-    "<cmd>NvimTreeFindFile<CR>",
-    "Open the project tree and expose current file",
+  {
+    "//",
+    "<Cmd>noh<CR>",
+    desc = "Clear the current search highlighting",
+    remap = true,
   },
-  ["<leader>cc"] = { "gcc", "Comment current line", remap = true },
+  { "0", "^", desc = "Move to the first instance of whitespace on this line" },
+  { "<C-\\>", "<cmd>NvimTreeFindFile<CR>", desc = "Open the project tree and expose current file" },
+  {
+    "<leader>cc",
+    "gcc",
+    desc = "Comment current line",
+    remap = true,
+  },
+  { "^", "0", desc = "Move to the first character on this line" },
 
-  Q = {
+  {
+    "Q",
     utils.close_window_or_kill_buffer,
-    "Smart close the window or close the buffer",
+    desc = "Smart close the window or close the buffer",
   },
 })
 
 -- Surround mappings
-wk.register({
-  ['"'] = { 'ysiw"', "Wrap the word under the cursor in double quotes", remap = true },
-  ["'"] = { "ysiw'", "Wrap the word under the cursor in single quotes", remap = true },
-  ["("] = { "ysiw(", "Wrap the word under the cursor in brackets, but with spaces around the word", remap = true },
-  [")"] = { "ysiw)", "Wrap the word under the cursor in brackets", remap = true },
-  ["["] = { "ysiw[", "Wrap the word under the cursor in square brackets, but with spaces around the word", remap = true },
-  ["]"] = { "ysiw]", "Wrap the word under the cursor in square brackets", remap = true },
-  ["{"] = { "ysiw{", "Wrap the word under the cursor in curly brackets, but with spaces around the word", remap = true },
-  ["}"] = { "ysiw}", "Wrap the word under the cursor in curly brackets", remap = true },
-  ["`"] = { "ysiw`", "Wrap the word under the cursor in backticks", remap = true },
-}, {
-  prefix = "<leader>",
+wk.add({
+  { '<leader>"', 'ysiw"', desc = "Wrap the word under the cursor in double quotes", remap = true },
+  { "<leader>'", "ysiw'", desc = "Wrap the word under the cursor in single quotes", remap = true },
+  {
+    "<leader>(",
+    "ysiw(",
+    desc = "Wrap the word under the cursor in brackets, but with spaces around the word",
+    remap = true,
+  },
+  { "<leader>)", "ysiw)", desc = "Wrap the word under the cursor in brackets", remap = true },
+  {
+    "<leader>[",
+    "ysiw[",
+    desc = "Wrap the word under the cursor in square brackets, but with spaces around the word",
+    remap = true,
+  },
+  { "<leader>]", "ysiw]", desc = "Wrap the word under the cursor in square brackets", remap = true },
+  { "<leader>`", "ysiw`", desc = "Wrap the word under the cursor in backticks", remap = true },
+  {
+    "<leader>{",
+    "ysiw{",
+    desc = "Wrap the word under the cursor in curly brackets, but with spaces around the word",
+    remap = true,
+  },
+  { "<leader>}", "ysiw}", desc = "Wrap the word under the cursor in curly brackets", remap = true },
 })
 
 -- Normal mode mappings
-wk.register({
-  w = {
+wk.add({
+  {
+    "<leader>w",
     utils.strip_whitespace,
-    "Strips trailing whitespace from the buffer",
-    silent = true,
+    desc = "Strips trailing whitespace from the buffer",
   },
-  f = { name = "+Telescope" },
-  c = { name = "+comment" },
+  { "<leader>c", group = "comment" },
+  { "<leader>d", group = "duck" },
+  { "<leader>f", group = "Telescope" },
 
-  g = {
-    name = "+git",
-    D = { "<cmd>DiffviewFileHistory %<cr>", "Open file history for current file" },
-    S = {
-      gs.stage_hunk,
-      "Stage the current hunk",
-    },
-    b = {
-      function()
-        gs.blame_line({ full = true })
-      end,
-      "Blame line",
-    },
-    c = { ":tab Git commit<cr>", "Open Fugitive commit dialog" },
-    d = { "<cmd>DiffviewOpen -uno<cr>", "Open diffview" },
-    lb = {
-      function()
-        gs.toggle_current_line_blame()
-      end,
-      "Toggle showing inline blame",
-    },
-    s = {
-      ":tab Git<cr>",
-      "Open Fugitive viewer",
-    },
-    w = {
-      gs.stage_buffer,
-      "Stage the current buffer",
-    },
+  { "<leader>g", group = "git" },
+  { "<leader>gD", "<cmd>DiffviewFileHistory %<cr>", desc = "Open file history for current file" },
+  { "<leader>gS", gs.stage_hunk, desc = "Stage the current hunk" },
+  {
+    "<leader>gb",
+    function()
+      gs.blame_line({ full = true })
+    end,
+    desc = "Blame line",
+  },
+  { "<leader>gc", ":tab Git commit<cr>", desc = "Open Fugitive commit dialog" },
+  { "<leader>gd", "<cmd>DiffviewOpen -uno<cr>", desc = "Open diffview" },
+  {
+    "<leader>glb",
+    function()
+      gs.toggle_current_line_blame()
+    end,
+    desc = "Toggle showing inline blame",
+  },
+  { "<leader>gs", ":tab Git<cr>", desc = "Open Fugitive viewer" },
+  { "<leader>gw", gs.stage_buffer, desc = "Stage the current buffer" },
+
+  {
+    "<leader>ii",
+    "<Cmd>Inspect<CR>",
+    desc = "Reveal treesitter capture groups under cursor",
   },
 
-  ["ii"] = { "<Cmd>Inspect<CR>", "Reveal treesitter capture groups under cursor" },
-
-  s = { name = "+debug" },
-  t = { name = "+test" },
+  { "<leader>s", group = "debug" },
+  { "<leader>t", group = "test" },
 
   -- UndoTree
-  u = { "<Cmd>UndotreeToggle<CR>", "Opens the UndoTree" },
+  { "<leader>u", "<Cmd>UndotreeToggle<CR>", desc = "Opens the UndoTree" },
 
   -- Trouble
-  x = {
-    name = "+Trouble",
-    d = { "<cmd>Trouble document_diagnostics<cr>", "Show document LSP diagnostics in Trouble" },
-    l = { "<cmd>Trouble loclist<cr>", "Open loclist in Trouble dialogue" },
-    q = { "<cmd>Trouble quickfix<cr>", "Open quickfix list in Trouble" },
-    t = { "<cmd>TroubleToggle<cr>", "Toggle Trouble window" },
-    w = { "<cmd>Trouble workspace_diagnostics<cr>", "Show workspace LSP diagnostics in Trouble" },
-    x = { "<cmd>Trouble<cr>", "Open Trouble dialogue" },
-  },
+  { "<leader>x", group = "Trouble" },
+  { "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", desc = "Show document LSP diagnostics in Trouble" },
+  { "<leader>xl", "<cmd>Trouble loclist<cr>", desc = "Open loclist in Trouble dialogue" },
+  { "<leader>xq", "<cmd>Trouble quickfix<cr>", desc = "Open quickfix list in Trouble" },
+  { "<leader>xt", "<cmd>TroubleToggle<cr>", desc = "Toggle Trouble window" },
+  { "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", desc = "Show workspace LSP diagnostics in Trouble" },
+  { "<leader>xx", "<cmd>Trouble<cr>", desc = "Open Trouble dialogue" },
 
-  ["<leader>"] = {
-    name = "+hop",
-  },
-
-  d = { name = "+duck" },
-}, {
-  prefix = "<leader>",
+  { "<leader><leader>", group = "hop" },
 })
 
 -- Terminal mode
-wk.register({
-  ["<ESC>"] = { "<C-\\><C-n>" },
-  ["<Leader><ESC>"] = { "<C-\\><C-n>" },
-}, {
-  mode = "t",
+wk.add({
+  { "<ESC>", desc = "<C-\\><C-n>", mode = "t" },
+  { "<Leader><ESC>", desc = "<C-\\><C-n>", mode = "t" },
 })
 
 -- Visual mode
-wk.register({
-  ["<leader>cc"] = { "gc", "Toggle comment for selection", remap = true },
-}, {
-  mode = "v",
+wk.add({
+  { "<leader>cc", "gc", desc = "Toggle comment for selection", mode = "v", remap = true },
 })
