@@ -24,6 +24,7 @@ function M.config()
       "cpp",
       "css",
       "diff",
+      "dockerfile",
       "eex",
       "elixir",
       "embedded_template",
