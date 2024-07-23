@@ -64,6 +64,33 @@ wk.add({
   },
   { "<leader>}", "ysiw}", desc = "Wrap the word under the cursor in curly brackets", remap = true },
 })
+wk.add({
+  mode = "v",
+  { '<leader>"', 'S"', desc = "Wrap the word under the cursor in double quotes", remap = true },
+  { "<leader>'", "S'", desc = "Wrap the word under the cursor in single quotes", remap = true },
+  {
+    "<leader>(",
+    "S(",
+    desc = "Wrap the word under the cursor in brackets, but with spaces around the word",
+    remap = true,
+  },
+  { "<leader>)", "S)", desc = "Wrap the word under the cursor in brackets", remap = true },
+  {
+    "<leader>[",
+    "S[",
+    desc = "Wrap the word under the cursor in square brackets, but with spaces around the word",
+    remap = true,
+  },
+  { "<leader>]", "S]", desc = "Wrap the word under the cursor in square brackets", remap = true },
+  { "<leader>`", "S`", desc = "Wrap the word under the cursor in backticks", remap = true },
+  {
+    "<leader>{",
+    "S{",
+    desc = "Wrap the word under the cursor in curly brackets, but with spaces around the word",
+    remap = true,
+  },
+  { "<leader>}", "S}", desc = "Wrap the word under the cursor in curly brackets", remap = true },
+})
 
 -- Normal mode mappings
 wk.add({
