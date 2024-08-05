@@ -168,7 +168,7 @@ function M.config(_, opts)
   require("mason")
 
   local function on_attach(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
+    if client.supports_method("documentSymbols") then
       require("nvim-navic").attach(client, bufnr)
       require("nvim-navbuddy").attach(client, bufnr)
     end
