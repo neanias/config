@@ -47,6 +47,8 @@ local M = {
       timeout_ms = nil,
     },
     servers = {
+      cssls = {},
+      dockerls = {},
       denols = {},
       jsonls = {
         -- lazy-load schemastore when needed
@@ -156,7 +158,7 @@ local M = {
           },
         },
       },
-      tailwindcss = {},
+      somesass_ls = {},
       terraformls = {},
       tsserver = {},
       vimls = {},
