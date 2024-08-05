@@ -263,6 +263,12 @@ return {
   },
 
   {
+    "stevearc/oil.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
+
+  {
     "nvim-pack/nvim-spectre",
     dependencies = { "nvim-lua/plenary.nvim" },
     cmd = "Spectre",
