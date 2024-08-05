@@ -81,25 +81,34 @@ local M = {
         cmd = { "poetry", "run", "pyright-langserver", "--stdio" },
       },
       ruby_lsp = {
+        mason = false,
+        cmd = { table.concat({ os.getenv("HOME"), ".rbenv", "shims", "ruby-lsp" }, "/") },
         init_options = {
           enabledFeatures = {
-            codeActions = false,
+            codeActions = true,
             completion = true,
-            diagnostics = false,
+            definition = true,
+            diagnostics = true,
             documentHighlights = true,
             documentSymbols = true,
-            foldingRange = true,
-            formatting = false,
+            foldingRanges = true,
+            formatting = true,
             hover = true,
             inlayHint = true,
             onTypeFormatting = true,
             semanticHighlighting = true,
+            signatureHelp = true,
+            workspaceSymbol = true,
           },
-          formatter = "none",
+          featuresConfiguration = {
+            inlayHint = {
+              implicitHashValue = false,
+              implicitRescue = true,
+            },
+          },
+          formatter = "standard",
+          linters = { "standard" },
         },
-      },
-      standardrb = {
-        cmd = { "bundle", "exec", "standardrb", "--lsp" },
       },
       rust_analyzer = {
         settings = {
