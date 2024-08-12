@@ -242,20 +242,6 @@ return {
     end,
   },
   {
-    "cshuaimin/ssr.nvim",
-    keys = {
-      {
-        "<leader>sr",
-        function()
-          require("ssr").open()
-        end,
-        mode = { "n", "x" },
-        desc = "Structural replace",
-      },
-    },
-  },
-
-  {
     "folke/ts-comments.nvim",
     opts = {},
     event = "VeryLazy",
