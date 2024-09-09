@@ -160,7 +160,7 @@ local M = {
       },
       somesass_ls = {},
       terraformls = {},
-      tsserver = {},
+      ts_ls = {},
       vimls = {},
     },
   },
