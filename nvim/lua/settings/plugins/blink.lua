@@ -16,11 +16,16 @@ local M = {
       nerd_font_variant = "mono",
     },
     sources = {
-      completion = {
-        enabled_providers = { "lsp", "path", "snippets", "buffer", "lazydev" },
-      },
+      default = function()
+        local success, node = pcall(vim.treesitter.get_node)
+        if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
+          return { "buffer" }
+        else
+          return { "lsp", "path", "snippets", "buffer", "lazydev" }
+        end
+      end,
       providers = {
-        lsp = { fallback_for = { "lazydev" } },
+        lsp = { fallbacks = { "lazydev" } },
         lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
       },
     },
