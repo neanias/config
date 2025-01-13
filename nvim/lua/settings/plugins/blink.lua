@@ -15,6 +15,7 @@ local M = {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = "mono",
     },
+    snippets = { preset = "luasnip" },
     sources = {
       default = function()
         local success, node = pcall(vim.treesitter.get_node)
