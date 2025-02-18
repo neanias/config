@@ -5,7 +5,7 @@ local M = {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "b0o/SchemaStore.nvim", version = false },
     "ray-x/lsp_signature.nvim",
@@ -189,12 +189,10 @@ function M.config(_, opts)
 
   vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
-  local has_cmp, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
   local capabilities = vim.tbl_deep_extend(
     "force",
     {},
     vim.lsp.protocol.make_client_capabilities(),
-    has_cmp and cmp_nvim_lsp.default_capabilities() or {},
     opts.capabilities or {},
     {
       textDocument = {
@@ -202,6 +200,7 @@ function M.config(_, opts)
       },
     }
   )
+  capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
   local servers = opts.servers
 
