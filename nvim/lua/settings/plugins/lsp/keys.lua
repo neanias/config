@@ -6,59 +6,46 @@ function M.setup(_, buffer)
   local keymap = {
     { "<leader>l", buffer = buffer, group = "LSP" },
     {
-      "<leader>lD",
-      "<cmd>Lspsaga lsp_finder<cr>",
-      buffer = buffer,
-      desc = "Reveals the definition of the type of the symbol",
-    },
-    { "<leader>lb", "<cmd>Lspsaga show_buf_diagnostics<cr>", buffer = buffer, desc = "Show buffer diagnositcs" },
-    { "<leader>lc", buffer = buffer, group = "code" },
-    {
-      "<leader>lca",
+      "<leader>la",
       vim.lsp.buf.code_action,
       buffer = buffer,
       desc = "Selects a code action from the input list that is available",
+      mode = { "n", "v" },
     },
     {
-      "<leader>lcr",
-      "<cmd>Lspsaga rename<cr>",
+      "<leader>lc",
+      vim.lsp.codelens.run,
       buffer = buffer,
-      desc = "Renames all references to the symbol under the cursor",
+      desc = "Run CodeLens",
+      mode = { "n", "v" },
     },
     {
-      "<leader>ld",
-      "<cmd>Lspsaga peek_definition<cr>",
+      "<leader>lC",
+      vim.lsp.codelens.refresh,
       buffer = buffer,
-      desc = "Peek the definition of the symbol under the cursor",
+      desc = "Refresh & display CodeLens",
+      mode = { "n", "v" },
     },
     {
-      "<leader>le",
-      "<cmd>Lspsaga show_line_diagnostics ++quiet<cr>",
+      "<leader>lr",
+      vim.lsp.buf.rename,
       buffer = buffer,
-      desc = "Opens a floating window with the diagnostics for current line",
+      desc = "Rename",
     },
     {
       "<leader>lq",
       function()
-        vim.diagnostic.setqflist({ open = false })
+        vim.diagnostic.setqflist({ open = true })
       end,
       buffer = buffer,
       desc = "Puts all diagnostics in the quickfix list",
     },
-    {
-      "K",
-      "<cmd>Lspsaga hover_doc<cr>",
-      buffer = buffer,
-      desc = "Displays hover information about the symbol under the cursor",
-    },
-    { "[d", "<cmd>Lspsaga diagnostic_jump_prev<cr>", buffer = buffer, desc = "Go to previous diagnostic" },
-    { "]d", "<cmd>Lspsaga diagnostic_jump_next<cr>", buffer = buffer, desc = "Go to next diagnostic" },
     { "g", buffer = buffer, group = "LSP" },
     {
       "gD",
       vim.lsp.buf.declaration,
       buffer = buffer,
-      desc = "Jump to the declaration of the symbol under the cursor",
+      desc = "Go to declaration",
     },
     {
       "gR",
@@ -68,9 +55,9 @@ function M.setup(_, buffer)
     },
     {
       "gd",
-      "<cmd>Lspsaga goto_definition<cr>",
+      vim.lsp.buf.definition,
       buffer = buffer,
-      desc = "Jump to the definition of the symbol under the cursor",
+      desc = "Go to definition",
     },
     {
       "gi",
@@ -83,13 +70,6 @@ function M.setup(_, buffer)
       vim.lsp.buf.references,
       buffer = buffer,
       desc = "Lists all references to the symbol under the cursor",
-    },
-    {
-      "<leader>lca",
-      "<cmd>lua vim.lsp.buf.code_action()<cr>",
-      buffer = buffer,
-      desc = "Code action",
-      mode = "v",
     },
   }
 

@@ -9,17 +9,6 @@ local M = {
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "b0o/SchemaStore.nvim", version = false },
     "ray-x/lsp_signature.nvim",
-    {
-      "nvimdev/lspsaga.nvim",
-      cmd = "Lspsaga",
-      opts = {
-        lightbulb = { enable = false },
-        symbol_in_winbar = { enable = false },
-        diagnostic = {
-          border_follow = false,
-        },
-      },
-    },
     "SmiteshP/nvim-navic",
     {
       "SmiteshP/nvim-navbuddy",
