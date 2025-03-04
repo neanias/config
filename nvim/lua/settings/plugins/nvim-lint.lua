@@ -6,13 +6,23 @@ return {
     linters_by_ft = {
       ["*"] = { "woke" },
       eruby = { "erb_lint" },
+      ghaction = { "actionlint" },
       markdown = { "markdownlint" },
+      python = { "ruff" },
       ruby = { "ruby", "standardrb" },
-      yaml = { "actionlint" },
+      scss = { "stylelint" },
+      yaml = { "cfn_lint" },
     },
   },
   config = function(_, opts)
     local M = {}
+
+    vim.filetype.add({
+      pattern = {
+        [".*/.github/workflows/.*%.yml"] = "yaml.ghaction",
+        [".*/.github/workflows/.*%.yaml"] = "yaml.ghaction",
+      },
+    })
 
     local lint = require("lint")
     lint.linters_by_ft = opts.linters_by_ft
