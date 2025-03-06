@@ -100,7 +100,6 @@ wk.add({
     desc = "Strips trailing whitespace from the buffer",
   },
   { "<leader>c", group = "comment" },
-  { "<leader>d", group = "duck" },
   { "<leader>f", group = "Telescope" },
 
   { "<leader>g", group = "git" },
