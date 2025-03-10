@@ -200,24 +200,6 @@ return {
     "AckslD/nvim-neoclip.lua",
     config = true,
   },
-
-  {
-    "nyngwang/NeoZoom.lua",
-    keys = {
-      {
-        "<leader>nz",
-        function()
-          require("neo-zoom").neo_zoom()
-        end,
-        desc = "Toggle NeoZoom window",
-        nowait = true,
-      },
-    },
-    config = true,
-    opts = {
-      exclude_buftypes = { "terminal" },
-    },
-  },
   {
     "gennaro-tedesco/nvim-jqx",
     ft = { "json", "yaml" },
