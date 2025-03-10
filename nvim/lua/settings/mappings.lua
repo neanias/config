@@ -145,6 +145,22 @@ wk.add({
   { "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", desc = "Show workspace LSP diagnostics in Trouble" },
   { "<leader>xx", "<cmd>Trouble<cr>", desc = "Open Trouble dialogue" },
 
+  -- Diagnostics
+  {
+    "]d",
+    function()
+      vim.diagnostic.goto_next({ float = true })
+    end,
+    desc = "Jump to the next diagnostic",
+  },
+  {
+    "[d",
+    function()
+      vim.diagnostic.goto_prev({ float = true })
+    end,
+    desc = "Jump to the previous diagnostic",
+  },
+
   { "<leader><leader>", group = "hop" },
 })
 
