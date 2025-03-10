@@ -100,7 +100,7 @@ wk.add({
     desc = "Strips trailing whitespace from the buffer",
   },
   { "<leader>c", group = "comment" },
-  { "<leader>f", group = "Telescope" },
+  { "<leader>f", group = "Snacks pickers" },
 
   { "<leader>g", group = "git" },
   { "<leader>gD", "<cmd>DiffviewFileHistory %<cr>", desc = "Open file history for current file" },
