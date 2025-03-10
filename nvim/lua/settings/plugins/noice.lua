@@ -1,6 +1,7 @@
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
+  version = false,
   opts = {
     lsp = {
       -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -9,7 +10,7 @@ return {
         ["vim.lsp.util.stylize_markdown"] = true,
       },
       signature = {
-        enabled = false,
+        enabled = true,
       },
     },
     presets = {
