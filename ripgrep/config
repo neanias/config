@@ -13,3 +13,6 @@ rails:Gemfile
 rails:Rakefile
 
 --smart-case
+
+# Ignore vendor files
+--glob=!vendor/*
