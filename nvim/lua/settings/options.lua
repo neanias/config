@@ -99,7 +99,7 @@ vim.o.foldcolumn = "0"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
 
 -- Status column
--- vim.opt.statuscolumn = "%s %C %l"
+vim.opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
 
 -- Make builtin completion menus slightly transparent
 vim.o.pumblend = 10
