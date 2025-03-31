@@ -97,6 +97,9 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldcolumn = "0"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:▼,foldsep: ,foldclose:⏵]]
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldtext = ""
 
 -- Status column
 vim.opt.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
