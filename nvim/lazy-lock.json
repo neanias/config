@@ -58,7 +58,6 @@
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "treesj": { "branch": "main", "commit": "6c616638e3aa0087f2c267bb5990115b67105976" },
   "trouble.nvim": { "branch": "main", "commit": "748ca2789044607f19786b1d837044544c55e80a" },
-  "ts-comments.nvim": { "branch": "main", "commit": "79e4337e4231ff8ca33dab85162b5ee8e78f22ce" },
   "ts-node-action": { "branch": "master", "commit": "bfaa787cc85d753af3c19245b4142ed727a534b5" },
   "undotree": { "branch": "master", "commit": "b951b87b46c34356d44aa71886aecf9dd7f5788a" },
   "vim-fugitive": { "branch": "master", "commit": "4a745ea72fa93bb15dd077109afbb3d1809383f2" },
