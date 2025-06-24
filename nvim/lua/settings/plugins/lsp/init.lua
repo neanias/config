@@ -158,8 +158,10 @@ local M = {
 function M.config(_, opts)
   require("mason")
 
+  ---@param client vim.lsp.Client
+  ---@param bufnr integer
   local function on_attach(client, bufnr)
-    if client.supports_method("textDocument/documentSymbol") then
+    if client:supports_method("textDocument/documentSymbol") then
       require("nvim-navic").attach(client, bufnr)
       require("nvim-navbuddy").attach(client, bufnr)
     end
