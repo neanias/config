@@ -1,6 +1,7 @@
 return {
   "monaqa/dial.nvim",
   event = "VeryLazy",
+  version = false,
   keys = {
     {
       "<C-a>",
