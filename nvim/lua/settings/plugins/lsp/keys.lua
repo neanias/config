@@ -27,12 +27,6 @@ function M.setup(_, buffer)
       mode = { "n", "v" },
     },
     {
-      "<leader>lr",
-      vim.lsp.buf.rename,
-      buffer = buffer,
-      desc = "Rename",
-    },
-    {
       "<leader>lq",
       function()
         vim.diagnostic.setqflist({ open = true })
@@ -52,24 +46,6 @@ function M.setup(_, buffer)
       "<cmd>Trouble lsp_references<cr>",
       buffer = buffer,
       desc = "Reveal LSP references under cursor in Trouble",
-    },
-    {
-      "gd",
-      vim.lsp.buf.definition,
-      buffer = buffer,
-      desc = "Go to definition",
-    },
-    {
-      "gi",
-      vim.lsp.buf.implementation,
-      buffer = buffer,
-      desc = "Lists all the implementations for the symbol",
-    },
-    {
-      "grf",
-      vim.lsp.buf.references,
-      buffer = buffer,
-      desc = "Lists all references to the symbol under the cursor",
     },
   }
 
