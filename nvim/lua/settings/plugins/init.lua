@@ -9,7 +9,6 @@ return {
   },
   { "Bilal2453/luvit-meta", lazy = true },
   "MunifTanjim/nui.nvim",
-  "rcarriga/nvim-notify",
 
   {
     "chrisgrieser/nvim-spider",
