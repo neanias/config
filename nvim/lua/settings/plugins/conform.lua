@@ -14,24 +14,43 @@ return {
   },
   opts = {
     formatters_by_ft = {
-      eruby = { "erb_format" },
+      js = { "eslint" },
+      json = { "prettierd" },
       lua = { "stylua" },
-      markdown = { { "markdownlint", "prettierd" } },
+      markdown = { "markdownlint", "prettierd", stop_after_first = true },
       python = {
         "black",
         "isort",
         "ruff",
       },
       ruby = { "standardrb" },
+      scss = { "prettierd", "stylelint" },
       sh = {
         "shellcheck",
         "shfmt",
       },
+      yaml = { "prettierd" },
       ["_"] = { "trim_whitespace" },
     },
     formatters = {
       injected = { ignore_errors = false },
-      standardrb = { command = "bin/standardrb" },
+      stylelint = {
+        command = "bunx",
+        args = { "stylelint", "--stdin", "--fix" },
+      },
+      standardrb = {
+        command = "bundle",
+        args = {
+          "exec",
+          "standardrb",
+          "--fix",
+          "-f",
+          "quiet",
+          "--stderr",
+          "--stdin",
+          "$FILENAME",
+        },
+      },
     },
   },
   init = function()
