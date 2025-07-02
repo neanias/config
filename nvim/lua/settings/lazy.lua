@@ -42,6 +42,9 @@ require("lazy").setup({
       },
     },
   },
+  rocks = {
+    enabled = false,
+  },
 })
 
 vim.keymap.set("n", "<leader>p", "<cmd>:Lazy<cr>", { desc = "Open Lazy" })
