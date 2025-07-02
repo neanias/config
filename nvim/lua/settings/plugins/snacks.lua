@@ -1,9 +1,14 @@
 return {
   "folke/snacks.nvim",
+  lazy = false,
+  priority = 1000,
   opts = {
     bigfile = { enabled = true },
+    dashboard = { enabled = false },
+    image = { enabled = false },
     indent = { enabled = false },
     input = { enabled = true },
+    lazygit = { enabled = false },
     notifier = { enabled = true },
     picker = {
       enabled = true,
@@ -16,6 +21,7 @@ return {
         },
       },
     },
+    quickfile = { enabled = false },
     scope = { enabled = true },
     scratch = { enabled = true },
     scroll = { enabled = false },
