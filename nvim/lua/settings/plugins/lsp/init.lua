@@ -4,11 +4,11 @@ local M = {
   name = "lsp",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     "saghen/blink.cmp",
     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
     { "b0o/SchemaStore.nvim", version = false },
-    "ray-x/lsp_signature.nvim",
+    { "ray-x/lsp_signature.nvim", version = false },
     "SmiteshP/nvim-navic",
     {
       "SmiteshP/nvim-navbuddy",
@@ -36,8 +36,35 @@ local M = {
       timeout_ms = nil,
     },
     servers = {
+      basedpyright = {
+        cmd = { "uv", "run", "basedpyright-langserver", "--stdio" },
+      },
+      ruff = {
+        mason = false,
+        cmd = { "uv", "run", "ruff", "server" },
+        cmd_env = { RUFF_TRACE = "messages" },
+        init_options = {
+          settings = {
+            logLevel = "error",
+          },
+        },
+        keys = {
+          {
+            "<leader>co",
+            function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = {
+                  only = { "source.organizeImports" },
+                  diagnostics = {},
+                },
+              })
+            end,
+            desc = "Organize Imports",
+          },
+        },
+      },
       cssls = {},
-      dockerls = {},
       denols = {},
       jsonls = {
         -- lazy-load schemastore when needed
@@ -55,28 +82,13 @@ local M = {
         },
       },
       omnisharp = {},
-      pylsp = {
-        autostart = false,
-        cmd = { "poetry", "run", "pylsp" },
-        settings = {
-          pylsp = {
-            plugins = {
-              pycodestyle = {
-                maxLineLength = 88,
-              },
-            },
-          },
-        },
-      },
-      pyright = {
-        cmd = { "poetry", "run", "pyright-langserver", "--stdio" },
-      },
       ruby_lsp = {
         mason = false,
         cmd = { table.concat({ os.getenv("HOME"), ".rbenv", "shims", "ruby-lsp" }, "/") },
         init_options = {
           enabledFeatures = {
             codeActions = true,
+            codeLens = true,
             completion = true,
             definition = true,
             diagnostics = true,
@@ -148,7 +160,6 @@ local M = {
         },
       },
       somesass_ls = {},
-      terraformls = {},
       ts_ls = {},
       vimls = {},
     },
@@ -185,17 +196,7 @@ function M.config(_, opts)
 
   vim.diagnostic.config(vim.deepcopy(opts.diagnostics))
 
-  local capabilities = vim.tbl_deep_extend(
-    "force",
-    {},
-    vim.lsp.protocol.make_client_capabilities(),
-    opts.capabilities or {},
-    {
-      textDocument = {
-        foldingRange = { dynamicRegistration = false, lineFoldingOnly = true },
-      },
-    }
-  )
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
   local servers = opts.servers
@@ -205,28 +206,19 @@ function M.config(_, opts)
       capabilities = vim.deepcopy(capabilities),
     }, servers[server] or {})
 
-    require("lspconfig")[server].setup(server_opts)
+    vim.lsp.config(server, server_opts)
   end
-
-  local mlsp = require("mason-lspconfig")
-  local available = mlsp.get_available_servers()
 
   local ensure_installed = {} ---@type string[]
   for server, server_opts in pairs(servers) do
     if server_opts then
       server_opts = server_opts == true and {} or server_opts
-      -- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-      if server_opts.mason == false or not vim.tbl_contains(available, server) then
-        setup(server)
-      else
-        ensure_installed[#ensure_installed + 1] = server
-      end
+      setup(server)
+      ensure_installed[#ensure_installed + 1] = server
     end
   end
 
   require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
-  require("mason-lspconfig").setup_handlers({ setup })
-  require("lsp_signature").setup()
 end
 
 return M
