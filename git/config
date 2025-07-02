@@ -100,14 +100,18 @@
 [merge]
   summary = true
   verbosity = 1
+	conflictstyle = zdiff3
 [apply]
   whitespace = nowarn
 [branch]
   autosetupmerge = true
+	sort = -committerdate
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
-  default = current
+	default = simple
+	autoSetupRemote = true
+	followTags = true
 [core]
   autocrlf = input
   pager = delta --features "$(defaults read -globalDomain AppleInterfaceStyle &> /dev/null && echo dark-mode || echo light-mode)"
@@ -127,20 +131,24 @@
 [diff]
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
-  mnemonicprefix = true
-  algorithm = patience
+	mnemonicPrefix = true
+	algorithm = histogram
   indentHeuristic = true
-	colorMoved = default
+	colorMoved = plain
+	renames = true
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
+	autoupdate = true
 [include]
 	path = ~/.gitconfig.user
 [github]
   user = neanias
 [fetch]
   prune = true
+	all = true
+	pruneTags = true
 [stash]
     showPatch = true
 [commit]
@@ -154,5 +162,13 @@
 	defaultBranch = main
 [rebase]
 	updateRefs = true
+	autostash = true
+	autosquash = true
 [interactive]
 	diffFilter = delta --color-only --features=interactive
+[grep]
+	patternType = perl
+[tag]
+	sort = version:refname
+[help]
+	autocorrect = prompt
