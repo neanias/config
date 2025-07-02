@@ -110,3 +110,6 @@ vim.o.pumblend = 10
 vim.o.pumheight = 10
 -- Make floating windows slightly transparent
 vim.o.winblend = 10
+
+-- Diff options
+vim.opt.diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram"
