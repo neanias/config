@@ -8,7 +8,6 @@ return {
       eruby = { "erb_lint" },
       ghaction = { "actionlint" },
       markdown = { "markdownlint" },
-      python = { "ruff" },
       ruby = { "ruby", "standardrb" },
       scss = { "stylelint" },
       yaml = { "cfn_lint" },
@@ -40,8 +39,12 @@ return {
 
     -- As a rule of thumb, we want to use a bundle-specific version of Standard
     local standardrb = lint.linters.standardrb
-    standardrb.cmd = "bin/standardrb"
-    standardrb.args = { "--stdin", "%:p", "--format", "json", "--force-exclusion" }
+    standardrb.cmd = "bundle"
+    standardrb.args = { "exec", "standardrb", "--stdin", "%:p", "--format", "json", "--force-exclusion" }
+
+    local cfn_lint = lint.linters.cfn_lint
+    cfn_lint.cmd = "uv"
+    cfn_lint.args = { "tool", "run", "cfn-lint", "--format", "parseable" }
 
     function M.lint()
       -- Use nvim-lint's logic first:
