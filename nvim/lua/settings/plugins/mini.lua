@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.basics",
+    "nvim-mini/mini.basics",
     event = "VeryLazy",
     version = false,
     opts = {
@@ -19,7 +19,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.bracketed",
+    "nvim-mini/mini.bracketed",
     event = "VeryLazy",
     version = false,
     opts = {
@@ -32,7 +32,7 @@ return {
     end,
   },
   {
-    "echasnovski/mini.move",
+    "nvim-mini/mini.move",
     event = "VeryLazy",
     version = false,
     opts = {
