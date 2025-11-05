@@ -148,7 +148,7 @@ local M = {
               -- Make the server aware of Neovim runtime files
               library = vim.tbl_extend(
                 "force",
-                vim.api.nvim_get_runtime_file("", true), -- This is slow, but gives us lots of info
+                vim.api.nvim_get_runtime_file("lua", true), -- This is slow, but gives us lots of info
                 { "${3rd}/luassert/library", "${3rd}/luv/library" }
               ),
             },
