@@ -18,7 +18,6 @@ local M = {
       "shellcheck",
       "shfmt",
       "stylua",
-      "woke",
     },
   },
 }

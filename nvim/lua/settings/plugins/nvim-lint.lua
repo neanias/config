@@ -4,7 +4,6 @@ return {
   opts = {
     events = { "BufWritePost", "BufReadPost", "InsertLeave" },
     linters_by_ft = {
-      ["*"] = { "woke" },
       eruby = { "erb_lint" },
       ghaction = { "actionlint" },
       markdown = { "markdownlint" },
