@@ -116,10 +116,11 @@ local M = {
         settings = {
           ["rust-analyzer"] = {
             cargo = { allFeatures = true },
-            checkOnSave = {
+            checkOnSave = true,
+            check = {
               command = "clippy",
               extraArgs = { "--no-deps" },
-            },
+            }
           },
         },
       },
