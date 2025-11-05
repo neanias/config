@@ -7,7 +7,6 @@ local M = {
     ensure_installed = {
       "actionlint",
       "black",
-      "deno",
       "eslint_d",
       "isort",
       "luacheck",
