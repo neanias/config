@@ -6,17 +6,15 @@ return {
     {
       "<C-a>",
       function()
-        return require("dial.map").manipulate("increment", "normal")
+        require("dial.map").manipulate("increment", "normal")
       end,
-      expr = true,
       desc = "Increment",
     },
     {
       "<C-x>",
       function()
-        return require("dial.map").manipulate("decrement", "normal")
+        require("dial.map").manipulate("decrement", "normal")
       end,
-      expr = true,
       desc = "Decrement",
     },
   },
