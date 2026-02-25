@@ -9,7 +9,6 @@ return {
       markdown = { "markdownlint" },
       ruby = { "ruby", "standardrb" },
       scss = { "stylelint" },
-      yaml = { "cfn_lint" },
     },
   },
   config = function(_, opts)
@@ -40,10 +39,6 @@ return {
     local standardrb = lint.linters.standardrb
     standardrb.cmd = "bundle"
     standardrb.args = { "exec", "standardrb", "--stdin", "%:p", "--format", "json", "--force-exclusion" }
-
-    local cfn_lint = lint.linters.cfn_lint
-    cfn_lint.cmd = "uv"
-    cfn_lint.args = { "tool", "run", "cfn-lint", "--format", "parseable" }
 
     function M.lint()
       -- Use nvim-lint's logic first:
