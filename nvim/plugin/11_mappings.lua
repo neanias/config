@@ -1,6 +1,5 @@
 local wk = require("which-key")
 local utils = require("utils")
-local gs = require("gitsigns")
 
 -- General mappings
 wk.add({
@@ -103,26 +102,8 @@ wk.add({
   { "<leader>f", group = "Snacks pickers" },
 
   { "<leader>g", group = "git" },
-  { "<leader>gD", "<cmd>DiffviewFileHistory %<cr>", desc = "Open file history for current file" },
-  { "<leader>gS", gs.stage_hunk, desc = "Stage the current hunk" },
-  {
-    "<leader>gb",
-    function()
-      gs.blame_line({ full = true })
-    end,
-    desc = "Blame line",
-  },
   { "<leader>gc", ":tab Git commit<cr>", desc = "Open Fugitive commit dialog" },
-  { "<leader>gd", "<cmd>DiffviewOpen -uno<cr>", desc = "Open diffview" },
-  {
-    "<leader>glb",
-    function()
-      gs.toggle_current_line_blame()
-    end,
-    desc = "Toggle showing inline blame",
-  },
   { "<leader>gs", ":tab Git<cr>", desc = "Open Fugitive viewer" },
-  { "<leader>gw", gs.stage_buffer, desc = "Stage the current buffer" },
 
   {
     "<leader>ii",
@@ -162,6 +143,44 @@ wk.add({
   },
 
   { "<leader><leader>", group = "hop" },
+
+  -- Spider
+  {
+    {
+      "w",
+      [[<cmd>lua require("spider").motion("w")<CR>]],
+      mode = { "n", "o", "x" },
+      desc = "Spider-w",
+    },
+    {
+      "e",
+      [[<cmd>lua require("spider").motion("e")<CR>]],
+      mode = { "n", "o", "x" },
+      desc = "Spider-e",
+    },
+    {
+      "b",
+      [[<cmd>lua require("spider").motion("b")<CR>]],
+      mode = { "n", "o", "x" },
+      desc = "Spider-b",
+    },
+    {
+      "ge",
+      [[<cmd>lua require("spider").motion("ge")<CR>]],
+      mode = { "n", "o", "x" },
+      desc = "Spider-ge",
+    },
+  },
+
+  -- treesj
+  {
+    "sj",
+    function()
+      require("treesj").toggle()
+    end,
+    mode = { "n" },
+    desc = "Toggle node",
+  },
 })
 
 -- Terminal mode

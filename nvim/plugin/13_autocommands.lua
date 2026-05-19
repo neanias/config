@@ -38,6 +38,22 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "msg",
+  callback = function()
+    local ui2 = require("vim._core.ui2")
+    local win = ui2.wins and ui2.wins.msg
+    if win and vim.api.nvim_win_is_valid(win) then
+      vim.api.nvim_set_option_value(
+        "winhighlight",
+        "Normal:NormalFloat,FloatBorder:FloatBorder",
+        { scope = "local", win = win }
+      )
+    end
+  end,
+  desc = "Reroute ui2 messages",
+})
+
 -- Highlight yanked text after yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),

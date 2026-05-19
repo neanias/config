@@ -71,5 +71,5 @@ luac.out
 # Neovim gitignore
 # ================
 
-plugin
 backups
+startuptime.log
