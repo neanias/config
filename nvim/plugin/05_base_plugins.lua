@@ -21,10 +21,11 @@ vim.pack.add({
   "https://github.com/nvim-tree/nvim-web-devicons",
 
   { src = "https://github.com/kylechui/nvim-surround", vim.version.range("4.x") },
-  "https://github.com/mbbill/undotree",
 
   "https://github.com/MagicDuck/grug-far.nvim",
 })
+
+vim.cmd("packadd nvim.undotree")
 
 require("lazydev").setup({ library = { "${3rd}/luv/library", words = { "vim%.uv" } } })
 require("which-key").setup({

@@ -85,9 +85,6 @@ vim.cmd("silent !mkdir " .. backups_path .. " > /dev/null 2>&1")
 vim.o.undodir = backups_path
 vim.o.undofile = true
 
--- Have the undotree be in a panel on the RHS
-vim.g.undotree_WindowLayout = 3
-
 -- Folding
 -- Enable fold for nvim-ufo
 vim.o.foldenable = true

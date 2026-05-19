@@ -115,7 +115,7 @@ wk.add({
   { "<leader>t", group = "test" },
 
   -- UndoTree
-  { "<leader>u", "<Cmd>UndotreeToggle<CR>", desc = "Opens the UndoTree" },
+  { "<leader>u", require("undotree").open, desc = "Opens the UndoTree" },
 
   -- Trouble
   { "<leader>x", group = "Trouble" },
