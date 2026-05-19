@@ -1,0 +1,10 @@
+font-size = 13
+font-family = "Hack Nerf Font"
+font-feature = "-calt, -liga, -dlig"
+
+theme = "light:everforest-light-medium,dark:everforest-dark-medium"
+
+cursor-style = "block"
+cursor-style-blink = false
+
+maximize = true
