@@ -8,3 +8,5 @@ cursor-style = "block"
 cursor-style-blink = false
 
 maximize = true
+
+copy-on-select = clipboard
