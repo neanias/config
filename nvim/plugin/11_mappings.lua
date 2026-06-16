@@ -183,6 +183,31 @@ wk.add({
   },
 })
 
+-- Treesitter
+wk.add({
+  {
+    "<CR>",
+    function()
+      vim.treesitter.select("child")
+    end,
+    mode = { "n" },
+    desc = "Select treesitter nodes",
+  },
+  {
+    "<Tab>",
+    function()
+      local orig_visual_selection = utils.visual_selection_range()
+      vim.treesitter.select("extend_next")
+      local new_visual_selection = utils.visual_selection_range()
+      if orig_visual_selection == new_visual_selection then
+        vim.treesitter.select("parent")
+      end
+    end,
+    mode = { "v" },
+    desc = "Extend treesitter selection",
+  },
+})
+
 -- Terminal mode
 wk.add({
   { "<ESC>", desc = "<C-\\><C-n>", mode = "t" },

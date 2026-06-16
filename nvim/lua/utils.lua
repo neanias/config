@@ -39,4 +39,29 @@ function M.close_window_or_kill_buffer()
   end
 end
 
+-- Get the range of the current visual selection.
+--
+-- The range starts with 1 and the ending is inclusive.
+---@return integer, integer, integer, integer
+function M.visual_selection_range()
+  local _, csrow, cscol, _ = unpack(vim.fn.getpos("v")) ---@type integer, integer, integer, integer
+  local _, cerow, cecol, _ = unpack(vim.fn.getpos(".")) ---@type integer, integer, integer, integer
+
+  local start_row, start_col, end_row, end_col ---@type integer, integer, integer, integer
+
+  if csrow < cerow or (csrow == cerow and cscol <= cecol) then
+    start_row = csrow
+    start_col = cscol
+    end_row = cerow
+    end_col = cecol
+  else
+    start_row = cerow
+    start_col = cecol
+    end_row = csrow
+    end_col = cscol
+  end
+
+  return start_row, start_col, end_row, end_col
+end
+
 return M
