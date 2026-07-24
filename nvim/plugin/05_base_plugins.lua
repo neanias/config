@@ -14,6 +14,8 @@ vim.pack.add({
   "https://github.com/tpope/vim-rhubarb",
   "https://github.com/tpope/vim-rails",
 
+  "https://github.com/barrettruth/diffs.nvim",
+
   "https://github.com/Wansmer/treesj",
 
   -- nvim-tree
@@ -49,3 +51,10 @@ require("which-key").setup({
 require("treesj").setup({ use_default_keymaps = false })
 
 require("nvim-tree").setup()
+
+vim.g.diffs = {
+  integrations = {
+    fugitive = true,
+    gitsigns = true,
+  },
+}
