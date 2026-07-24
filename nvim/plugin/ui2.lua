@@ -75,11 +75,11 @@ local skip_messages = {
   "no lines in buffer",
 
   -- Undo/Redo
-  "%d+ changes?;",
-  " changes; before #",
-  " changes; after #",
-  " 1 change; before #",
-  " 1 change; after #",
+  -- "%d+ changes?;",
+  -- " changes; before #",
+  -- " changes; after #",
+  -- " 1 change; before #",
+  -- " 1 change; after #",
 
   -- Move lines
   " lines moved",
@@ -133,25 +133,12 @@ msgs.msg_show = function(kind, content, replace_last, history, append, id, trigg
   original_show_msg(kind, content, replace_last, history, append, id, trigger)
 end
 
-vim.pack.add({
-  "https://github.com/rachartier/tiny-cmdline.nvim",
-  "https://github.com/j-hui/fidget.nvim",
-})
+vim.pack.add({ "https://github.com/rachartier/tiny-cmdline.nvim" })
 
 require("tiny-cmdline").setup({
   on_reposition = require("tiny-cmdline").adapters.blink,
   position = {
     x = "50%",
     y = "25%",
-  },
-})
-
-require("fidget").setup({
-  notification = {
-    window = {
-      avoid = {
-        "NvimTree",
-      },
-    },
   },
 })
