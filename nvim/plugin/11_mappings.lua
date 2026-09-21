@@ -181,6 +181,15 @@ wk.add({
     mode = { "n" },
     desc = "Toggle node",
   },
+
+  {
+    "<leader>pu",
+    function()
+      vim.schedule(vim.pack.update)
+    end,
+    mode = { "n" },
+    desc = "Update packages",
+  },
 })
 
 -- Treesitter
