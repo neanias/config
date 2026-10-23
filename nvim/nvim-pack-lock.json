@@ -22,8 +22,8 @@
       "src": "https://github.com/monaqa/dial.nvim"
     },
     "diffs.nvim": {
-      "rev": "009849a5ca22846effb2d161c3aac34167e872f5",
-      "src": "https://github.com/barrettruth/diffs.nvim"
+      "rev": "8ec45f4e1dd36567cf27d90e8fa6bc53128c54e6",
+      "src": "https://forge.barrettruth.com/barrettruth/diffs.nvim"
     },
     "everforest-nvim": {
       "rev": "a0e9edc57379e8feafc6ba207c26dbb12fc1b6d8",

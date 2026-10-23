@@ -14,7 +14,7 @@ vim.pack.add({
   "https://github.com/tpope/vim-rhubarb",
   "https://github.com/tpope/vim-rails",
 
-  "https://github.com/barrettruth/diffs.nvim",
+  "https://forge.barrettruth.com/barrettruth/diffs.nvim",
 
   "https://github.com/Wansmer/treesj",
 
